@@ -4,11 +4,12 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 
 function MyApp() {
+    const domain="http://backend-env.eba-pmatnpup.us-east-1.elasticbeanstalk.com/"
     const [characters, setCharacters] = useState([]);
     
     async function fetchAll(){
         try {
-           const response = await axios.get('http://localhost:5000/users');
+           const response = await axios.get(domain+'/users');
            return response.data.users_list;     
         }
         catch (error){
@@ -26,7 +27,7 @@ function MyApp() {
 
      async function makePostCall(person){
         try {
-           const response = await axios.post('http://localhost:5000/users', person);
+           const response = await axios.post(domain+'/users', person);
            return response;
         }
         catch (error) {
@@ -39,7 +40,7 @@ function MyApp() {
         const toRemove = characters.filter((character, i) => {
             return i === index
           });
-        axios.delete('http://localhost:5000/users/'+toRemove[0]._id)
+        axios.delete(domain+'/users/'+toRemove[0]._id)
         const updated = characters.filter((character, i) => {
             return i !== index
           });
