@@ -1,18 +1,16 @@
-
-   
 # This workflow will do a clean install of node dependencies, cache/restore them, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CI
+name: react frontend CI/CD
 
 on:
   push:
-    branches: [ci-cd]
+    branches: [main, pages-deploy]
   pull_request:
-    branches: [ci-cd]
+    branches: [main, pages-deploy]
 
 jobs:
-  build:
+  deploy_frontend:
     runs-on: ubuntu-latest
 
     strategy:
@@ -27,6 +25,15 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - run: npm ci
+      # - run: npm ci
+      - name: Install Packages # remember the frontend directory context
+        # working-directory: ./frontend
+        run: npm install --legacy-peer-deps
       - run: npm run build --if-present
       - run: npm test
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # todo - try GITHUB_TOKEN : https://github.com/marketplace/actions/github-pages-action#%EF%B8%8F-first-deployment-with-github_token
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./build
