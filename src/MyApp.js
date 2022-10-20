@@ -5,7 +5,7 @@ import React, {useState, useEffect} from 'react';
 
 function MyApp() {
     const domain="https://airable.yoelnozar.com"
-    //domain="http://localhost:5000"
+    //const domain="http://localhost:5000"
     const [characters, setCharacters] = useState([]);
     
     async function fetchAll(){
