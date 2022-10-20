@@ -4,7 +4,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 
 function MyApp() {
-    const domain="http://backend-env.eba-pmatnpup.us-east-1.elasticbeanstalk.com/"
+    const domain="http://backend-env.eba-pmatnpup.us-east-1.elasticbeanstalk.com"
     const [characters, setCharacters] = useState([]);
     
     async function fetchAll(){
