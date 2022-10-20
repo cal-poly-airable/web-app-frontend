@@ -4,7 +4,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 
 function MyApp() {
-    var domain="https://airable.yoelnozar.com"
+    const domain="https://airable.yoelnozar.com"
     //domain="http://localhost:5000"
     const [characters, setCharacters] = useState([]);
     
