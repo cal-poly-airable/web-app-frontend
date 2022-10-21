@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "homepage": "https://cal-poly-airable.github.io/web-app-frontend/",
+  "homepage": "airable.org",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
