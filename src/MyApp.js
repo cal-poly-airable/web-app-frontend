@@ -4,7 +4,7 @@ import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 
 function MyApp() {
-    const domain="https://api.airable.org"
+    const domain="https://airable.yoelnozar.com"
     //const domain="http://localhost:5000"
     const [characters, setCharacters] = useState([]);
     
