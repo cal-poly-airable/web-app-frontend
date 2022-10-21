@@ -5,7 +5,6 @@ import React, {useState, useEffect} from 'react';
 
 function MyApp() {
     const domain="api.airable.org"
-    //http://localhost:5000
    
     const [characters, setCharacters] = useState([]);
     
