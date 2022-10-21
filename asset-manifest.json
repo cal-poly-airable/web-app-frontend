@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/web-app-frontend/static/css/main.b10ce008.css",
-    "main.js": "/web-app-frontend/static/js/main.cb4429e6.js",
-    "index.html": "/web-app-frontend/index.html",
-    "main.b10ce008.css.map": "/web-app-frontend/static/css/main.b10ce008.css.map",
-    "main.cb4429e6.js.map": "/web-app-frontend/static/js/main.cb4429e6.js.map"
+    "main.css": "/airable.org/static/css/main.b10ce008.css",
+    "main.js": "/airable.org/static/js/main.cb4429e6.js",
+    "index.html": "/airable.org/index.html",
+    "main.b10ce008.css.map": "/airable.org/static/css/main.b10ce008.css.map",
+    "main.cb4429e6.js.map": "/airable.org/static/js/main.cb4429e6.js.map"
   },
   "entrypoints": [
     "static/css/main.b10ce008.css",
