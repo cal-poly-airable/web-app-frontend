@@ -8,8 +8,7 @@ on:
     branches: [main, pages-deploy]
   pull_request:
     branches: [main, pages-deploy]
-env:
-  DOMAIN: api.airable.org
+
 jobs:
   deploy_frontend:
     runs-on: ubuntu-latest
