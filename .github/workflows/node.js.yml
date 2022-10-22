@@ -6,8 +6,6 @@ name: react frontend CI/CD
 on:
   push:
     branches: [main, pages-deploy]
-  pull_request:
-    branches: [main, pages-deploy]
 
 jobs:
   deploy_frontend:
