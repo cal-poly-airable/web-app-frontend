@@ -14,7 +14,7 @@ function TableHeader()  {
         <tr>
           <th>Name</th>
           <th>Job</th>
-          <th>The ID</th>
+          <th>ID</th>
           <th></th>
         </tr>
       </thead>
