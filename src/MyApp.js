@@ -2,12 +2,20 @@ import Table from './Table'
 import Form from './Form';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
+import UserPool from './UserPool';
+import jwt_decode from "jwt-decode";
+import { useSearchParams } from 'react-router-dom'
 
 function MyApp() {
+   
     const domain="https://api.airable.org"
+    const cognitoUrl="https://airable.auth.us-east-1.amazoncognito.com/login?client_id=2712iosied63rc2o6v1ig7sf0n&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri=https://airable.org"
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    //const [searchParams, setSearchParams] = useSearchParams();
     //const domain="http://localhost:5000"
     const [characters, setCharacters] = useState([]);
-    
+    let user=""
     async function fetchAll(){
         try {
            const response = await axios.get(domain+'/users');
@@ -19,11 +27,28 @@ function MyApp() {
            return false;         
         }
      }
+     async function loginStatus(){
+      const url=window.location.href
+      const token=url.substring(
+         url.indexOf("=") + 1, 
+         url.indexOf("&")
+     );
+     console.log(url)
+     
+     try {
+      user= JSON.stringify(jwt_decode(token))
+      return user
+     }
+     catch(error){
+     window.location.replace(cognitoUrl);}
+
+     }
      useEffect(() => {
-        fetchAll().then( result => {
-           if (result)
-              setCharacters(result);
-         });
+      
+      loginStatus().then(result=>console.log(result)).then(fetchAll().then( result => {
+           if (result){
+              setCharacters(result);}
+         }))
      }, [] );
 
      async function makePostCall(person){
@@ -58,6 +83,7 @@ function MyApp() {
          }
             
         return (
+         
             <div className="container">
               <Table characterData={characters} removeCharacter={removeOneCharacter} />
               <Form handleSubmit={updateList} />
