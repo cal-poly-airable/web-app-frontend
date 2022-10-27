@@ -12,7 +12,7 @@ function TableHeader()  {
     return (
       <thead>
         <tr>
-          <th>{JSON.parse(localStorage.getItem("user")).given_name}</th>
+          <th>Hi {JSON.parse(localStorage.getItem("user")).given_name}</th>
           <th>Job</th>
           <th>ID</th>
           <th></th>
