@@ -5,6 +5,10 @@ import React, {useState, useEffect} from 'react';
 import UserPool from './UserPool';
 import jwt_decode from "jwt-decode";
 import { useSearchParams } from 'react-router-dom'
+import {BrowserRouter as Routes,Route,Switch} from 'react-router-dom'
+import Nav from './Nav';
+import Patient from './Patient'
+
 function MyApp() {
 
    
@@ -37,6 +41,7 @@ function MyApp() {
      
      try {
       user= JSON.stringify(jwt_decode(token))
+      localStorage.setItem("user", user);
       return user
      }
      catch(error){
@@ -83,12 +88,17 @@ function MyApp() {
          }
             
         return (
-         
+
+            
             <div className="container">
               <Table characterData={characters} removeCharacter={removeOneCharacter} />
               <Form handleSubmit={updateList} />
             </div>
           )
   }
+
+const Home = () =>(
+   <div><h1>Home Page</h1></div>
+);
 
 export default MyApp;
