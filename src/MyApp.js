@@ -15,6 +15,7 @@ import Patient from './Patient'
 import Root from "./root";
 import Oldhome from './oldhome';
 import Healthcare from './Healthcare';
+import Cookie from './cookie';
 
 function MyApp() {
 
@@ -35,7 +36,10 @@ function MyApp() {
              },{
                path: "/oldhome",
                element: <Oldhome/>,
-             }
+             },{
+              path: "/cookie",
+              element: <Cookie/>,
+            }
           ]);
           
           ReactDOM.createRoot(document.getElementById("root")).render(
