@@ -14,7 +14,7 @@ import Nav from './Nav';
 import Patient from './Patient'
 
 export default function Oldhome() {
-  const domain=process.env.REACT_APP_API_DOMAIN//"https://api.airable.org"
+  const domain="https://api.airable.org"//process.env.REACT_APP_API_DOMAIN//"https://api.airable.org"
     const cognitoUrl="https://airable.auth.us-east-1.amazoncognito.com/login?client_id=2712iosied63rc2o6v1ig7sf0n&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri="+process.env.REACT_APP_COGNITO_REDIRECT
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);

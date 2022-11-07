@@ -18,7 +18,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 export default function Cookie() {
-    const domain="http://localhost:8080"//process.env.REACT_APP_API_DOMAIN
+    const domain="https://api.airable.org"//"http://localhost:8080"//process.env.REACT_APP_API_DOMAIN
     const cognitoUrl="https://airable.auth.us-east-1.amazoncognito.com/login?client_id=2712iosied63rc2o6v1ig7sf0n&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri="+process.env.REACT_APP_COGNITO_REDIRECT
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
