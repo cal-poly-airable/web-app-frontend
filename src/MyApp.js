@@ -2,67 +2,57 @@ import Table from './Table'
 import Form from './Form';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
+import UserPool from './UserPool';
+import jwt_decode from "jwt-decode";
+import ReactDOM from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+} from "react-router-dom";
+import Nav from './Nav';
+import Patient from './Patient'
+import Root from "./root";
+import Oldhome from './oldhome';
+import Healthcare from './Healthcare';
+import Cookie from './cookie';
 
 function MyApp() {
-    const domain="https://api.airable.org"
-    //const domain="http://localhost:5000"
-    const [characters, setCharacters] = useState([]);
-    
-    async function fetchAll(){
-        try {
-           const response = await axios.get(domain+'/users');
-           return response.data.users_list;     
-        }
-        catch (error){
-           //We're not handling errors. Just logging into the console.
-           console.log(error); 
-           return false;         
-        }
-     }
-     useEffect(() => {
-        fetchAll().then( result => {
-           if (result)
-              setCharacters(result);
-         });
-     }, [] );
 
-     async function makePostCall(person){
-        try {
-           const response = await axios.post(domain+'/users', person);
-           return response;
-        }
-        catch (error) {
-           console.log(error);
-           return false;
-        }
-     }
-     
-      function removeOneCharacter (index) {
-        const toRemove = characters.filter((character, i) => {
-            return i === index
-          });
-        axios.delete(domain+'/users/'+toRemove[0]._id)
-        const updated = characters.filter((character, i) => {
-            return i !== index
-          });
-        
-          setCharacters(updated);
-        }
-        function updateList(person) { 
-            makePostCall(person).then( result => {
-            if (result && result.status === 201)
-            console.log(result)
-            console.log("result.data")
-               setCharacters([...characters, result.data] );
-            });
-         }
+   
+    
             
-        return (
-            <div className="container">
-              <Table characterData={characters} removeCharacter={removeOneCharacter} />
-              <Form handleSubmit={updateList} />
-            </div>
-          )
+         const router = createBrowserRouter([
+            {
+              path: "/",
+              element: <Root/>,
+            },{
+               path: "/patient",
+               element: <Patient/>,
+             },
+             {
+               path: "/healthcare",
+               element: <Healthcare/>,
+             },{
+               path: "/oldhome",
+               element: <Oldhome/>,
+             },{
+              path: "/cookie",
+              element: <Cookie/>,
+            }
+          ]);
+          
+          ReactDOM.createRoot(document.getElementById("root")).render(
+            <React.StrictMode>
+              <RouterProvider router={router} />
+            </React.StrictMode>
+          );
+          
   }
 
+const Home = () =>(
+   <div><h1>Home Page</h1></div>
+);
+
 export default MyApp;
+/** */
