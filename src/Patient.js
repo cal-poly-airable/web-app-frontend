@@ -35,14 +35,14 @@ function Patient() {
 				text: "Heart Rate (Last 60 Minutes)"
 			},
 			axisX: {
-				valueFormatString: "HH:mm",
+				valueFormatString: "hh:mm TT",
 			},
 			axisY: {
 				title: "BPM",
 				
 			},
 			data: [{
-				xValueFormatString: "HH:mm",
+				xValueFormatString: "HH:mm TT",
 				type: "spline",
 				dataPoints: HRdata
 			}]
