@@ -86,7 +86,7 @@ export default function Cookie() {
         loginStatus().then(result=>console.log(result)).then( result => {
          //setTimeout(window.location.replace("/home"),500)
          window.setTimeout(function() {
-            window.location.href = '/patient';
+            //window.location.href = '/patient';
         }, 250);
          //
            })
