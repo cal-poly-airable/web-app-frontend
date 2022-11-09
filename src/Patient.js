@@ -21,41 +21,33 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 function Patient() { 
-    
-		const options = {
+    let user=JSON.parse(localStorage.getItem("user"))
+    let userData=JSON.parse(localStorage.getItem("userData"))
+    var HRdata=userData.vitals
+    userData.vitals.forEach((element,index) => {
+      
+      HRdata[index]={x:new Date(element.time),y:element.HR}
+    });
+    console.log(HRdata)
+		var options = {
 			animationEnabled: true,
 			title:{
 				text: "Heart Rate (Last 60 Minutes)"
 			},
 			axisX: {
-				valueFormatString: "MMM"
+				valueFormatString: "HH:mm",
 			},
 			axisY: {
-				title: "Sales (in USD)",
-				prefix: "$"
+				title: "BPM",
+				
 			},
 			data: [{
-				yValueFormatString: "$#,###",
-				xValueFormatString: "MMMM",
+				xValueFormatString: "HH:mm",
 				type: "spline",
-				dataPoints: [
-					{ x: new Date(2017, 0), y: 25060 },
-					{ x: new Date(2017, 1), y: 27980 },
-					{ x: new Date(2017, 2), y: 42800 },
-					{ x: new Date(2017, 3), y: 32400 },
-					{ x: new Date(2017, 4), y: 35260 },
-					{ x: new Date(2017, 5), y: 33900 },
-					{ x: new Date(2017, 6), y: 40000 },
-					{ x: new Date(2017, 7), y: 52500 },
-					{ x: new Date(2017, 8), y: 32300 },
-					{ x: new Date(2017, 9), y: 42000 },
-					{ x: new Date(2017, 10), y: 37160 },
-					{ x: new Date(2017, 11), y: 38400 }
-				]
+				dataPoints: HRdata
 			}]
 		}
-    let user=JSON.parse(localStorage.getItem("user"))
-    let userData=JSON.parse(localStorage.getItem("userData"))
+
     async function fetchUser(sub){
         try {
            const response = await axios.get(domain+'/users/'+sub);
@@ -103,7 +95,9 @@ function Patient() {
        useEffect(() => {
         
         loginStatus().then(result=>console.log(result)).then( result => {
-             if (result){}
+             
+               
+             
            })
        }, [] );
 

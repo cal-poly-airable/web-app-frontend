@@ -14,8 +14,8 @@ import Nav from './Nav';
 import Patient from './Patient'
 
 export default function Oldhome() {
-  const domain=REACT_APP_API_DOMAIN//process.env.REACT_APP_API_DOMAIN//"https://api.airable.org"
-    const cognitoUrl=REACT_APP_COGNITO_URL+process.env.REACT_APP_COGNITO_REDIRECT
+  const domain=process.env.REACT_APP_API_DOMAIN//process.env.REACT_APP_API_DOMAIN//"https://api.airable.org"
+    const cognitoUrl=process.env.REACT_APP_COGNITO_URL+process.env.REACT_APP_COGNITO_REDIRECT
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     //const [searchParams, setSearchParams] = useSearchParams();
