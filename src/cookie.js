@@ -18,8 +18,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 export default function Cookie() {
-    const domain="https://api.airable.org"//"http://localhost:8080"//process.env.REACT_APP_API_DOMAIN
-    const cognitoUrl="https://airable.auth.us-east-1.amazoncognito.com/login?client_id=2712iosied63rc2o6v1ig7sf0n&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri="+process.env.REACT_APP_COGNITO_REDIRECT
+    const domain=REACT_APP_API_DOMAIN//"https://api.airable.org"//"http://localhost:8080"//process.env.REACT_APP_API_DOMAIN
+    const cognitoUrl=REACT_APP_COGNITO_URL+process.env.REACT_APP_COGNITO_REDIRECT
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     let user=""
@@ -28,12 +28,13 @@ export default function Cookie() {
       try {
          console.log(user.sub)
          const response = await axios.get(domain+'/users/'+user.sub);
-         console.log("hi")
+         console.log("Respone:")
          console.log(response)
          const userList=response.data.users_list;
          if (userList.length<1){
          //user=localStorage.getItem("user")
-          const account={name:user.given_name,subject:user.sub,userProfile:"Profile",latestVitals:"96 BPM",vitalHistory: [{time:"5PM", HR:"94 BPM"},{time:"6PM", HR:"97 BPM"}]}
+         
+          const account={name:user.given_name,_id:user.sub,subject:user.sub,userProfile:"Profile",vitals: [{time:Date.now(), HR:94, O2:88},{time:Date.now()+100000, HR:12, O2:18}]}
           //const account={name:user.name,subject:user.sub,userProfile:"Profile",latestVitals:"96 BPM",vitalHistory: [{time:"5PM", HR:"94 BPM"},{time:"6PM", HR:"97 BPM"}]}
           console.log(account)
           const resp=await axios.post(domain+'/users',account)
@@ -85,7 +86,7 @@ export default function Cookie() {
         loginStatus().then(result=>console.log(result)).then( result => {
          //setTimeout(window.location.replace("/home"),500)
          window.setTimeout(function() {
-            //window.location.href = '/patient';
+            window.location.href = '/patient';
         }, 250);
          //
            })
