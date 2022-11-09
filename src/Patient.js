@@ -43,6 +43,7 @@ function Patient() {
 			},
 			data: [{
 				xValueFormatString: "HH:mm TT",
+        yValueFormatString: "### 'BPM'",
 				type: "spline",
 				dataPoints: HRdata
 			}]
