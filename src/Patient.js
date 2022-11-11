@@ -23,11 +23,12 @@ import Col from 'react-bootstrap/Col';
 function Patient() { 
     let user=JSON.parse(localStorage.getItem("user"))
     let userData=JSON.parse(localStorage.getItem("userData"))
-    var HRdata=userData.vitals
-    userData.vitals.forEach((element,index) => {
-      
-      HRdata[index]={x:new Date(element.time),y:element.HR}
-    });
+    var HRdata=[]
+    for (var i=Math.max(userData.vitals.length,12)-12;i<userData.vitals.length;i++){
+      var element=userData.vitals[i]
+      HRdata.push({x:new Date(element.time),y:element.HR})
+    }
+    console.log("HRdata")
     console.log(HRdata)
 		var options = {
 			animationEnabled: true,
@@ -49,32 +50,7 @@ function Patient() {
 			}]
 		}
 
-    async function fetchUser(sub){
-        try {
-           const response = await axios.get(domain+'/users/'+sub);
-           console.log("hi")
-           console.log(response)
-           const userList=response.data.users_list;
-           if (userList.length<1){
-            const account={name:user.name,subject:user.sub,userProfile:"Profile",entries:"Diary Entries"}
-            console.log(account)
-            const resp=await axios.post(domain+'/users',account)
-            console.log(resp)
-           }
-           else{
-            //user already in DB
-            userData=userList[0]
-            console.log(userData)
-
-           }
-           return response.data.users_list;
-        }
-        catch (error){
-           //We're not handling errors. Just logging into the console.
-           console.log(error); 
-           return false;         
-        }
-     }
+    
     async function loginStatus(){
         const url=window.location.href
         const token=url.substring(

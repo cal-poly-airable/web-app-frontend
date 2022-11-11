@@ -52,7 +52,7 @@ export default function Cookie() {
                {time:Date.now()+18*300000, HR:50, O2:18},
                {time:Date.now()+19*300000, HR:2, O2:18},         
             ]
-          const account={name:user.given_name,_id:user.sub,subject:user.sub,userProfile:"Profile",vitals: dummyArray}
+          const account={name:user.given_name,_id:user.sub,subject:user.sub,userProfile:"Profile",vitals: []}
           //const account={name:user.name,subject:user.sub,userProfile:"Profile",latestVitals:"96 BPM",vitalHistory: [{time:"5PM", HR:"94 BPM"},{time:"6PM", HR:"97 BPM"}]}
           console.log(account)
           const resp=await axios.post(domain+'/users',account)
