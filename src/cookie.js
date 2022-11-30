@@ -33,7 +33,7 @@ export default function Cookie() {
          const userList=response.data.users_list;
          if (userList.length<1){
          //user=localStorage.getItem("user")
-            const dummyArray=[{time:Date.now(), HR:94, O2:88},{time:Date.now()-300000, HR:12, O2:18},{time:Date.now()-600000, HR:112, O2:18},
+            const dummyArray=[/*{time:Date.now(), HR:94, O2:88},*/{time:Date.now()-300000, HR:12, O2:18},{time:Date.now()-600000, HR:112, O2:18},
                {time:Date.now()-3*300000, HR:112, O2:18},
                {time:Date.now()-4*300000, HR:76, O2:18},
                {time:Date.now()-5*300000, HR:112, O2:18},
