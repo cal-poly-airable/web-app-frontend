@@ -16,6 +16,7 @@ import Root from "./root";
 import Oldhome from './oldhome';
 import Healthcare from './Healthcare';
 import Cookie from './cookie';
+import Signout from './Signout';
 
 function MyApp() {
 
@@ -39,6 +40,9 @@ function MyApp() {
              },{
               path: "/cookie",
               element: <Cookie/>,
+            },{
+              path: "/signout",
+              element: <Signout/>
             }
           ]);
           

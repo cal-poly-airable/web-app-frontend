@@ -102,7 +102,7 @@ function Patient() {
           <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
           <Nav className="me-auto">
           <Nav.Link href="/profile">Patient Profile</Nav.Link>
-            <Nav.Link href="/logout">Sign Out</Nav.Link>
+            <Nav.Link href="/Signout">Sign Out</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
