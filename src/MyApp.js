@@ -17,6 +17,7 @@ import Oldhome from './oldhome';
 import Healthcare from './Healthcare';
 import Cookie from './cookie';
 import Signout from './Signout';
+import Dev from './Dev';
 
 function MyApp() {
 
@@ -43,6 +44,10 @@ function MyApp() {
             },{
               path: "/signout",
               element: <Signout/>
+            },
+            {
+              path: "/dev",
+              element: <Dev/>
             }
           ]);
           

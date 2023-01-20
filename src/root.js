@@ -19,7 +19,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 const cognitoUrl="https://airable.auth.us-east-1.amazoncognito.com/login?client_id=2712iosied63rc2o6v1ig7sf0n&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri="+window.location+"cookie"
-    
+const HCcognitoUrl="https://airablehealth.auth.us-east-1.amazoncognito.com/login?client_id=2gv8s3nl6ned8tc7rd1iio93kp&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri="+window.location+"cookie"
+     
 export default function Root() {
     return (
       <>
@@ -27,7 +28,7 @@ export default function Root() {
 
 
   <Row>
-        <Col>  <Button as="a" size="lg" variant="danger">Healthcare
+        <Col>  <Button href={HCcognitoUrl} as="a" size="lg" variant="danger">Healthcare
   </Button></Col>
         <Col>Welcome to Airable</Col>
         <Col>  <Button href={cognitoUrl}  as="a" size="lg" variant="success">
