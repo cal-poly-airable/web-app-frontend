@@ -82,7 +82,7 @@ function Patient() {
         return user
        }
        catch(error){
-       window.location.replace(cognitoUrl);}
+       window.location.replace("cognitoUrl");}
   
        }
        useEffect(() => {
