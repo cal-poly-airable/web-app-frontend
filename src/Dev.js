@@ -23,13 +23,14 @@ function Dev() {
       </header>
   <form  action={process.env.REACT_APP_API_DOMAIN+"/dev/upload"} encType="multipart/form-data" method="post">
     <div className="form-group">
-      <input type="file" className="form-control-file" name="file" />
+      
       <input
-        type="text"
+        type="password"
         className="form-control"
-        placeholder="Doesnt Do Anything"
-        name="Filename"
+        placeholder="Enter Password"
+        name="pass"
       />
+      <input type="file" className="form-control-file" name="file" />
       <input
         type="submit"
         className="btn btn-default"
