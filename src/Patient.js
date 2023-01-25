@@ -19,6 +19,10 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Tab from 'react-bootstrap/Tab';
+import VerticalExample from './buttonGroup.js'
+import Toggle from './toggle.js'
 
 function Patient() { 
     const domain=process.env.REACT_APP_API_DOMAIN
@@ -41,7 +45,7 @@ function Patient() {
 		var options = {
 			animationEnabled: true,
 			title:{
-				text: "Heart Rate (Last 60 Minutes)"
+				text: "Heart Rate"
 			},
 			axisX: {
 				valueFormatString: "hh:mm TT",
@@ -65,6 +69,9 @@ function Patient() {
          userData=userList[0]
          console.log(userData)
          localStorage.setItem("userData", JSON.stringify(userData));
+    }
+    function alertClicked() {
+      alert('You clicked the third ListGroupItem');
     }
     
     async function loginStatus(){
@@ -112,9 +119,39 @@ function Patient() {
 
 
         <div><h1 style={{textAlign: 'center'}} >Hello {userData.name}, welcome to your Patient Portal!</h1> <br/> 
-        <CanvasJSChart options = {options}
-				/* onRef={ref => this.chart = ref} */
-			/>
+        <div>
+        
+          
+          <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
+  <Row>
+    
+    <Col sm={2}>
+      <ListGroup>
+        <ListGroup.Item action href="#link1">
+          Hour
+        </ListGroup.Item>
+        <ListGroup.Item action href="#link2">
+          Day
+        </ListGroup.Item>
+        <ListGroup.Item action href="#link3">
+          Week
+        </ListGroup.Item>
+      </ListGroup>
+      
+      <Toggle/>
+      
+    </Col>
+    <Col sm={10}>
+        <CanvasJSChart options = {options}/* onRef={ref => this.chart = ref} *//>
+
+    </Col>
+  </Row>
+</Tab.Container>      
+
+          
+          
+          
+          </div><div>
               <Table>
           <thead>
             <tr>
@@ -135,7 +172,7 @@ function Patient() {
             }
             )}
           </tbody>
-        </Table>
+        </Table></div>
             </div> </>
     );
 }
