@@ -151,7 +151,6 @@ function Patient() {
        .map(e => e.join(",")) 
        .join("\n");
     
-    //console.log(csvString);
     const blob = new Blob([csvString], { type: "text/plain" });
     const url = URL.createObjectURL(blob);
     const link = document.createElement("a");
