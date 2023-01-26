@@ -67,6 +67,7 @@ function Patient() {
     //I need to filter and map
     console.log(radioValue2,cutoff)
     var vitals=userData.vitals.filter(vital=>vital.time>lastTime-cutoff)
+    console.log(vitals)
     
     //HRdata=HRdata.map({element: s, el:t }->{x:new Date(element.time),y:element.O2})
 
@@ -253,7 +254,7 @@ function Patient() {
             </tr>
           </thead>
           <tbody>
-            {userData.vitals.map(arrayData=>{
+            {vitals.map(arrayData=>{
             return(
             <tr>
               <td>{(new Date(arrayData.time).toLocaleString('en-US'))}</td>
