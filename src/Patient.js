@@ -24,41 +24,105 @@ import Tab from 'react-bootstrap/Tab';
 import VerticalExample from './buttonGroup.js'
 import Toggle from './toggle.js'
 
+
+//
+import ToggleButton from 'react-bootstrap/ToggleButton';
+import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+
+//
 function Patient() { 
     const domain=process.env.REACT_APP_API_DOMAIN
     let user=JSON.parse(localStorage.getItem("user"))
     let userData=JSON.parse(localStorage.getItem("userData"))
     var HRdata=[]
+    var O2data=[]
+    const [checked, setChecked] = useState(false);
+    const [radioValue, setRadioValue] = useState('1');
+    const [radioValue2, setRadioValue2] = useState('1');
 
     userData.vitals.sort((a, b) => {
       return a.time - b.time;
   });
+    //using time from last recorded?
+    
+    
+      /// SET Options dont calculate based on button!!
+      var lastTime=userData.vitals[userData.vitals.length-1].time
+      lastTime=Date.now()
+      console.log(lastTime)
+      var cutoff;
+      switch(radioValue2){
+        case "1":
+        cutoff=(60*60*1000)
+        break;
+        case "2":
+          cutoff=(24*60*60*1000)
+          break;
+        case "3":
+          cutoff=(7*24*60*60*1000)
+          break;
+      }
+    ///
+    //I need to filter and map
+    console.log(radioValue2,cutoff)
+    var vitals=userData.vitals.filter(vital=>vital.time>lastTime-cutoff)
+    
+    //HRdata=HRdata.map({element: s, el:t }->{x:new Date(element.time),y:element.O2})
 
-    for (var i=Math.max(userData.vitals.length,12)-12;i<userData.vitals.length;i++){
-      var element=userData.vitals[i]
-      HRdata.push({x:new Date(element.time),y:element.HR})
+
+    for (var i=0;i<vitals.length;i++){
+      HRdata[i]=({x:new Date(vitals[i].time),y:vitals[i].HR})
+      O2data[i]=({x:new Date(vitals[i].time),y:vitals[i].O2})
     }
 
-    
-    console.log("HRdata")
-    console.log(HRdata)
+  const radios = [
+    { name: 'Heart Rate', value: '1' },
+    { name: 'O2 Saturation', value: '2' },
+  ];
+  const radios2 = [
+    { name: 'Hour', value: '1' },
+    { name: 'Day', value: '2' },
+    { name: 'Week', value: '3' },
+  ];
+
+
+
+    ///
+    var timePeriod;
+    switch(radioValue2){
+      case "1":
+        timePeriod="Hourly"
+      break;
+      case "2":
+        timePeriod="Daily"
+        break;
+      case "3":
+        timePeriod="Weekly"
+        break;
+    }
+
+    //do x value format
+    var Yaxis=(radioValue==1)?"BPM":"% Sat."
 		var options = {
 			animationEnabled: true,
+      
 			title:{
-				text: "Heart Rate"
+				text: `${(radioValue==1)?"Heart Rate":"O2 Saturation"} (${timePeriod})`
 			},
 			axisX: {
-				valueFormatString: "hh:mm TT",
+				valueFormatString: (timePeriod=="Weekly")?"DDD hh:mm TT":"hh:mm TT",
 			},
 			axisY: {
-				title: "BPM",
+				title: Yaxis,
 				
 			},
 			data: [{
-				xValueFormatString: "hh:mm TT",
-        yValueFormatString: "### 'BPM'",
+        color: (radioValue==1)?"#007bff":"#17a2b8",
+				xValueFormatString: (timePeriod=="Weekly")?"MM/DD hh:mm TT":"hh:mm TT",
+        yValueFormatString: `### '${Yaxis}'`,
 				type: "spline",
-				dataPoints: HRdata
+				dataPoints: (radioValue==1)?HRdata:O2data
 			}]
 		}
     async function refreshData(){
@@ -109,7 +173,9 @@ function Patient() {
           <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
           <Nav className="me-auto">
           <Nav.Link href="/profile">Patient Profile</Nav.Link>
+          <Nav.Link href="/export">Export Data</Nav.Link>
             <Nav.Link href="/Signout">Sign Out</Nav.Link>
+            
           </Nav>
         </Container>
       </Navbar>
@@ -122,23 +188,49 @@ function Patient() {
         <div>
         
           
-          <Tab.Container id="list-group-tabs-example" defaultActiveKey="#link1">
+          
   <Row>
     
     <Col sm={2}>
-      <ListGroup>
-        <ListGroup.Item action href="#link1">
-          Hour
-        </ListGroup.Item>
-        <ListGroup.Item action href="#link2">
-          Day
-        </ListGroup.Item>
-        <ListGroup.Item action href="#link3">
-          Week
-        </ListGroup.Item>
-      </ListGroup>
-      
-      <Toggle/>
+
+      <ButtonGroup>
+        {radios2.map((radio, idx) => (
+          <ToggleButton
+            key={idx}
+            id={`radio2-${idx}`}
+            type="radio"
+            variant='outline-primary'//{idx % 2 ? 'outline-info' : 'outline-primary'}
+            name="radio2"
+            value={radio.value}
+            checked={radioValue2 === radio.value}
+            onChange={(e) => setRadioValue2(e.currentTarget.value)}
+          >
+            {radio.name}
+          </ToggleButton>
+        ))}
+      </ButtonGroup>
+
+
+
+
+
+
+      <ButtonGroup>
+        {radios.map((radio, idx) => (
+          <ToggleButton
+            key={idx}
+            id={`radio1-${idx}`}
+            type="radio"
+            variant={idx % 2 ? 'outline-info' : 'outline-primary'}
+            name="radio"
+            value={radio.value}
+            checked={radioValue === radio.value}
+            onChange={(e) => setRadioValue(e.currentTarget.value)}
+          >
+            {radio.name}
+          </ToggleButton>
+        ))}
+      </ButtonGroup>
       
     </Col>
     <Col sm={10}>
@@ -146,7 +238,7 @@ function Patient() {
 
     </Col>
   </Row>
-</Tab.Container>      
+    
 
           
           
