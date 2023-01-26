@@ -24,7 +24,6 @@ import Tab from 'react-bootstrap/Tab';
 import VerticalExample from './buttonGroup.js'
 import Toggle from './toggle.js'
 
-
 //
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
@@ -45,7 +44,6 @@ function Patient() {
       return a.time - b.time;
   });
     //using time from last recorded?
-    
     
       /// SET Options dont calculate based on button!!
       var lastTime=userData.vitals[userData.vitals.length-1].time
@@ -135,9 +133,33 @@ function Patient() {
          console.log(userData)
          localStorage.setItem("userData", JSON.stringify(userData));
     }
-    function alertClicked() {
-      alert('You clicked the third ListGroupItem');
+    function Download() {
+      var csvString = [
+        [
+          "Date & Time",
+          "Heart Rate", 
+          "O2 Saturation"
+        ]
+      ]
+      var a=userData.vitals.map(item => [
+        (new Date(item.time).toLocaleString('en-US')).replace(",",""),
+        item.HR,
+        item.O2
+      ])
+      console.log(a)
+      csvString=csvString.concat(a)
+       .map(e => e.join(",")) 
+       .join("\n");
+    
+    //console.log(csvString);
+    const blob = new Blob([csvString], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.download = "UserVitals.csv";
+    link.href = url;
+    link.click();
     }
+
     
     async function loginStatus(){
         const url=window.location.href
@@ -174,7 +196,8 @@ function Patient() {
           <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
           <Nav className="me-auto">
           <Nav.Link href="/profile">Patient Profile</Nav.Link>
-          <Nav.Link href="/export">Export Data</Nav.Link>
+          <Nav.Link onClick={Download}>Export Data</Nav.Link>
+          
             <Nav.Link href="/Signout">Sign Out</Nav.Link>
             
           </Nav>
