@@ -104,7 +104,7 @@ function Patient() {
     }
 
     //do x value format
-    var Yaxis=(radioValue==1)?"BPM":"% Sat."
+    var Yaxis=(radioValue==1)?" BPM":"% Sat."
 		var options = {
 			animationEnabled: true,
       
@@ -121,7 +121,7 @@ function Patient() {
 			data: [{
         color: (radioValue==1)?"#ea0016":"#8b0000",
 				xValueFormatString: (timePeriod=="Weekly")?"MM/DD hh:mm TT":"hh:mm TT",
-        yValueFormatString: `### '${Yaxis}'`,
+        yValueFormatString: `###'${Yaxis}'`,
 				type: "spline",
 				dataPoints: (radioValue==1)?HRdata:O2data
 			}]
@@ -206,9 +206,9 @@ avgO2/=cnt;
 avgHR=parseFloat(avgHR.toFixed(0))
 avgO2=parseFloat(avgO2.toFixed(0))
 avgHR=(vitals.length>0)?`${avgHR} BPM`:'N/A'
-avgO2=(vitals.length>0)?`${avgO2} % Sat.`:'N/A'
+avgO2=(vitals.length>0)?`${avgO2}% Saturation`:'N/A'
 const C2 = { img: 'heart-beat.svg', subtitle: `AVG Heart Rate \n(${timePeriod})`, value:`${avgHR}`, colSize:8};
-const C3 = { img: 'O2.png', subtitle: 'O2 Saturation \n(Latest)', value:`${userData.vitals[userData.vitals.length-1].O2} % Sat`,colSize:7 };
+const C3 = { img: 'O2.png', subtitle: 'O2 Saturation \n(Latest)', value:`${userData.vitals[userData.vitals.length-1].O2}% Saturation`,colSize:7 };
 
 const C4 = { img: 'O2.png', subtitle: `AVG O2 Saturation \n(${timePeriod})`, value:`${avgO2}`,colSize:8 };
     return (
