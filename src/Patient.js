@@ -191,7 +191,7 @@ function Patient() {
 
 //{JSON.stringify(userData)} put back in div
 
-const C1 = { img: 'heart-beat.svg', subtitle: 'Heart Rate (Latest)', value:`${userData.vitals[userData.vitals.length-1].HR} BPM`};
+const C1 = { img: 'heart-beat.svg', subtitle: 'Heart Rate (Latest)', value:`${userData.vitals[userData.vitals.length-1].HR} BPM`,colSize:7};
 var cnt=0;
 var avgHR=0;
 var avgO2=0;
@@ -207,10 +207,10 @@ avgHR=parseFloat(avgHR.toFixed(0))
 avgO2=parseFloat(avgO2.toFixed(0))
 avgHR=(vitals.length>0)?`${avgHR} BPM`:'N/A'
 avgO2=(vitals.length>0)?`${avgO2} % Sat.`:'N/A'
-const C2 = { img: 'heart-beat.svg', subtitle: `AVG Heart Rate (${timePeriod})`, value:`${avgHR}` };
-const C3 = { img: 'O2.png', subtitle: 'O2 Sat. (Latest)', value:`${userData.vitals[userData.vitals.length-1].O2} % Sat` };
+const C2 = { img: 'heart-beat.svg', subtitle: `AVG Heart Rate \n(${timePeriod})`, value:`${avgHR}`, colSize:8};
+const C3 = { img: 'O2.png', subtitle: 'O2 Saturation \n(Latest)', value:`${userData.vitals[userData.vitals.length-1].O2} % Sat`,colSize:7 };
 
-const C4 = { img: 'O2.png', subtitle: `AVG O2 Sat. (${timePeriod})`, value:`${avgO2}` };
+const C4 = { img: 'O2.png', subtitle: `AVG O2 Saturation \n(${timePeriod})`, value:`${avgO2}`,colSize:8 };
     return (
       <>
 <Navbar bg="primary" variant="dark">
