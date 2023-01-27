@@ -11,7 +11,7 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import { Navbar,Nav } from 'react-bootstrap';
+import { Navbar,Nav, Card } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Stack from 'react-bootstrap/Stack';
@@ -28,9 +28,10 @@ import Toggle from './toggle.js'
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-
+import MyCard from './MyCard';
 //
 function Patient() { 
+  
     const domain=process.env.REACT_APP_API_DOMAIN
     let user=JSON.parse(localStorage.getItem("user"))
     let userData=JSON.parse(localStorage.getItem("userData"))
@@ -188,6 +189,13 @@ function Patient() {
        }, [] );
 
 //{JSON.stringify(userData)} put back in div
+
+const C1 = { img: 'heart-beat.svg', subtitle: 'Heart Rate (Latest)', value:`${userData.vitals[userData.vitals.length-1].HR} BPM`};
+var avgHR;
+const C2 = { img: 'heart-beat.svg', subtitle: 'Heart Rate (Daily)', value:`${userData.vitals[userData.vitals.length-1].HR} BPM` };
+const C3 = { img: 'O2.png', subtitle: 'O2 Saturation (Latest)', value:`${userData.vitals[userData.vitals.length-1].O2} % Sat.` };
+var avgO2;
+const C4 = { img: 'O2.png', subtitle: 'O2 Saturation (Daily)', value:`${userData.vitals[userData.vitals.length-1].O2} % Sat.` };
     return (
       <>
 <Navbar bg="primary" variant="dark">
@@ -202,15 +210,8 @@ function Patient() {
           </Nav>
         </Container>
       </Navbar>
-
-
-
-
-
         <div><h1 style={{textAlign: 'center'}} >Hello {userData.name}, welcome to your Patient Portal!</h1> <br/> 
         <div>
-        
-          
           
   <Row>
     
@@ -232,12 +233,6 @@ function Patient() {
           </ToggleButton>
         ))}
       </ButtonGroup>
-
-
-
-
-
-
       <ButtonGroup>
         {radios.map((radio, idx) => (
           <ToggleButton
@@ -266,7 +261,10 @@ function Patient() {
           
           
           
-          </div><div>
+          </div><br/><div>
+            
+            <Row><Col><MyCard options={C1}/></Col><Col><MyCard options={C2}/></Col><Col><MyCard options={C3}/></Col><Col><MyCard options={C4}/></Col></Row>
+            </div><br/><div>
               <Table>
           <thead>
             <tr>
