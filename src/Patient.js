@@ -1,5 +1,6 @@
 
 import './App.css'
+import './custom-color.css'
 import {CanvasJSChart} from 'canvasjs-react-charts'
 import Form from './Form';
 import axios from 'axios';
@@ -78,7 +79,7 @@ function Patient() {
 
   const radios = [
     { name: 'Heart Rate', value: '1' },
-    { name: 'O2 Saturation', value: '2' },
+    { name: 'O2 Sat.', value: '2' },
   ];
   const radios2 = [
     { name: 'Hour', value: '1' },
@@ -118,7 +119,7 @@ function Patient() {
 				
 			},
 			data: [{
-        color: (radioValue==1)?"#007bff":"#17a2b8",
+        color: (radioValue==1)?"#ea0016":"#8b0000",
 				xValueFormatString: (timePeriod=="Weekly")?"MM/DD hh:mm TT":"hh:mm TT",
         yValueFormatString: `### '${Yaxis}'`,
 				type: "spline",
@@ -191,18 +192,31 @@ function Patient() {
 //{JSON.stringify(userData)} put back in div
 
 const C1 = { img: 'heart-beat.svg', subtitle: 'Heart Rate (Latest)', value:`${userData.vitals[userData.vitals.length-1].HR} BPM`};
-var avgHR;
-const C2 = { img: 'heart-beat.svg', subtitle: 'Heart Rate (Daily)', value:`${userData.vitals[userData.vitals.length-1].HR} BPM` };
-const C3 = { img: 'O2.png', subtitle: 'O2 Saturation (Latest)', value:`${userData.vitals[userData.vitals.length-1].O2} % Sat.` };
-var avgO2;
-const C4 = { img: 'O2.png', subtitle: 'O2 Saturation (Daily)', value:`${userData.vitals[userData.vitals.length-1].O2} % Sat.` };
+var cnt=0;
+var avgHR=0;
+var avgO2=0;
+vitals.forEach(element => {
+  avgHR+=element.HR
+  avgO2+=element.O2
+  cnt++;
+});
+
+avgHR/=cnt;
+avgO2/=cnt;
+avgHR=parseFloat(avgHR.toFixed(0))
+avgO2=parseFloat(avgO2.toFixed(0))
+avgHR=(vitals.length>0)?`${avgHR} BPM`:'N/A'
+avgO2=(vitals.length>0)?`${avgO2} % Sat.`:'N/A'
+const C2 = { img: 'heart-beat.svg', subtitle: `AVG Heart Rate (${timePeriod})`, value:`${avgHR}` };
+const C3 = { img: 'O2.png', subtitle: 'O2 Sat. (Latest)', value:`${userData.vitals[userData.vitals.length-1].O2} % Sat` };
+
+const C4 = { img: 'O2.png', subtitle: `AVG O2 Sat. (${timePeriod})`, value:`${avgO2}` };
     return (
       <>
 <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
           <Nav className="me-auto">
-          <Nav.Link href="/profile">Patient Profile</Nav.Link>
           <Nav.Link onClick={Download}>Export Data</Nav.Link>
           
             <Nav.Link href="/Signout">Sign Out</Nav.Link>
@@ -216,7 +230,10 @@ const C4 = { img: 'O2.png', subtitle: 'O2 Saturation (Daily)', value:`${userData
   <Row>
     
     <Col sm={2}>
-
+    <div><br/></div>
+    <div><br/></div>
+    <div><br/></div>
+    <div style={{ display: "flex", justifyContent: "center"}}>
       <ButtonGroup>
         {radios2.map((radio, idx) => (
           <ToggleButton
@@ -232,14 +249,16 @@ const C4 = { img: 'O2.png', subtitle: 'O2 Saturation (Daily)', value:`${userData
             {radio.name}
           </ToggleButton>
         ))}
-      </ButtonGroup>
+      </ButtonGroup></div>
+      <div style={{ display: "flex", justifyContent: "center"}}>
       <ButtonGroup>
         {radios.map((radio, idx) => (
           <ToggleButton
             key={idx}
             id={`radio1-${idx}`}
             type="radio"
-            variant={idx % 2 ? 'outline-info' : 'outline-primary'}
+            variant={idx % 2 ? 'outline-dark' : 'outline-danger'}
+            
             name="radio"
             value={radio.value}
             checked={radioValue === radio.value}
@@ -249,7 +268,7 @@ const C4 = { img: 'O2.png', subtitle: 'O2 Saturation (Daily)', value:`${userData
           </ToggleButton>
         ))}
       </ButtonGroup>
-      
+      </div>
     </Col>
     <Col sm={10}>
         <CanvasJSChart options = {options}/* onRef={ref => this.chart = ref} *//>
@@ -262,8 +281,10 @@ const C4 = { img: 'O2.png', subtitle: 'O2 Saturation (Daily)', value:`${userData
           
           
           </div><br/><div>
-            
+          <div style={{ display: "flex", justifyContent: "center"}}>
             <Row><Col><MyCard options={C1}/></Col><Col><MyCard options={C2}/></Col><Col><MyCard options={C3}/></Col><Col><MyCard options={C4}/></Col></Row>
+            </div>
+            
             </div><br/><div>
               <Table>
           <thead>
