@@ -284,10 +284,10 @@ const C4 = { img: 'O2.png', subtitle: `AVG O2 Sat. (${timePeriod})`, value:`${av
           <div style={{ display: "flex", justifyContent: "center"}}>
             
           <Row>
-  <Col md={12} xs={3}><MyCard options={C1}/></Col>
-  <Col md={12} xs={3}><MyCard options={C2}/></Col>
-  <Col md={12} xs={3}><MyCard options={C3}/></Col>
-  <Col md={12} xs={3}><MyCard options={C4}/></Col>
+  <Col md={3} xs={12}><MyCard options={C1}/></Col>
+  <Col md={3} xs={12}><MyCard options={C2}/></Col>
+  <Col md={3} xs={12}><MyCard options={C3}/></Col>
+  <Col md={3} xs={12}><MyCard options={C4}/></Col>
 </Row>
             
             
