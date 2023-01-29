@@ -18,6 +18,7 @@ import Healthcare from './Healthcare';
 import Cookie from './cookie';
 import Signout from './Signout';
 import Dev from './Dev';
+import Bruh from './Bruh';
 
 function MyApp() {
 
@@ -37,7 +38,7 @@ function MyApp() {
                element: <Healthcare/>,
              },{
                path: "/oldhome",
-               element: <Oldhome/>,
+               element: <Bruh/>,
              },{
               path: "/cookie",
               element: <Cookie/>,

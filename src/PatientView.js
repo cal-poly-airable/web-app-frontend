@@ -30,8 +30,7 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import MyCard from './MyCard';
 //
-function Patient() {
-
+function PatientView(props) {
   const domain = process.env.REACT_APP_API_DOMAIN
   let user = JSON.parse(localStorage.getItem("user"))
   let userData = JSON.parse(localStorage.getItem("userData"))
@@ -318,4 +317,4 @@ function Patient() {
       </div> </>
   );
 }
-export default Patient;
+export default PatientView;

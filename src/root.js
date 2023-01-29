@@ -28,10 +28,10 @@ export default function Root() {
 
 
   <Row>
-        <Col>  <Button href={HCcognitoUrl} as="a" size="lg" variant="danger">Healthcare
+        <Col>  <Button href={HCcognitoUrl} size="lg" variant="danger">Healthcare
   </Button></Col>
         <Col>Welcome to Airable</Col>
-        <Col>  <Button href={cognitoUrl}  as="a" size="lg" variant="success">
+        <Col>  <Button href={cognitoUrl}  size="lg" variant="success">
     Patient
   </Button></Col>
       </Row>
