@@ -19,6 +19,7 @@ import Cookie from './cookie';
 import Signout from './Signout';
 import Dev from './Dev';
 import Bruh from './Bruh';
+import PatientView from './PatientView';
 
 function MyApp() {
 
@@ -36,9 +37,14 @@ function MyApp() {
              {
                path: "/healthcare",
                element: <Healthcare/>,
-             },{
+             },
+             {
+               path: "/healthcare/patient",
+               element: <PatientView/>
+             },
+             {
                path: "/oldhome",
-               element: <Bruh/>,
+               element: <Oldhome/>,
              },{
               path: "/cookie",
               element: <Cookie/>,

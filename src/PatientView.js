@@ -190,7 +190,7 @@ function PatientView(props) {
 
   //{JSON.stringify(userData)} put back in div
 
-  const C1 = { img: 'heart-beat.svg', subtitle: 'Heart Rate (Latest)', value: `${userData.vitals[userData.vitals.length - 1].HR} BPM`, colSize: 7 };
+  const C1 = { img: '../heart-beat.svg', subtitle: 'Heart Rate (Latest)', value: `${userData.vitals[userData.vitals.length - 1].HR} BPM`, colSize: 7 };
   var cnt = 0;
   var avgHR = 0;
   var avgO2 = 0;
@@ -206,24 +206,24 @@ function PatientView(props) {
   avgO2 = parseFloat(avgO2.toFixed(0))
   avgHR = (vitals.length > 0) ? `${avgHR} BPM` : 'N/A'
   avgO2 = (vitals.length > 0) ? `${avgO2}% Saturation` : 'N/A'
-  const C2 = { img: 'heart-beat.svg', subtitle: `AVG Heart Rate \n(${timePeriod})`, value: `${avgHR}`, colSize: 8 };
-  const C3 = { img: 'O2.png', subtitle: 'O2 Saturation \n(Latest)', value: `${userData.vitals[userData.vitals.length - 1].O2}% Saturation`, colSize: 7 };
+  const C2 = { img: '../heart-beat.svg', subtitle: `AVG Heart Rate \n(${timePeriod})`, value: `${avgHR}`, colSize: 8 };
+  const C3 = { img: '../O2.png', subtitle: 'O2 Saturation \n(Latest)', value: `${userData.vitals[userData.vitals.length - 1].O2}% Saturation`, colSize: 7 };
 
-  const C4 = { img: 'O2.png', subtitle: `AVG O2 Saturation \n(${timePeriod})`, value: `${avgO2}`, colSize: 8 };
+  const C4 = { img: '../O2.png', subtitle: `AVG O2 Saturation \n(${timePeriod})`, value: `${avgO2}`, colSize: 8 };
   return (
     <>
       <Navbar bg="primary" variant="dark">
         <Container>
-          <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
+          <Navbar.Brand href="/">Airable Patient View</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link onClick={Download}>Export Data</Nav.Link>
-
+            <Nav.Link onClick={Download}>Export {userData.name}'s Data</Nav.Link>
+            <Nav.Link href="/Signout">Healthcare Portal</Nav.Link>
             <Nav.Link href="/Signout">Sign Out</Nav.Link>
 
           </Nav>
         </Container>
       </Navbar>
-      <div><h1 style={{ textAlign: 'center' }} >Hello {userData.name}, welcome to your Patient Portal!</h1> <br />
+      <div><h1 style={{ textAlign: 'center' }} >You Are Viewing {userData.name}'s Patient Portal!</h1> <br />
         <div>
 
           <Row>
@@ -249,6 +249,7 @@ function PatientView(props) {
                     </ToggleButton>
                   ))}
                 </ButtonGroup></div>
+                <div><br /></div>
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <ButtonGroup>
                   {radios.map((radio, idx) => (

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { Col, Container, Row } from 'react-bootstrap';
+import { ButtonGroup, Col, Container, Row } from 'react-bootstrap';
 import { Table, Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PatientRow from './PatientRow';
+import Patient from './Patient';
 
 function BasicExample(props) { 
   const [formData, setFormData] = useState({ Username: '', UserID: '' });
@@ -16,6 +18,13 @@ function BasicExample(props) {
     event.preventDefault();
     console.log(formData);
   }
+
+  const numPatients=5;
+  const rows = [];
+for (let i = 1; i <= numPatients; i++) {
+    rows.push(<PatientRow idx={i} key={i} patient={{name:"John Smith",username:"jsmith24",userID:"****4589"}}/>);
+}
+
   return (<>
   <Container>
     <ListGroup as="ul">
@@ -26,31 +35,14 @@ function BasicExample(props) {
       <ListGroup.Item as="li"><Table striped bordered hover>
       <thead>
         <tr>
-          <th className="text-center align-middle">#</th>
-          <th className="text-center align-middle">Name</th>
-          <th className="text-center align-middle">userID</th>
-          <th className="text-center align-middle">Actions</th>
+          <th className="text-center align-middle col-sm-1">#</th>
+          <th className="text-center align-middle col-sm-2">Name</th>
+          <th className="text-center align-middle col-sm-2">userID</th>
+          <th className="text-center align-middle col-sm-2">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td className="text-center align-middle">1</td>
-          <td className="text-center align-middle">Mark</td>
-          <td className="text-center align-middle" >Otto</td>
-          <td className="text-center align-middle"><Button variant="success">Success</Button></td>
-        </tr>
-        <tr>
-          <td className="text-center align-middle">2</td>
-          <td className="text-center align-middle">Jacob</td>
-          <td className="text-center align-middle">Thornton</td>
-          <td className="text-center align-middle">@fat</td>
-        </tr>
-        <tr>
-          <td className="text-center align-middle">3</td>
-          <td className="text-center align-middle">Larry</td>
-          <td className="text-center align-middle">the Bird</td>
-          <td className="text-center align-middle">@twitter</td>
-        </tr>
+        {rows}
       </tbody>
     </Table></ListGroup.Item>
 
@@ -60,11 +52,11 @@ function BasicExample(props) {
       <thead>
         <tr>
           <th><Form.Group controlId="formUsername">
-                <Form.Label>First Name</Form.Label>
+                <Form.Label>Username</Form.Label>
                 <Form.Control type="text" name="Username" onChange={handleChange}/>
               </Form.Group></th>
           <th><Form.Group controlId="formUserID">
-                <Form.Label>Username</Form.Label>
+                <Form.Label>UserID</Form.Label>
                 <Form.Control type="text" name="UserID" onChange={handleChange}/>
               </Form.Group></th>
           <th><Button variant="primary" type="submit">

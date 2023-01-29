@@ -250,6 +250,7 @@ function Patient() {
                     </ToggleButton>
                   ))}
                 </ButtonGroup></div>
+                <div><br /></div>
               <div style={{ display: "flex", justifyContent: "center" }}>
                 <ButtonGroup>
                   {radios.map((radio, idx) => (

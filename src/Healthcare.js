@@ -20,10 +20,11 @@ return (<>
         </Container>
       </Navbar>
     <div>
-    <h1 style={{textAlign: 'center'}} >Hello Yoel, welcome to your Healthcare Portal!</h1> <br/> 
+    <div><br /></div>
+    <h1 style={{textAlign: 'center'}} >Hello Yoel, welcome to your Healthcare Provider Portal!</h1> <br/> 
     </div>
     <div>
-    <BasicExample/><Bruh/></div>
+    <BasicExample/></div>
     
     </>
 )
