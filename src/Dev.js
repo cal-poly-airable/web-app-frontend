@@ -2,12 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import UserPool from './UserPool';
 import React, {useState} from 'react';
+import { Container } from 'react-bootstrap';
 
 
 function Dev() {
   return (
     <div className="App">
-
+      <Container>
   <form  action={process.env.REACT_APP_API_DOMAIN+"/dev/upload"} encType="multipart/form-data" method="post">
     <div className="form-group">
       
@@ -20,10 +21,10 @@ function Dev() {
       <input type="file" className="form-control-file" name="file" />
       <input
         type="submit"
-        className="btn btn-default"
+        className="btn btn-primary"
       />
     </div>
-  </form>
+  </form></Container>
     </div>
     
   );
