@@ -17,7 +17,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-export default function Cookie() {
+
+export default function Login() {
     const domain=process.env.REACT_APP_API_DOMAIN//"https://api.airable.org"//"http://localhost:8080"//process.env.REACT_APP_API_DOMAIN
     const cognitoUrl=process.env.REACT_APP_COGNITO_URL+process.env.REACT_APP_COGNITO_REDIRECT
     const queryString = window.location.search;
@@ -74,7 +75,7 @@ export default function Cookie() {
          return false;         
       }
    }
-    async function loginStatus(){
+    async function login(){
         const url=window.location.href
         const token=url.substring(
            url.indexOf("=") + 1, 
@@ -83,15 +84,14 @@ export default function Cookie() {
        console.log(token)
        //if(!localStorage.getItem("user"))
        try {
-        
-        user= JSON.stringify(jwt_decode(token))
-        localStorage.setItem("user", user);
-        fetchUser(jwt_decode(token))
-        
-        //console.log(user)
+        //fetchUser(jwt_decode(token))
+        axios.defaults.headers.common = {'Authorization': `${token}`} //BEARER
+        const response = await axios.get(domain+'/login');
+        localStorage.setItem("userData", JSON.stringify(response.data[0]));
+        console.log(response.data)
         
         //
-        return user
+        return "user"
        }
        catch(error){
         console.log(error)
@@ -101,11 +101,11 @@ export default function Cookie() {
   
        }
        useEffect(() => {
-        loginStatus().then(result=>console.log(result)).then( result => {
+        login().then(result=>console.log(result)).then( result => {
          //setTimeout(window.location.replace("/home"),500)
          window.setTimeout(function() {
             window.location.href = '/patient';
-        }, 500);
+        }, 1500);
          //
            })
        }, [] );

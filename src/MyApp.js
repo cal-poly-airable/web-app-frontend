@@ -15,11 +15,11 @@ import Patient from './Patient'
 import Root from "./root";
 import Oldhome from './oldhome';
 import Healthcare from './Healthcare';
-import Cookie from './cookie';
 import Signout from './Signout';
 import Dev from './Dev';
 import Bruh from './Bruh';
 import PatientView from './PatientView';
+import Login from './login';
 
 function MyApp() {
 
@@ -46,8 +46,8 @@ function MyApp() {
                path: "/oldhome",
                element: <Oldhome/>,
              },{
-              path: "/cookie",
-              element: <Cookie/>,
+              path: "/login",
+              element: <Login/>,
             },{
               path: "/signout",
               element: <Signout/>
