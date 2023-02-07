@@ -8,6 +8,7 @@ import {
   createBrowserRouter,
   RouterProvider,
   Route,
+  Navigate,
 } from "react-router-dom";
 
 import Button from 'react-bootstrap/Button';
@@ -16,9 +17,11 @@ import Stack from 'react-bootstrap/Stack';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function Login() {
+   let navigate = useNavigate();
    const [isLoading, setIsLoading] = useState(false);
     const domain=process.env.REACT_APP_API_DOMAIN//"https://api.airable.org"//"http://localhost:8080"//process.env.REACT_APP_API_DOMAIN
     const cognitoUrl=process.env.REACT_APP_COGNITO_URL+process.env.REACT_APP_COGNITO_REDIRECT
@@ -36,15 +39,18 @@ export default function Login() {
         //fetchUser(jwt_decode(token))
         axios.defaults.headers.common = {'Authorization': `${token}`} //BEARER
         const response = await axios.get(domain+'/login');
+        console.log(response.data[0])
         localStorage.setItem("userData", JSON.stringify(response.data[0]));
         console.log(response.data)
-        
+        //navigate('/patient', response.data[0]);
+       
         //
         return "user"
        }
        catch(error){
         console.log(error)
         console.log("no token")
+        
        //window.location.replace(cognitoUrl);
     }
   
@@ -54,7 +60,12 @@ export default function Login() {
            setIsLoading(true);
            await login();
            setIsLoading(false);
-           window.location.replace("/patient")
+           setTimeout(() => {
+            window.location.replace("/patient")
+          },250)
+           
+           
+
          }
          fetchData();
        }, []);
