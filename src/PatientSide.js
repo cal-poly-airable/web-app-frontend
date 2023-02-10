@@ -172,9 +172,9 @@ function PatientSide(props) {
   avgHR = parseFloat(avgHR.toFixed(0))
   avgO2 = parseFloat(avgO2.toFixed(0))
   avgHR = (vitals.length > 0) ? `${avgHR} BPM` : 'N/A'
-  avgO2 = (vitals.length > 0) ? `${avgO2}% Saturation` : 'N/A'
+  avgO2 = (vitals.length > 0) ? `${avgO2}% Sat.` : 'N/A'
   const C2 = { img: 'heart-beat.svg', subtitle: `AVG Heart Rate \n(${timePeriod})`, value: `${avgHR}`, colSize: 8 };
-  const C3 = { img: 'O2.png', subtitle: 'O2 Saturation \n(Latest)', value: `${userData.vitals[userData.vitals.length - 1].O2}% Saturation`, colSize: 7 };
+  const C3 = { img: 'O2.png', subtitle: 'O2 Saturation (Latest)', value: `${userData.vitals[userData.vitals.length - 1].O2}% Sat.`, colSize: 7 };
 
   const C4 = { img: 'O2.png', subtitle: `AVG O2 Saturation \n(${timePeriod})`, value: `${avgO2}`, colSize: 8 };
   return (
@@ -237,7 +237,7 @@ function PatientSide(props) {
                 </ButtonGroup>
               </div>
             </Col>
-            <Col sm={9}>
+            <Col sm={10}>
             <CanvasJSChart options={options}/>
 
             </Col>
@@ -247,10 +247,10 @@ function PatientSide(props) {
 
 
 
-        </div><br /><div>
+        </div><br />
           <div style={{ display: "flex", justifyContent: "center" }}>
 
-            <Row>
+          <Row>
               <Col md={3} xs={12}><MyCard options={C1} /></Col>
               <Col md={3} xs={12}><MyCard options={C2} /></Col>
               <Col md={3} xs={12}><MyCard options={C3} /></Col>
@@ -260,7 +260,7 @@ function PatientSide(props) {
 
           </div>
 
-        </div><br /><div>
+        <br /><div>
           <Table>
             <thead>
               <tr>

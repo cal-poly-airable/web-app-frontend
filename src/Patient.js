@@ -47,19 +47,24 @@ function Patient(props) {
   async function login(){
     const url=window.location.href
     //TRY GET
-    const token=url.substring(
+    var token=localStorage.getItem("token")
+    if (!token){
+    token=url.substring(
        url.indexOf("=") + 1, 
        url.indexOf("&")
+       
    );
-   //console.log(token)
    localStorage.setItem("token",token)
+  }
+   //console.log(token)
+
    //if(!localStorage.getItem("user"))
    try {
     //fetchUser(jwt_decode(token))
     axios.defaults.headers.common = {'Authorization': `${token}`} //BEARER
-    const response = await axios.get(domain+'/login');
-    console.log(response.data[0])
-    setPatient(response.data[0]);
+    const response = await axios.get(domain+'/login/patient');
+    console.log(response.data)
+    setPatient(response.data);
     //localStorage.setItem("userData", JSON.stringify(response.data[0]));
     console.log(response.data)
     //navigate('/patient', response.data[0]);
@@ -71,7 +76,7 @@ function Patient(props) {
     console.log(error)
     console.log("no token")
     
-   //window.location.replace(cognitoUrl);  
+   window.location.replace(cognitoUrl);  
 }
 
    }
@@ -104,11 +109,6 @@ function Patient(props) {
     }
     fetchData();
   }, []);
-
-
-
-
-
 
   if(!isLoading&&patient){
   console.log(patient)
