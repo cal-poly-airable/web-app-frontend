@@ -18,11 +18,16 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { useNavigate } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 
 
-export default function Login() {
+
+ function Login() {
    let navigate = useNavigate();
-   const [isLoading, setIsLoading] = useState(false);
+   const [data, setData] = useState(null);
+
+
+    const [isLoading, setIsLoading] = useState(false);
     const domain=process.env.REACT_APP_API_DOMAIN//"https://api.airable.org"//"http://localhost:8080"//process.env.REACT_APP_API_DOMAIN
     const cognitoUrl=process.env.REACT_APP_COGNITO_URL+process.env.REACT_APP_COGNITO_REDIRECT
     const queryString = window.location.search;
@@ -33,25 +38,27 @@ export default function Login() {
            url.indexOf("=") + 1, 
            url.indexOf("&")
        );
-       console.log(token)
+       //console.log(token)
+       localStorage.setItem("token",token)
        //if(!localStorage.getItem("user"))
        try {
         //fetchUser(jwt_decode(token))
         axios.defaults.headers.common = {'Authorization': `${token}`} //BEARER
         const response = await axios.get(domain+'/login');
         console.log(response.data[0])
-        localStorage.setItem("userData", JSON.stringify(response.data[0]));
+        setData(response.data[0]);
+        //localStorage.setItem("userData", JSON.stringify(response.data[0]));
         console.log(response.data)
         //navigate('/patient', response.data[0]);
        
         //
-        return "user"
+        return response.data[0]
        }
        catch(error){
         console.log(error)
         console.log("no token")
         
-       //window.location.replace(cognitoUrl);
+       //window.location.replace(cognitoUrl);  
     }
   
        }
@@ -60,9 +67,6 @@ export default function Login() {
            setIsLoading(true);
            await login();
            setIsLoading(false);
-           setTimeout(() => {
-            window.location.replace("/patient")
-          },250)
            
            
 
@@ -71,9 +75,15 @@ export default function Login() {
        }, []);
 
 
-    return (
-      <>
-        <div>Loading...</div></>
-    );
-  }
+       if (data&&Array.isArray(data.vitals)) {
+        console.log(data)
+        navigate('/patient',  { state:  data }  )
+      }
+      
+     
+      return <div>Loading...</div>;
+    }
+
+    
   
+  export default Login;
