@@ -8,7 +8,7 @@ import PatientRow from './PatientRow';
 import { Navbar,Nav, Card } from 'react-bootstrap';
 import Patient from './Patient';
 
-function BasicExample(props) { 
+function HealthcareView(props) { 
   const [formData, setFormData] = useState({ Username: '', UserID: '' });
 
   const handleChange = (event) => {
@@ -19,7 +19,8 @@ function BasicExample(props) {
     event.preventDefault();
     console.log(formData);
   }
-
+  let userData=props.provider
+  console.log(userData)
   const numPatients=5;
   const rows = [];
 for (let i = 1; i <= numPatients; i++) {
@@ -38,13 +39,13 @@ for (let i = 1; i <= numPatients; i++) {
       </Navbar>
     <div>
     <div><br /></div>
-    <h1 style={{textAlign: 'center'}} >Hello Yoel, welcome to your Healthcare Provider Portal!</h1> <br/> 
+    <h1 style={{textAlign: 'center'}} >Hello {userData.name}, welcome to your Healthcare Provider Portal!</h1> <br/> 
     </div>
     <div></div>
   <Container>
     <ListGroup as="ul">
       <ListGroup.Item as="li" active>
-        Your Patient List
+        Your Patient List- ID {userData.providerCode}
       </ListGroup.Item>
       
       <ListGroup.Item as="li"><Table striped bordered hover>
@@ -87,4 +88,4 @@ for (let i = 1; i <= numPatients; i++) {
   );
 };
 
-export default BasicExample;
+export default HealthcareView;

@@ -38,7 +38,7 @@ import { useLocation,useParams } from 'react-router-dom';
 //HC
 
 import Accordion from 'react-bootstrap/Accordion';
-import BasicExample from './BasicExample.js';
+import HealthcareView from './HealthcareView.js';
 
 function Healthcare() { 
 
@@ -110,7 +110,7 @@ function Healthcare() {
   console.log(provider)
   return (
     <>
-      <div><BasicExample provider={provider}/></div>
+      <div><HealthcareView provider={provider}/></div>
 
      </>
   
