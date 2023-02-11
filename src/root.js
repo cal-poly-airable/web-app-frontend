@@ -19,7 +19,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 const cognitoUrl=process.env.REACT_APP_COGNITO_URL+process.env.REACT_APP_COGNITO_REDIRECT
-const HCcognitoUrl="https://airablehealth.auth.us-east-1.amazoncognito.com/login?client_id=2gv8s3nl6ned8tc7rd1iio93kp&response_type=token&scope=aws.cognito.signin.user.admin+email+openid+phone+profile&redirect_uri="+window.location+"cookie"
+const HCcognitoUrl=process.env.REACT_APP_HC_COGNITO_URL+process.env.REACT_APP_HC_COGNITO_REDIRECT
      
 export default function Root() {
     return (

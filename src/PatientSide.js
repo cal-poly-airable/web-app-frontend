@@ -12,7 +12,7 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import { Navbar, Nav, Card } from 'react-bootstrap';
+import { Navbar, Nav, Card,Modal } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Stack from 'react-bootstrap/Stack';
@@ -32,7 +32,21 @@ import MyCard from './MyCard';
 import Graph from './graph'
 //
 function PatientSide(props) {
+// Modal Stuff
 
+const [show, setShow] = useState(false);
+
+const handleClose = () => setShow(false);
+const handleShow = () => setShow(true);
+
+
+
+
+
+
+
+
+//
   const domain = process.env.REACT_APP_API_DOMAIN
   let userData = props.patient
   console.log("aaaa")
@@ -179,11 +193,26 @@ function PatientSide(props) {
   const C4 = { img: 'O2.png', subtitle: `AVG O2 Saturation \n(${timePeriod})`, value: `${avgO2}`, colSize: 8 };
   return (
     <>
+    <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Your Provider</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>No Providers</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Cancel
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Add Provider
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={Download}>Export Data</Nav.Link>
+            <Nav.Link onClick={handleShow}>Your Provider</Nav.Link>
 
             <Nav.Link href="/Signout">Sign Out</Nav.Link>
 
