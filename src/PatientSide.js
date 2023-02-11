@@ -2,7 +2,7 @@
 import './App.css'
 import './custom-color.css'
 import { CanvasJSChart } from 'canvasjs-react-charts'
-import Form from './Form';
+import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
 import jwt_decode from "jwt-decode";
@@ -30,16 +30,22 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import MyCard from './MyCard';
 import Graph from './graph'
+import ProviderModal from './ProviderModal';
 //
 function PatientSide(props) {
-// Modal Stuff
 
-const [show, setShow] = useState(false);
+///
 
-const handleClose = () => setShow(false);
-const handleShow = () => setShow(true);
+const [showProviderModal, setShowProviderModal] = useState(false);
+const [providerData, setProviderData] = useState(null);
 
+function handleShowProviderModal() {
+  setShowProviderModal(true);
+}
 
+function handleCloseProviderModal() {
+  setShowProviderModal(false);
+}
 
 
 
@@ -193,26 +199,13 @@ const handleShow = () => setShow(true);
   const C4 = { img: 'O2.png', subtitle: `AVG O2 Saturation \n(${timePeriod})`, value: `${avgO2}`, colSize: 8 };
   return (
     <>
-    <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Your Provider</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>No Providers</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Cancel
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Add Provider
-          </Button>
-        </Modal.Footer>
-      </Modal>
+    <ProviderModal  key="provider-modal" show={showProviderModal} onHide={handleCloseProviderModal} provider={providerData} setProviderData={setProviderData} />
       <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={Download}>Export Data</Nav.Link>
-            <Nav.Link onClick={handleShow}>Your Provider</Nav.Link>
+            <Nav.Link onClick={handleShowProviderModal}>Your Provider</Nav.Link>
 
             <Nav.Link href="/Signout">Sign Out</Nav.Link>
 

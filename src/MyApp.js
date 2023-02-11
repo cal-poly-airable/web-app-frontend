@@ -1,5 +1,5 @@
 import Table from './Table'
-import Form from './Form';
+import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import UserPool from './UserPool';
