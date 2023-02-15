@@ -34,16 +34,55 @@ import ProviderModal from './ProviderModal';
 //
 function PatientSide(props) {
 
-///
+  const domain=process.env.REACT_APP_API_DOMAIN
+  let userData = props.patient
+  console.log(userData)
 
-  const [providerData, setProviderData] = useState('');
+
+///
+  var tempProv=(userData.providers.length>0)?userData.providers[0]:''
+  const [providerData, setProviderData] = useState(tempProv);
   const [showProviderModal, setShowProviderModal] = useState(false);
 
   const handleProviderModalSubmit = (value) => {
+    console.log("providerData",providerData)
     if(providerData){
-      setProviderData("");
+      axios.delete(domain+'/patient/provider/'+providerData, {
+        headers: {
+          Authorization: `${props.auth}`
+        }
+      })
+        .then(response => {
+          console.log(response.data);
+          alert(response.data)
+          setProviderData('');
+        })
+        .catch(error => {
+          console.error(error);
+          alert("Incorrect Jawn")
+        });
+      
     }else{
-    setProviderData(value);}
+    
+      //send to server
+      console.log("here",value)
+      axios.post(domain+'/patient/provider', { providerCode: value }, {
+        headers: {
+          Authorization: `${props.auth}`
+        }
+      })
+        .then(response => {
+          console.log(response.data);
+          alert(response.data)
+          setProviderData(value);
+        })
+        .catch(error => {
+          console.error(error);
+          alert("Incorrect Jawn")
+        });
+        }
+
+
     setShowProviderModal(false);
   };
 
@@ -54,10 +93,7 @@ function PatientSide(props) {
 
 
 //
-  const domain = process.env.REACT_APP_API_DOMAIN
-  let userData = props.patient
-  console.log("aaaa")
-  console.log(userData)
+
   var HRdata = []
   var O2data = []
   const [checked, setChecked] = useState(false);
@@ -206,7 +242,7 @@ function PatientSide(props) {
           <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={Download}>Export Data</Nav.Link>
-            <Nav.Link onClick={Download}>Your Provider</Nav.Link>
+            <Nav.Link onClick={() => setShowProviderModal(true)}>Your Provider</Nav.Link>
 
             <Nav.Link href="/Signout">Sign Out</Nav.Link>
 
@@ -215,8 +251,7 @@ function PatientSide(props) {
       </Navbar>
       <div><h1 style={{ textAlign: 'center' }} >Hello {userData.name}, welcome to your Patient Portal!</h1> <br />
       <div>
-      <button onClick={() => setShowProviderModal(true)}>Open Provider Modal</button>
-      <p>Provider data: {providerData}</p>
+      {/*<p>Provider data: {providerData}</p>*/}
       <ProviderModal
         show={showProviderModal}
         onHide={handleProviderModalHide}

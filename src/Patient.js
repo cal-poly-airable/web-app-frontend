@@ -42,12 +42,12 @@ function Patient(props) {
   const { state } = useLocation();
   const [patient, setPatient] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
+  var token=localStorage.getItem("token")
 
   async function login(){
     const url=window.location.href
     //TRY GET
-    var token=localStorage.getItem("token")
+    
     if (!token){
     token=url.substring(
        url.indexOf("=") + 1, 
@@ -114,7 +114,7 @@ function Patient(props) {
   console.log(patient)
   return (
     <>
-      <div><PatientSide patient={patient}/></div>
+      <div><PatientSide patient={patient} auth={token} /></div>
 
      </>
   

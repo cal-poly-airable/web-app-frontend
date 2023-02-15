@@ -8,10 +8,9 @@ function ProviderModal({ show, onHide, provider, setProviderData, onSubmit }) {
     function handleSubmit(event) {
       event.preventDefault();
       if (provider) {
-        setProviderData(null);
+        onSubmit(providerCode);
       } else {
-        setProviderData(providerCode);
-        //onSubmit(providerCode);
+        onSubmit(providerCode);
         
       }
       onHide();

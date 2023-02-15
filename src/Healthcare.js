@@ -84,7 +84,7 @@ function Healthcare() {
     console.log(error)
     console.log("no token")
     
-   window.location.replace(cognitoUrl);  
+   //window.location.replace(cognitoUrl);  
 }
 
    }
