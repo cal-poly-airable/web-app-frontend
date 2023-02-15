@@ -36,19 +36,20 @@ function PatientSide(props) {
 
 ///
 
-const [showProviderModal, setShowProviderModal] = useState(false);
-const [providerData, setProviderData] = useState(null);
+  const [providerData, setProviderData] = useState('');
+  const [showProviderModal, setShowProviderModal] = useState(false);
 
-function handleShowProviderModal() {
-  setShowProviderModal(true);
-}
+  const handleProviderModalSubmit = (value) => {
+    if(providerData){
+      setProviderData("");
+    }else{
+    setProviderData(value);}
+    setShowProviderModal(false);
+  };
 
-function handleCloseProviderModal() {
-  setShowProviderModal(false);
-}
-
-
-
+  const handleProviderModalHide = () => {
+    setShowProviderModal(false);
+  };
 
 
 
@@ -198,14 +199,14 @@ function handleCloseProviderModal() {
 
   const C4 = { img: 'O2.png', subtitle: `AVG O2 Saturation \n(${timePeriod})`, value: `${avgO2}`, colSize: 8 };
   return (
-    <>
-    <ProviderModal  key="provider-modal" show={showProviderModal} onHide={handleCloseProviderModal} provider={providerData} setProviderData={setProviderData} />
+    <> {/* move modal to the bottom after finishing*/}
+    
       <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={Download}>Export Data</Nav.Link>
-            <Nav.Link onClick={handleShowProviderModal}>Your Provider</Nav.Link>
+            <Nav.Link onClick={Download}>Your Provider</Nav.Link>
 
             <Nav.Link href="/Signout">Sign Out</Nav.Link>
 
@@ -213,6 +214,21 @@ function handleCloseProviderModal() {
         </Container>
       </Navbar>
       <div><h1 style={{ textAlign: 'center' }} >Hello {userData.name}, welcome to your Patient Portal!</h1> <br />
+      <div>
+      <button onClick={() => setShowProviderModal(true)}>Open Provider Modal</button>
+      <p>Provider data: {providerData}</p>
+      <ProviderModal
+        show={showProviderModal}
+        onHide={handleProviderModalHide}
+        onSubmit={handleProviderModalSubmit}
+        provider={providerData}
+        setProviderData={setProviderData}
+      />
+    </div>
+
+
+
+
         <div>
 
           <Row>
