@@ -2,7 +2,6 @@ import { Navbar,Nav, Card } from 'react-bootstrap';
 import Bruh from './Bruh.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 import './App.css'
 import './custom-color.css'
 import { CanvasJSChart } from 'canvasjs-react-charts'
@@ -49,20 +48,20 @@ function Healthcare() {
   const { state } = useLocation();
   const [provider, setProvider] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-
+  var token;
 
 
   async function login(){
     const url=window.location.href
     //TRY GET
-    var token=localStorage.getItem("token")
-    if (!token){
     token=url.substring(
-       url.indexOf("=") + 1, 
-       url.indexOf("&")
-       
-   );
-   localStorage.setItem("token",token)
+      url.indexOf("=") + 1, 
+      url.indexOf("&"));
+    if (!token){
+      token=localStorage.getItem(token)
+  }
+  else{
+    localStorage.setItem("token",token)
   }
    //console.log(token)
 
@@ -84,7 +83,7 @@ function Healthcare() {
     console.log(error)
     console.log("no token")
     
-   //window.location.replace(cognitoUrl);  
+   window.location.replace(cognitoUrl);  
 }
 
    }

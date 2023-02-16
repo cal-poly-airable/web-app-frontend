@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { ButtonGroup, Col, Container, Row } from 'react-bootstrap';
+import { ButtonGroup, Col, Container, Row, InputGroup, FormControl } from 'react-bootstrap';
 import { Table, Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PatientRow from './PatientRow';
 import { Navbar,Nav, Card } from 'react-bootstrap';
 import Patient from './Patient';
+import ProviderCode from './ProviderCode';
 
 function HealthcareView(props) { 
   const [formData, setFormData] = useState({ Username: '', UserID: '' });
@@ -45,7 +46,7 @@ for (let i = 1; i <= numPatients; i++) {
   <Container>
     <ListGroup as="ul">
       <ListGroup.Item as="li" active>
-        Your Patient List- ID {userData.providerCode}
+        Your Patient List
       </ListGroup.Item>
       
       <ListGroup.Item as="li"><Table striped bordered hover>
@@ -82,7 +83,7 @@ for (let i = 1; i <= numPatients; i++) {
       </thead></Table>
               
             </Form>
-
+            <ProviderCode code={userData.providerCode}/>
     </Container>
     </>
   );

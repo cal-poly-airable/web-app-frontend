@@ -42,19 +42,19 @@ function Patient(props) {
   const { state } = useLocation();
   const [patient, setPatient] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
-  var token=localStorage.getItem("token")
+  var token;
 
   async function login(){
     const url=window.location.href
     //TRY GET
-    
-    if (!token){
     token=url.substring(
-       url.indexOf("=") + 1, 
-       url.indexOf("&")
-       
-   );
-   localStorage.setItem("token",token)
+      url.indexOf("=") + 1, 
+      url.indexOf("&"));
+    if (!token){
+      token=localStorage.getItem(token)
+  }
+  else{
+    localStorage.setItem("token",token)
   }
    //console.log(token)
 
