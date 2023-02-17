@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
-import { ButtonGroup, Col, Container, Row } from 'react-bootstrap';
+import { ButtonGroup, Col, Container, Row, InputGroup, FormControl } from 'react-bootstrap';
 import { Table, Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PatientRow from './PatientRow';
+import { Navbar,Nav, Card } from 'react-bootstrap';
 import Patient from './Patient';
+import ProviderCode from './ProviderCode';
 
-function BasicExample(props) { 
+function HealthcareView(props) { 
   const [formData, setFormData] = useState({ Username: '', UserID: '' });
 
   const handleChange = (event) => {
@@ -18,7 +20,8 @@ function BasicExample(props) {
     event.preventDefault();
     console.log(formData);
   }
-
+  let userData=props.provider
+  console.log(userData)
   const numPatients=5;
   const rows = [];
 for (let i = 1; i <= numPatients; i++) {
@@ -26,6 +29,20 @@ for (let i = 1; i <= numPatients; i++) {
 }
 
   return (<>
+  <Navbar bg="primary" variant="dark">
+        <Container>
+          <Navbar.Brand href="/">Airable Healthcare</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link href="/Signout">Sign Out</Nav.Link>
+            
+          </Nav>
+        </Container>
+      </Navbar>
+    <div>
+    <div><br /></div>
+    <h1 style={{textAlign: 'center'}} >Hello Dr. {userData.name}, welcome to your Healthcare Provider Portal!</h1> <br/> 
+    </div>
+    <div></div>
   <Container>
     <ListGroup as="ul">
       <ListGroup.Item as="li" active>
@@ -66,10 +83,10 @@ for (let i = 1; i <= numPatients; i++) {
       </thead></Table>
               
             </Form>
-
+            <ProviderCode code={userData.providerCode}/>
     </Container>
     </>
   );
 };
 
-export default BasicExample;
+export default HealthcareView;

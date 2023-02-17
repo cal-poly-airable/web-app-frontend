@@ -12,7 +12,7 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import { Navbar, Nav, Card } from 'react-bootstrap';
+import { Navbar, Nav, Card,Modal } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Stack from 'react-bootstrap/Stack';
@@ -29,12 +29,73 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import MyCard from './MyCard';
+import Graph from './graph'
+import ProviderModal from './ProviderModal';
 //
-function PatientView(props) {
+function PatientSide(props) {
+  var auth=localStorage.getItem("token")
+  const domain=process.env.REACT_APP_API_DOMAIN
+  let userData = props.patient
+  console.log(userData)
 
-  const domain = process.env.REACT_APP_API_DOMAIN
-  let user = JSON.parse(localStorage.getItem("user"))
-  let userData = JSON.parse(localStorage.getItem("userData"))
+
+///
+  var tempProv=(userData.providers.length>0)?userData.providers[0]:''
+  const [providerData, setProviderData] = useState(tempProv);
+  const [showProviderModal, setShowProviderModal] = useState(false);
+
+  const handleProviderModalSubmit = (value) => {
+    console.log("providerData",providerData)
+    console.log("auth",auth)
+    console.log("auth")
+    if(providerData.code){
+      axios.delete(domain+'/patient/provider/'+providerData.code, {
+        headers: {
+          Authorization: `${auth}`
+        }
+      })
+        .then(response => {
+          console.log(response.data);
+          alert(response.data)
+          setProviderData('');
+        })
+        .catch(error => {
+          console.error(error);
+          alert("Incorrect Jawn")
+        });
+      
+    }else{
+    
+      //send to server
+      console.log("here",value)
+      axios.post(domain+'/patient/provider', { providerCode: value }, {
+        headers: {
+          Authorization: `${auth}`
+        }
+      })
+        .then(response => {
+          console.log("response.data",response.data);
+          alert(`Added Dr ${response.data.name}`)
+          setProviderData(response.data);
+        })
+        .catch(error => {
+          console.error(error);
+          alert("Incorrect Jawn")
+        });
+        }
+
+
+    setShowProviderModal(false);
+  };
+
+  const handleProviderModalHide = () => {
+    setShowProviderModal(false);
+  };
+
+
+
+//
+
   var HRdata = []
   var O2data = []
   const [checked, setChecked] = useState(false);
@@ -125,15 +186,7 @@ function PatientView(props) {
       dataPoints: (radioValue == 1) ? HRdata : O2data
     }]
   }
-  async function refreshData() {
-    const response = await axios.get(domain + '/users/' + user.sub);
-    console.log("Refreshed Respone:")
-    console.log(response)
-    var userList = response.data.users_list;
-    userData = userList[0]
-    console.log(userData)
-    localStorage.setItem("userData", JSON.stringify(userData));
-  }
+  
   function Download() {
     var csvString = [
       [
@@ -161,34 +214,6 @@ function PatientView(props) {
   }
 
 
-  async function loginStatus() {
-    const url = window.location.href
-    const token = url.substring(
-      url.indexOf("=") + 1,
-      url.indexOf("&")
-    );
-    console.log(url)
-    if (!localStorage.getItem("user"))
-      try {
-        user = JSON.stringify(jwt_decode(token))
-        localStorage.setItem("user", user);
-        //window.location.replace("/home")
-        return user
-      }
-      catch (error) {
-        window.location.replace(cognitoUrl);
-      }
-
-  }
-  useEffect(() => {
-
-    loginStatus().then(result => console.log(result)).then(result => {
-      refreshData()
-
-
-    })
-  }, []);
-
   //{JSON.stringify(userData)} put back in div
 
   const C1 = { img: 'heart-beat.svg', subtitle: 'Heart Rate (Latest)', value: `${userData.vitals[userData.vitals.length - 1].HR} BPM`, colSize: 7 };
@@ -206,18 +231,20 @@ function PatientView(props) {
   avgHR = parseFloat(avgHR.toFixed(0))
   avgO2 = parseFloat(avgO2.toFixed(0))
   avgHR = (vitals.length > 0) ? `${avgHR} BPM` : 'N/A'
-  avgO2 = (vitals.length > 0) ? `${avgO2}% Saturation` : 'N/A'
+  avgO2 = (vitals.length > 0) ? `${avgO2}% Sat.` : 'N/A'
   const C2 = { img: 'heart-beat.svg', subtitle: `AVG Heart Rate \n(${timePeriod})`, value: `${avgHR}`, colSize: 8 };
-  const C3 = { img: 'O2.png', subtitle: 'O2 Saturation \n(Latest)', value: `${userData.vitals[userData.vitals.length - 1].O2}% Saturation`, colSize: 7 };
+  const C3 = { img: 'O2.png', subtitle: 'O2 Saturation (Latest)', value: `${userData.vitals[userData.vitals.length - 1].O2}% Sat.`, colSize: 7 };
 
   const C4 = { img: 'O2.png', subtitle: `AVG O2 Saturation \n(${timePeriod})`, value: `${avgO2}`, colSize: 8 };
   return (
-    <>
+    <> {/* move modal to the bottom after finishing*/}
+    
       <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link onClick={Download}>Export Data</Nav.Link>
+            <Nav.Link onClick={() => setShowProviderModal(true)}>Your Provider</Nav.Link>
 
             <Nav.Link href="/Signout">Sign Out</Nav.Link>
 
@@ -225,6 +252,20 @@ function PatientView(props) {
         </Container>
       </Navbar>
       <div><h1 style={{ textAlign: 'center' }} >Hello {userData.name}, welcome to your Patient Portal!</h1> <br />
+      <div>
+      {/*<p>Provider data: {providerData}</p>*/}
+      <ProviderModal
+        show={showProviderModal}
+        onHide={handleProviderModalHide}
+        onSubmit={handleProviderModalSubmit}
+        provider={providerData}
+        setProviderData={setProviderData}
+      />
+    </div>
+
+
+
+
         <div>
 
           <Row>
@@ -272,7 +313,7 @@ function PatientView(props) {
               </div>
             </Col>
             <Col sm={10}>
-              <CanvasJSChart options={options}/* onRef={ref => this.chart = ref} */ />
+            <CanvasJSChart options={options}/>
 
             </Col>
           </Row>
@@ -281,10 +322,10 @@ function PatientView(props) {
 
 
 
-        </div><br /><div>
+        </div><br />
           <div style={{ display: "flex", justifyContent: "center" }}>
 
-            <Row>
+          <Row>
               <Col md={3} xs={12}><MyCard options={C1} /></Col>
               <Col md={3} xs={12}><MyCard options={C2} /></Col>
               <Col md={3} xs={12}><MyCard options={C3} /></Col>
@@ -294,7 +335,7 @@ function PatientView(props) {
 
           </div>
 
-        </div><br /><div>
+        <br /><div>
           <Table>
             <thead>
               <tr>
@@ -319,4 +360,4 @@ function PatientView(props) {
       </div> </>
   );
 }
-export default PatientView;
+export default PatientSide;

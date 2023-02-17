@@ -2,7 +2,7 @@
 import './App.css'
 import './custom-color.css'
 import { CanvasJSChart } from 'canvasjs-react-charts'
-import Form from './Form';
+import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
 import jwt_decode from "jwt-decode";
@@ -29,102 +29,64 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import MyCard from './MyCard';
+import PatientSide from './PatientSide';
+import Healthcare from './Healthcare'
+
+import { useLocation,useParams } from 'react-router-dom';
 //
-function Patient() {
+function Patient(props) {
 
-  const domain = process.env.REACT_APP_API_DOMAIN
-  let user = JSON.parse(localStorage.getItem("user"))
-  let userData = JSON.parse(localStorage.getItem("userData"))
-  var HRdata = []
-  var O2data = []
-  const [checked, setChecked] = useState(false);
-  const [radioValue, setRadioValue] = useState('1');
-  const [radioValue2, setRadioValue2] = useState('1');
-
-  userData.vitals.sort((a, b) => {
-    return a.time - b.time;
-  });
-  //using time from last recorded?
-
-  /// SET Options dont calculate based on button!!
-  var lastTime = userData.vitals[userData.vitals.length - 1].time
-  lastTime = Date.now()
-  console.log(lastTime)
-  var cutoff;
-  switch (radioValue2) {
-    case "1":
-      cutoff = (60 * 60 * 1000)
-      break;
-    case "2":
-      cutoff = (24 * 60 * 60 * 1000)
-      break;
-    case "3":
-      cutoff = (7 * 24 * 60 * 60 * 1000)
-      break;
+  const domain=process.env.REACT_APP_API_DOMAIN//"https://api.airable.org"//"http://localhost:8080"//process.env.REACT_APP_API_DOMAIN
+  const cognitoUrl=process.env.REACT_APP_COGNITO_URL+process.env.REACT_APP_COGNITO_REDIRECT
+  const queryString = window.location.search;
+  const { state } = useLocation();
+  const [patient, setPatient] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  var token;
+  async function login(){
+    const url=window.location.href
+    //console.log("tokenssss")
+    //TRY GET
+    token=url.substring(
+      url.indexOf("=") + 1, 
+      url.indexOf("&"))
+      //console.log("tok: ",token)
+    if (!token){
+      token=localStorage.getItem("token")
   }
-  ///
-  //I need to filter and map
-  console.log(radioValue2, cutoff)
-  var vitals = userData.vitals.filter(vital => vital.time > lastTime - cutoff)
-  console.log(vitals)
-
-  //HRdata=HRdata.map({element: s, el:t }->{x:new Date(element.time),y:element.O2})
-
-
-  for (var i = 0; i < vitals.length; i++) {
-    HRdata[i] = ({ x: new Date(vitals[i].time), y: vitals[i].HR })
-    O2data[i] = ({ x: new Date(vitals[i].time), y: vitals[i].O2 })
+  else{
+    localStorage.setItem("token",token)
   }
+   console.log(token)
 
-  const radios = [
-    { name: 'Heart Rate', value: '1' },
-    { name: 'O2 Sat.', value: '2' },
-  ];
-  const radios2 = [
-    { name: 'Hour', value: '1' },
-    { name: 'Day', value: '2' },
-    { name: 'Week', value: '3' },
-  ];
+   //if(!localStorage.getItem("user"))
+   try {
+    //fetchUser(jwt_decode(token))
+    axios.defaults.headers.common = {'Authorization': `${token}`} //BEARER
+    const response = await axios.get(domain+'/login/patient');
+    console.log(response.data)
+    setPatient(response.data);
+    //localStorage.setItem("userData", JSON.stringify(response.data[0]));
+    console.log(patient)
+    //navigate('/patient', response.data[0]);
+   
+    //
+    return "user"
+   }
+   catch(error){
+    console.log(error)
+    console.log("no token")
+    
+   window.location.replace(cognitoUrl);  //RE-enable
+}
+
+   }
 
 
+  
 
-  ///
-  var timePeriod;
-  switch (radioValue2) {
-    case "1":
-      timePeriod = "Hourly"
-      break;
-    case "2":
-      timePeriod = "Daily"
-      break;
-    case "3":
-      timePeriod = "Weekly"
-      break;
-  }
-
-  //do x value format
-  var Yaxis = (radioValue == 1) ? " BPM" : "% Sat."
-  var options = {
-    animationEnabled: true,
-
-    title: {
-      text: `${(radioValue == 1) ? "Heart Rate" : "O2 Saturation"} (${timePeriod})`
-    },
-    axisX: {
-      valueFormatString: (timePeriod == "Weekly") ? "DDD hh:mm TT" : "hh:mm TT",
-    },
-    axisY: {
-      title: Yaxis,
-
-    },
-    data: [{
-      color: (radioValue == 1) ? "#ea0016" : "#8b0000",
-      xValueFormatString: (timePeriod == "Weekly") ? "MM/DD hh:mm TT" : "hh:mm TT",
-      yValueFormatString: `###'${Yaxis}'`,
-      type: "spline",
-      dataPoints: (radioValue == 1) ? HRdata : O2data
-    }]
-  }
+  //////REFRESH
+  /*
   async function refreshData() {
     const response = await axios.get(domain + '/users/' + user.sub);
     console.log("Refreshed Respone:")
@@ -133,190 +95,32 @@ function Patient() {
     userData = userList[0]
     console.log(userData)
     localStorage.setItem("userData", JSON.stringify(userData));
-  }
-  function Download() {
-    var csvString = [
-      [
-        "Date & Time",
-        "Heart Rate",
-        "O2 Saturation"
-      ]
-    ]
-    var a = userData.vitals.map(item => [
-      (new Date(item.time).toLocaleString('en-US')).replace(",", ""),
-      item.HR,
-      item.O2
-    ])
-    console.log(a)
-    csvString = csvString.concat(a)
-      .map(e => e.join(","))
-      .join("\n");
+  }*/
 
-    const blob = new Blob([csvString], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    const link = document.createElement("a");
-    link.download = "UserVitals.csv";
-    link.href = url;
-    link.click();
-  }
+  ////////
 
-
-  async function loginStatus() {
-    const url = window.location.href
-    const token = url.substring(
-      url.indexOf("=") + 1,
-      url.indexOf("&")
-    );
-    console.log(url)
-    if (!localStorage.getItem("user"))
-      try {
-        user = JSON.stringify(jwt_decode(token))
-        localStorage.setItem("user", user);
-        //window.location.replace("/home")
-        return user
-      }
-      catch (error) {
-        window.location.replace(cognitoUrl);
-      }
-
-  }
   useEffect(() => {
+    async function fetchData() {
+      setIsLoading(true);
+      await login();
+      setIsLoading(false);
+      
+      
 
-    loginStatus().then(result => console.log(result)).then(result => {
-      refreshData()
-
-
-    })
+    }
+    fetchData();
   }, []);
 
-  //{JSON.stringify(userData)} put back in div
-
-  const C1 = { img: 'heart-beat.svg', subtitle: 'Heart Rate (Latest)', value: `${userData.vitals[userData.vitals.length - 1].HR} BPM`, colSize: 7 };
-  var cnt = 0;
-  var avgHR = 0;
-  var avgO2 = 0;
-  vitals.forEach(element => {
-    avgHR += element.HR
-    avgO2 += element.O2
-    cnt++;
-  });
-
-  avgHR /= cnt;
-  avgO2 /= cnt;
-  avgHR = parseFloat(avgHR.toFixed(0))
-  avgO2 = parseFloat(avgO2.toFixed(0))
-  avgHR = (vitals.length > 0) ? `${avgHR} BPM` : 'N/A'
-  avgO2 = (vitals.length > 0) ? `${avgO2}% Saturation` : 'N/A'
-  const C2 = { img: 'heart-beat.svg', subtitle: `AVG Heart Rate \n(${timePeriod})`, value: `${avgHR}`, colSize: 8 };
-  const C3 = { img: 'O2.png', subtitle: 'O2 Saturation \n(Latest)', value: `${userData.vitals[userData.vitals.length - 1].O2}% Saturation`, colSize: 7 };
-
-  const C4 = { img: 'O2.png', subtitle: `AVG O2 Saturation \n(${timePeriod})`, value: `${avgO2}`, colSize: 8 };
+  if(!isLoading&&patient){
+  console.log(patient)
   return (
     <>
-      <Navbar bg="primary" variant="dark">
-        <Container>
-          <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link onClick={Download}>Export Data</Nav.Link>
+      <div><PatientSide patient={patient} auth={token} /></div>
 
-            <Nav.Link href="/Signout">Sign Out</Nav.Link>
-
-          </Nav>
-        </Container>
-      </Navbar>
-      <div><h1 style={{ textAlign: 'center' }} >Hello {userData.name}, welcome to your Patient Portal!</h1> <br />
-        <div>
-
-          <Row>
-
-            <Col sm={2}>
-              <div><br /></div>
-              <div><br /></div>
-              <div><br /></div>
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <ButtonGroup>
-                  {radios2.map((radio, idx) => (
-                    <ToggleButton
-                      key={idx}
-                      id={`radio2-${idx}`}
-                      type="radio"
-                      variant='outline-primary'//{idx % 2 ? 'outline-info' : 'outline-primary'}
-                      name="radio2"
-                      value={radio.value}
-                      checked={radioValue2 === radio.value}
-                      onChange={(e) => setRadioValue2(e.currentTarget.value)}
-                    >
-                      {radio.name}
-                    </ToggleButton>
-                  ))}
-                </ButtonGroup></div>
-                <div><br /></div>
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                <ButtonGroup>
-                  {radios.map((radio, idx) => (
-                    <ToggleButton
-                      key={idx}
-                      id={`radio1-${idx}`}
-                      type="radio"
-                      variant={idx % 2 ? 'outline-dark' : 'outline-danger'}
-
-                      name="radio"
-                      value={radio.value}
-                      checked={radioValue === radio.value}
-                      onChange={(e) => setRadioValue(e.currentTarget.value)}
-                    >
-                      {radio.name}
-                    </ToggleButton>
-                  ))}
-                </ButtonGroup>
-              </div>
-            </Col>
-            <Col sm={10}>
-              <CanvasJSChart options={options}/* onRef={ref => this.chart = ref} */ />
-
-            </Col>
-          </Row>
-
-
-
-
-
-        </div><br /><div>
-          <div style={{ display: "flex", justifyContent: "center" }}>
-
-            <Row>
-              <Col md={3} xs={12}><MyCard options={C1} /></Col>
-              <Col md={3} xs={12}><MyCard options={C2} /></Col>
-              <Col md={3} xs={12}><MyCard options={C3} /></Col>
-              <Col md={3} xs={12}><MyCard options={C4} /></Col>
-            </Row>
-
-
-          </div>
-
-        </div><br /><div>
-          <Table>
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Heart Rate (BPM)</th>
-                <th>O2 Saturation (%)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {vitals.map(arrayData => {
-                return (
-                  <tr>
-                    <td>{(new Date(arrayData.time).toLocaleString('en-US'))}</td>
-                    <td>{arrayData.HR}</td>
-                    <td>{arrayData.O2}</td>
-                  </tr>
-                )
-              }
-              )}
-            </tbody>
-          </Table></div>
-      </div> </>
-  );
+     </>
+  
+  );}
+  else 
+  return <div>Loading...</div>;
 }
 export default Patient;

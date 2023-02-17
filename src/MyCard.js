@@ -7,7 +7,7 @@ import { render } from "react-dom";
 function MyCard(props) {
 
     return(
-      <>
+      
       <div style={{ display: "flex", justifyContent: "center"}}>
     <Card style={{ width: '18rem' }}>
     
@@ -21,7 +21,7 @@ function MyCard(props) {
         </Row>
       </Card.Text>
     </Card.Body>
-  </Card></div></>)
+  </Card></div>)
   
 }
 
