@@ -3,7 +3,7 @@ import { Modal, Button, Form } from 'react-bootstrap';
 
 
 function ProviderModal({ show, onHide, provider, setProviderData, onSubmit }) {
-    const [providerCode, setProviderCode] = useState('');
+    const [providerCode, setproviderCode] = useState('');
   
     function handleSubmit(event) {
       event.preventDefault();
@@ -18,11 +18,12 @@ function ProviderModal({ show, onHide, provider, setProviderData, onSubmit }) {
 
     useEffect(() => {
         if (provider) {
-          setProviderCode('');
+          setproviderCode('');
         }
       }, [provider]);
   
-    const isProviderCodeEntered = providerCode.length > 0 || (provider &&provider.length>0);
+    const isproviderCodeEntered = (providerCode) || (provider&&provider.code);
+    const isProvider=(provider &&provider.code);
   
     return (
         <Modal show={show} onHide={onHide}>
@@ -31,14 +32,16 @@ function ProviderModal({ show, onHide, provider, setProviderData, onSubmit }) {
           </Modal.Header>
           <Form onSubmit={handleSubmit}>
             <Modal.Body>
-              {provider ? (
+              {isProvider ? (
                 <div>
-                  <p>Provider Code: {provider}</p>
+                <p><b>Provider Name:</b> {provider.name}</p>
+                <p><b>Provider Email:</b> <a href={`mailto:${provider.email}`}>{provider.email}</a></p>
+                <p><b>Provider Code:</b> {provider.code}</p>
                 </div>
               ) : (
                 <Form.Group>
                   <Form.Label>Enter Provider Code:</Form.Label>
-                  <Form.Control type="text" placeholder="Provider Code" value={providerCode} onChange={(e) => setProviderCode(e.target.value)} />
+                  <Form.Control type="text" placeholder="Provider Code" value={providerCode} onChange={(e) => setproviderCode(e.target.value)} />
                 </Form.Group>
               )}
             </Modal.Body>
@@ -46,8 +49,8 @@ function ProviderModal({ show, onHide, provider, setProviderData, onSubmit }) {
               <Button variant="secondary" onClick={onHide}>
                 Cancel
               </Button>
-              <Button variant={provider ? "danger" : "primary"} type="submit" disabled={!isProviderCodeEntered}>
-                {provider ? 'Remove' : 'Submit'}
+              <Button variant={isProvider ? "danger" : "primary"} type="submit" disabled={!isproviderCodeEntered}>
+                {isProvider ? 'Remove' : 'Submit'}
               </Button>
             </Modal.Footer>
           </Form>

@@ -43,20 +43,21 @@ function Patient(props) {
   const [patient, setPatient] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   var token;
-
   async function login(){
     const url=window.location.href
+    //console.log("tokenssss")
     //TRY GET
     token=url.substring(
       url.indexOf("=") + 1, 
-      url.indexOf("&"));
+      url.indexOf("&"))
+      //console.log("tok: ",token)
     if (!token){
-      token=localStorage.getItem(token)
+      token=localStorage.getItem("token")
   }
   else{
     localStorage.setItem("token",token)
   }
-   //console.log(token)
+   console.log(token)
 
    //if(!localStorage.getItem("user"))
    try {
@@ -66,7 +67,7 @@ function Patient(props) {
     console.log(response.data)
     setPatient(response.data);
     //localStorage.setItem("userData", JSON.stringify(response.data[0]));
-    console.log(response.data)
+    console.log(patient)
     //navigate('/patient', response.data[0]);
    
     //
@@ -76,7 +77,7 @@ function Patient(props) {
     console.log(error)
     console.log("no token")
     
-   window.location.replace(cognitoUrl);  
+   window.location.replace(cognitoUrl);  //RE-enable
 }
 
    }

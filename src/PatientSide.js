@@ -33,7 +33,7 @@ import Graph from './graph'
 import ProviderModal from './ProviderModal';
 //
 function PatientSide(props) {
-
+  var auth=localStorage.getItem("token")
   const domain=process.env.REACT_APP_API_DOMAIN
   let userData = props.patient
   console.log(userData)
@@ -46,10 +46,12 @@ function PatientSide(props) {
 
   const handleProviderModalSubmit = (value) => {
     console.log("providerData",providerData)
-    if(providerData){
-      axios.delete(domain+'/patient/provider/'+providerData, {
+    console.log("auth",auth)
+    console.log("auth")
+    if(providerData.code){
+      axios.delete(domain+'/patient/provider/'+providerData.code, {
         headers: {
-          Authorization: `${props.auth}`
+          Authorization: `${auth}`
         }
       })
         .then(response => {
@@ -68,13 +70,13 @@ function PatientSide(props) {
       console.log("here",value)
       axios.post(domain+'/patient/provider', { providerCode: value }, {
         headers: {
-          Authorization: `${props.auth}`
+          Authorization: `${auth}`
         }
       })
         .then(response => {
-          console.log(response.data);
-          alert(response.data)
-          setProviderData(value);
+          console.log("response.data",response.data);
+          alert(`Added Dr ${response.data.name}`)
+          setProviderData(response.data);
         })
         .catch(error => {
           console.error(error);

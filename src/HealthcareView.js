@@ -40,7 +40,7 @@ for (let i = 1; i <= numPatients; i++) {
       </Navbar>
     <div>
     <div><br /></div>
-    <h1 style={{textAlign: 'center'}} >Hello {userData.name}, welcome to your Healthcare Provider Portal!</h1> <br/> 
+    <h1 style={{textAlign: 'center'}} >Hello Dr. {userData.name}, welcome to your Healthcare Provider Portal!</h1> <br/> 
     </div>
     <div></div>
   <Container>
