@@ -239,18 +239,22 @@ function PatientSide(props) {
   return (
     <> {/* move modal to the bottom after finishing*/}
     
-      <Navbar bg="primary" variant="dark">
+        <Navbar bg="primary" variant="dark">
         <Container>
-          <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link onClick={Download}>Export Data</Nav.Link>
-            <Nav.Link onClick={() => setShowProviderModal(true)}>Your Provider</Nav.Link>
-
-            <Nav.Link href="/Signout">Sign Out</Nav.Link>
-
-          </Nav>
+        <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
+        <Nav className="me-auto">
+          <Nav.Link onClick={Download}>Export Data</Nav.Link>
+          <Nav.Link onClick={() => setShowProviderModal(true)}>Your Provider</Nav.Link>
+        </Nav>
+        <Nav className="ml-auto">
+        <Nav.Link href="/Signout">Sign Out</Nav.Link>
+        {/*<Nav>****ac94</Nav> */}
+        
+         
+        </Nav>
         </Container>
-      </Navbar>
+        </Navbar>
+
       <div><h1 style={{ textAlign: 'center' }} >Hello {userData.name}, welcome to your Patient Portal!</h1> <br />
       <div>
       {/*<p>Provider data: {providerData}</p>*/}

@@ -10,6 +10,11 @@ import Patient from './Patient';
 import ProviderCode from './ProviderCode';
 
 function HealthcareView(props) { 
+
+  var auth=localStorage.getItem("token")
+  const domain=process.env.REACT_APP_API_DOMAIN
+  let userData=props.provider
+
   const [formData, setFormData] = useState({ Username: '', UserID: '' });
 
   const handleChange = (event) => {
@@ -20,13 +25,42 @@ function HealthcareView(props) {
     event.preventDefault();
     console.log(formData);
   }
-  let userData=props.provider
+
+  const handleViewData = (patientId) => {
+    console.log(`Viewing data for patient ${patientId}`);
+  };
+
+  const handleRemovePatient = (patientId) => {
+    console.log(`Removing patient ${patientId}`);
+  };
+
+
+
+
+
+
+
   console.log(userData)
-  const numPatients=5;
+  const arr=userData.patients
+  const numPatients=arr.length;
+  
   const rows = [];
-for (let i = 1; i <= numPatients; i++) {
-    rows.push(<PatientRow idx={i} key={i} patient={{name:"John Smith",username:"jsmith24",userID:"****4589"}}/>);
+for (let i = 0; i < numPatients; i++) {
+    
+    rows.push(<PatientRow
+      key={i+1}
+      idx={i+1}
+      patient={{name:arr[i].name,email:arr[i].email,userID:arr[0].id}}
+      onViewData={handleViewData}
+      onRemovePatient={handleRemovePatient}
+    />);
 }
+
+
+
+
+
+
 
   return (<>
   <Navbar bg="primary" variant="dark">
@@ -53,8 +87,9 @@ for (let i = 1; i <= numPatients; i++) {
       <thead>
         <tr>
           <th className="text-center align-middle col-sm-1">#</th>
-          <th className="text-center align-middle col-sm-2">Name</th>
-          <th className="text-center align-middle col-sm-2">userID</th>
+          <th className="text-center align-middle col-sm-1">Name</th>
+          <th className="text-center align-middle col-sm-1">userID</th>
+          <th className="text-center align-middle col-sm-2">Email</th>
           <th className="text-center align-middle col-sm-2">Actions</th>
         </tr>
       </thead>
@@ -64,6 +99,7 @@ for (let i = 1; i <= numPatients; i++) {
     </Table></ListGroup.Item>
 
     </ListGroup>
+    
     <Form onSubmit={handleSubmit}>
     <Table striped>
       <thead>
