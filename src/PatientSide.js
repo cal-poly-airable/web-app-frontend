@@ -33,6 +33,7 @@ import Graph from './graph'
 import ProviderModal from './ProviderModal';
 //
 function PatientSide(props) {
+  const isProvider=props.providerPerspective
   var auth=localStorage.getItem("token")
   const domain=process.env.REACT_APP_API_DOMAIN
   let userData = props.patient
@@ -241,13 +242,19 @@ function PatientSide(props) {
     
         <Navbar bg="primary" variant="dark">
         <Container>
-        <Navbar.Brand href="/">Airable Patient</Navbar.Brand>
+        <Navbar.Brand href="/">Airable {(isProvider)?"Healthcare":"Patient"}</Navbar.Brand>
         <Nav className="me-auto">
           <Nav.Link onClick={Download}>Export Data</Nav.Link>
-          <Nav.Link onClick={() => setShowProviderModal(true)}>Your Provider</Nav.Link>
+          {(!isProvider)?
+          <Nav.Link onClick={() => setShowProviderModal(true)}>Your Provider</Nav.Link>:""
+          }
+          
         </Nav>
         <Nav className="ml-auto">
-        <Nav.Link href="/Signout">Sign Out</Nav.Link>
+        {(!isProvider)?
+          <Nav.Link href="/Signout">Sign Out</Nav.Link>:<Nav.Link onClick={()=>window.location.reload()}>Return to Provider Portal</Nav.Link>
+          }
+        
         {/*<Nav>****ac94</Nav> */}
         
          
@@ -255,7 +262,7 @@ function PatientSide(props) {
         </Container>
         </Navbar>
 
-      <div><h1 style={{ textAlign: 'center' }} >Hello {userData.name}, welcome to your Patient Portal!</h1> <br />
+      <div><h1 style={{ textAlign: 'center' }} >You are viewing {userData.name}'s Patient Portal!</h1> <br />
       <div>
       {/*<p>Provider data: {providerData}</p>*/}
       <ProviderModal

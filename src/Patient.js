@@ -115,7 +115,7 @@ function Patient(props) {
   console.log(patient)
   return (
     <>
-      <div><PatientSide patient={patient} auth={token} /></div>
+      <div><PatientSide patient={patient} auth={token} providerPerspective={false}/></div>
 
      </>
   

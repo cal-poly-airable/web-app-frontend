@@ -12,7 +12,6 @@ import Healthcare from './Healthcare';
 import Signout from './Signout';
 import Dev from './Dev';
 import Bruh from './Bruh';
-import PatientView from './PatientView';
 import Login from './login';
 import Oldhome from './oldhome';
 
@@ -31,10 +30,6 @@ const router = createBrowserRouter([
   {
     path: "/healthcare",
     element: <Healthcare />,
-  },
-  {
-    path: "/healthcare/patient",
-    element: <PatientView />
   },
   {
     path: "/oldhome",

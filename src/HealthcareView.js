@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ListGroup from 'react-bootstrap/ListGroup';
 import { ButtonGroup, Col, Container, Row, InputGroup, FormControl } from 'react-bootstrap';
 import { Table, Form } from 'react-bootstrap';
@@ -6,14 +6,24 @@ import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import PatientRow from './PatientRow';
 import { Navbar,Nav, Card } from 'react-bootstrap';
-import Patient from './Patient';
+import PatientSide from './PatientSide';
 import ProviderCode from './ProviderCode';
+import axios from 'axios';
 
 function HealthcareView(props) { 
 
   var auth=localStorage.getItem("token")
   const domain=process.env.REACT_APP_API_DOMAIN
   let userData=props.provider
+
+  console.log(userData)
+  var arr=userData.patients
+  const numPatients=arr.length;
+  const [rows, setRows] = useState([]);
+  const [patient, setPatient] = useState(null);
+
+
+
 
   const [formData, setFormData] = useState({ Username: '', UserID: '' });
 
@@ -26,47 +36,81 @@ function HealthcareView(props) {
     console.log(formData);
   }
 
-  const handleViewData = (patientId) => {
+  const handleViewData = async (patientId) => {
+
+    axios.defaults.headers.common = {'Authorization': `${auth}`} //BEARER
+    const response = await axios.get(domain+'/provider/patient/'+patientId);
+    console.log(response.data)
+    setPatient(response.data);
+    
     console.log(`Viewing data for patient ${patientId}`);
+    console.log(patient)
   };
 
+
+
+  
   const handleRemovePatient = (patientId) => {
+    // /provider/patient/
+    axios.delete(domain+'/provider/patient/'+patientId, {
+      headers: {
+        Authorization: `${auth}`
+      }
+    })
+      .then(response => {
+        console.log(response.data);
+        alert(response.data)
+        console.log("arr",arr)
+        arr=arr.filter(patient => patient.id != patientId)
+        const newRows = arr.map((patient, idx) => (
+          <PatientRow
+            key={idx + 1}
+            idx={idx + 1}
+            patient={{ name: patient.name, email: patient.email, userID: patient.id }}
+            onViewData={handleViewData}
+            onRemovePatient={handleRemovePatient}
+          />
+        ));
+        setRows(newRows);
+        console.log("arr",arr)
+      })
+      .catch(error => {
+        console.error(error);
+        alert("Incorrect Jawn")
+        
+      });
     console.log(`Removing patient ${patientId}`);
   };
 
 
 
-
-
-
-
-  console.log(userData)
-  const arr=userData.patients
-  const numPatients=arr.length;
+  useEffect(() => {
+    console.log("arrrr",arr)
+    const newRows = arr.map((patient, idx) => (
+      <PatientRow
+        key={idx + 1}
+        idx={idx + 1}
+        patient={{ name: `${patient.name} `, email: patient.email, userID: patient.id }}
+        onViewData={handleViewData}
+        onRemovePatient={handleRemovePatient}
+      />
+    ));
+    setRows(newRows);
+  }, []);
+  if(patient){
+    return (
+      <>
+        <PatientSide patient={patient} auth={auth} providerPerspective={true}/>
   
-  const rows = [];
-for (let i = 0; i < numPatients; i++) {
+       </>
     
-    rows.push(<PatientRow
-      key={i+1}
-      idx={i+1}
-      patient={{name:arr[i].name,email:arr[i].email,userID:arr[0].id}}
-      onViewData={handleViewData}
-      onRemovePatient={handleRemovePatient}
-    />);
-}
-
-
-
-
-
-
-
+    );}
+    else{
   return (<>
   <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="/">Airable Healthcare</Navbar.Brand>
-          <Nav className="me-auto">
+          <Nav className="ml-auto">
             <Nav.Link href="/Signout">Sign Out</Nav.Link>
             
           </Nav>
@@ -101,7 +145,7 @@ for (let i = 0; i < numPatients; i++) {
     </ListGroup>
     
     <Form onSubmit={handleSubmit}>
-    <Table striped>
+    {/*<Table striped>
       <thead>
         <tr>
           <th><Form.Group controlId="formUsername">
@@ -116,13 +160,14 @@ for (let i = 0; i < numPatients; i++) {
                 Add Patient
               </Button></th>
         </tr>
-      </thead></Table>
+      </thead></Table>*/}
               
             </Form>
+            <br/>
             <ProviderCode code={userData.providerCode}/>
     </Container>
     </>
-  );
+  );}
 };
 
 export default HealthcareView;

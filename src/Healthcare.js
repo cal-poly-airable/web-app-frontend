@@ -43,7 +43,7 @@ function Healthcare() {
 
 
   const domain=process.env.REACT_APP_API_DOMAIN//"https://api.airable.org"//"http://localhost:8080"//process.env.REACT_APP_API_DOMAIN
-  const cognitoUrl=process.env.REACT_APP_COGNITO_URL+process.env.REACT_APP_HC_COGNITO_REDIRECT
+  const HCcognitoUrl=process.env.REACT_APP_HC_COGNITO_URL+process.env.REACT_APP_HC_COGNITO_REDIRECT
   const queryString = window.location.search;
   const { state } = useLocation();
   const [provider, setProvider] = useState(null);
@@ -83,7 +83,7 @@ function Healthcare() {
     console.log(error)
     console.log("no token")
     
-   window.location.replace(cognitoUrl);  
+   window.location.replace(HCcognitoUrl);  
 }
 
    }

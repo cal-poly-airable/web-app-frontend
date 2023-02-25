@@ -18,7 +18,6 @@ import Healthcare from './Healthcare';
 import Signout from './Signout';
 import Dev from './Dev';
 import Bruh from './Bruh';
-import PatientView from './PatientView';
 import Login from './login';
 
 function MyApp() {
@@ -37,10 +36,6 @@ function MyApp() {
              {
                path: "/healthcare",
                element: <Healthcare/>,
-             },
-             {
-               path: "/healthcare/patient",
-               element: <PatientView/>
              },
              {
                path: "/oldhome",
