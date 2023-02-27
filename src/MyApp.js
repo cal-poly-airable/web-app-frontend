@@ -17,8 +17,8 @@ import Oldhome from './oldhome';
 import Healthcare from './Healthcare';
 import Signout from './Signout';
 import Dev from './Dev';
-import Bruh from './Bruh';
 import Login from './login';
+import Home from './home'
 
 function MyApp() {
 
@@ -50,6 +50,10 @@ function MyApp() {
             {
               path: "/dev",
               element: <Dev/>
+            },
+            {
+              path: "/home",
+              element: <Home/>
             }
           ]);
           
@@ -61,9 +65,6 @@ function MyApp() {
           
   }
 
-const Home = () =>(
-   <div><h1>Home Page</h1></div>
-);
 
 export default MyApp;
 /** */

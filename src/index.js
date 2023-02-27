@@ -11,9 +11,9 @@ import Patient from './Patient';
 import Healthcare from './Healthcare';
 import Signout from './Signout';
 import Dev from './Dev';
-import Bruh from './Bruh';
 import Login from './login';
 import Oldhome from './oldhome';
+import Home from './home'
 
 const container = document.getElementById('root');
 const root = ReactDOMClient.createRoot(container);
@@ -21,7 +21,7 @@ const root = ReactDOMClient.createRoot(container);
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <Home />,
   },
   {
     path: "/patient",
@@ -33,7 +33,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/oldhome",
-    element: <Oldhome />,
+    element: <Root />,
   },
   {
     path: "/login",

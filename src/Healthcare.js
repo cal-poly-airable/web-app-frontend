@@ -1,5 +1,4 @@
 import { Navbar,Nav, Card } from 'react-bootstrap';
-import Bruh from './Bruh.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css'
@@ -24,7 +23,6 @@ import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Tab from 'react-bootstrap/Tab';
-import VerticalExample from './buttonGroup.js'
 
 //
 import ToggleButton from 'react-bootstrap/ToggleButton';

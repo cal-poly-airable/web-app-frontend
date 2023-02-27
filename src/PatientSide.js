@@ -22,7 +22,6 @@ import Col from 'react-bootstrap/Col';
 import Table from 'react-bootstrap/Table';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Tab from 'react-bootstrap/Tab';
-import VerticalExample from './buttonGroup.js'
 
 //
 import ToggleButton from 'react-bootstrap/ToggleButton';
@@ -128,6 +127,9 @@ function PatientSide(props) {
   //I need to filter and map
   console.log(radioValue2, cutoff)
   var vitals = userData.vitals.filter(vital => vital.time > lastTime - cutoff)
+
+
+
   console.log(vitals)
 
   //HRdata=HRdata.map({element: s, el:t }->{x:new Date(element.time),y:element.O2})
@@ -137,6 +139,10 @@ function PatientSide(props) {
     HRdata[i] = ({ x: new Date(vitals[i].time), y: vitals[i].HR })
     O2data[i] = ({ x: new Date(vitals[i].time), y: vitals[i].O2 })
   }
+
+  //SORT by time so that it is decending
+  vitals.sort((a, b) => b.time - a.time);
+
 
   const radios = [
     { name: 'Heart Rate', value: '1' },
