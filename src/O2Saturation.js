@@ -54,7 +54,7 @@ function O2Saturation(props) {
         <div>
           <h1>{props.saturation}%</h1>
           {(props.isProvider)?
-          <Button variant="primary" onClick={handleEditClick}>Edit</Button>:null}
+          <Button variant="primary" onClick={handleEditClick}>Update</Button>:null}
         </div>
       }
     </div>
