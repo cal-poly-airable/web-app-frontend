@@ -268,7 +268,7 @@ function PatientSide(props) {
         </Container>
         </Navbar>
 
-      <div><h1 style={{ textAlign: 'center' }} >You are viewing {userData.name}'s Patient Portal!</h1> <br />
+      <div><h1 style={{ textAlign: 'center' }} >{(!isProvider)?`Hello ${userData.name}, Welcome to your Patient Portal!`:`You are viewing ${userData.name}'s Patient Portal!`}</h1> <br />
       <div>
       {/*<p>Provider data: {providerData}</p>*/}
       <ProviderModal
