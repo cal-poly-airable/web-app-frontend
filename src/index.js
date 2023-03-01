@@ -14,6 +14,7 @@ import Dev from './Dev';
 import Login from './login';
 import Oldhome from './oldhome';
 import Home from './home'
+import O2Saturation from './O2Saturation'
 
 const container = document.getElementById('root');
 const root = ReactDOMClient.createRoot(container);
@@ -53,3 +54,4 @@ root.render(
 
     <RouterProvider router={router} />
 );
+//O2Saturation

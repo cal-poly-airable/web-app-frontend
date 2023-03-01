@@ -12,7 +12,7 @@ import {
   RouterProvider,
   Route,
 } from "react-router-dom";
-import { Navbar, Nav, Card,Modal } from 'react-bootstrap';
+import { Navbar, Nav, Card,Modal,NavItem, Toast } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Stack from 'react-bootstrap/Stack';
@@ -30,6 +30,9 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import MyCard from './MyCard';
 import Graph from './graph'
 import ProviderModal from './ProviderModal';
+
+import O2Saturation from './O2Saturation';
+import  CopyButton from './copyButton';
 //
 function PatientSide(props) {
   const isProvider=props.providerPerspective
@@ -37,6 +40,45 @@ function PatientSide(props) {
   const domain=process.env.REACT_APP_API_DOMAIN
   let userData = props.patient
   console.log(userData)
+
+
+  const [showAlert, setShowAlert] = useState(false);
+
+  const handleCopyUserId = () => {
+    navigator.clipboard.writeText(userData.subject);
+    setShowAlert(true);
+    setTimeout(() => setShowAlert(false), 2000);
+  };
+  //
+  
+
+  const [saturation, setSaturation] = useState(userData.assistance);
+
+  const handleSaturationChange = (value) => {
+
+    console.log("Yehaw!!",value)
+    axios.post(domain+'/patient/saturation', { assistance: value }, {
+      headers: {
+        Authorization: `${auth}`,
+      }
+    })
+      .then(response => {
+        console.log("response.data",response.data);
+       // alert(`Added Dr ${response.data.name}`)
+       setSaturation(value);
+      })
+      .catch(error => {
+        console.error(error);
+        alert("Incorrect Jawn")
+      });
+
+
+  }
+
+
+
+
+  //
 
 
 ///
@@ -257,8 +299,9 @@ function PatientSide(props) {
           
         </Nav>
         <Nav className="ml-auto">
-        {(!isProvider)?
-          <Nav.Link href="/Signout">Sign Out</Nav.Link>:<Nav.Link onClick={()=>window.location.reload()}>Return to Provider Portal</Nav.Link>
+        {(!isProvider)? //() => {navigator.clipboard.writeText(userData.subject);alert("Copied!")}
+        <><NavItem onClick={handleCopyUserId}><Nav.Link>Copy User ID</Nav.Link></NavItem>
+          <Nav.Link href="/Signout">Sign Out</Nav.Link></>:<Nav.Link onClick={()=>window.location.reload()}>Return to Provider Portal</Nav.Link>
           }
         
         {/*<Nav>****ac94</Nav> */}
@@ -267,8 +310,15 @@ function PatientSide(props) {
         </Nav>
         </Container>
         </Navbar>
-
-      <div><h1 style={{ textAlign: 'center' }} >You are viewing {userData.name}'s Patient Portal!</h1> <br />
+        {showAlert && (
+        <div
+          className="alert alert-success position-fixed top-0 end-0 m-3"
+          role="alert"
+        >
+          Copied!
+        </div>
+      )}
+      <div><h1 style={{ textAlign: 'center' }} >{(!isProvider)?`Hello ${userData.name}, Welcome to your Patient Portal!`:`You are viewing ${userData.name}'s Patient Portal!`}</h1> <br />
       <div>
       {/*<p>Provider data: {providerData}</p>*/}
       <ProviderModal
@@ -280,14 +330,11 @@ function PatientSide(props) {
       />
     </div>
 
-
-
-
         <div>
 
           <Row>
 
-            <Col sm={2}>
+            <Col sm={3}>
               <div><br /></div>
               <div><br /></div>
               <div><br /></div>
@@ -327,9 +374,11 @@ function PatientSide(props) {
                     </ToggleButton>
                   ))}
                 </ButtonGroup>
-              </div>
+                
+              </div><br/><O2Saturation saturation={saturation} setSaturation={handleSaturationChange} isProvider={isProvider}/>
+              
             </Col>
-            <Col sm={10}>
+            <Col sm={9}>
             <CanvasJSChart options={options}/>
 
             </Col>
