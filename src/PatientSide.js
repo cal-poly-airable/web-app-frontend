@@ -57,7 +57,7 @@ function PatientSide(props) {
   const handleSaturationChange = (value) => {
 
     console.log("Yehaw!!",value)
-    axios.post(domain+'/patient/saturation', { assistance: value }, {
+    axios.post(domain+`/patient/${userData.subject}/saturation`, { assistance: value }, {
       headers: {
         Authorization: `${auth}`,
       }
