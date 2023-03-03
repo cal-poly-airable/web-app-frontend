@@ -1,9 +1,7 @@
-import Button from 'react-bootstrap/Button';
+
 import Card from 'react-bootstrap/Card';
 import { Row,Col } from 'react-bootstrap';
-import Image from 'react-bootstrap/Image'
 import React, { Component } from "react";
-import { render } from "react-dom";
 function MyCard(props) {
 
     return(

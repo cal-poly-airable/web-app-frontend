@@ -1,6 +1,5 @@
-import logo from './logo.svg';
+
 import './App.css';
-import UserPool from './UserPool';
 import React, {useState} from 'react';
 import { Container } from 'react-bootstrap';
 

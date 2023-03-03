@@ -3,33 +3,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css'
 import './custom-color.css'
-import { CanvasJSChart } from 'canvasjs-react-charts'
-import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import React, { useState, useEffect, useRef } from 'react';
-import jwt_decode from "jwt-decode";
-import ReactDOM from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-  Route,
-} from "react-router-dom";
-import Button from 'react-bootstrap/Button';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Stack from 'react-bootstrap/Stack';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Table from 'react-bootstrap/Table';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Tab from 'react-bootstrap/Tab';
 
-//
-import ToggleButton from 'react-bootstrap/ToggleButton';
-import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import MyCard from './MyCard';
-import PatientSide from './PatientSide';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useLocation,useParams } from 'react-router-dom';
 //HC
@@ -42,8 +19,6 @@ function Healthcare() {
 
   const domain=process.env.REACT_APP_API_DOMAIN//"https://api.airable.org"//"http://localhost:8080"//process.env.REACT_APP_API_DOMAIN
   const HCcognitoUrl=process.env.REACT_APP_HC_COGNITO_URL+process.env.REACT_APP_HC_COGNITO_REDIRECT
-  const queryString = window.location.search;
-  const { state } = useLocation();
   const [provider, setProvider] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   var token;
