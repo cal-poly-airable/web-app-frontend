@@ -11,7 +11,7 @@ export default function Signout() {
   useEffect(() => {
     loginStatus()
       .then((result) => console.log(result))
-      .then((result) => {
+      .then(() => {
         //setTimeout(window.location.replace("/home"),500)
         window.setTimeout(function () {
           window.location.href = "/";

@@ -1,16 +1,13 @@
-import React from 'react';
-import ReactDOMClient from 'react-dom/client';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
-import Patient from './Patient';
-import Healthcare from './Healthcare';
-import Signout from './Signout';
-import Dev from './Dev';
-import Home from './home'
+import React from "react";
+import ReactDOMClient from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Patient from "./Patient";
+import Healthcare from "./Healthcare";
+import Signout from "./Signout";
+import Dev from "./Dev";
+import Home from "./Home";
 
-const container = document.getElementById('root');
+const container = document.getElementById("root");
 const root = ReactDOMClient.createRoot(container);
 
 const router = createBrowserRouter([
@@ -28,16 +25,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/signout",
-    element: <Signout />
+    element: <Signout />,
   },
   {
     path: "/dev",
-    element: <Dev />
-  }
+    element: <Dev />,
+  },
 ]);
 
-root.render(
-
-    <RouterProvider router={router} />
-);
+root.render(<RouterProvider router={router} />);
 //O2Saturation
