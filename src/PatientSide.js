@@ -29,7 +29,6 @@ function PatientSide(props) {
     setShowAlert(true);
     setTimeout(() => setShowAlert(false), 2000);
   };
-  
 
   const [saturation, setSaturation] = useState(userData.assistance);
 
