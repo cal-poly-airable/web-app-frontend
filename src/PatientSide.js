@@ -126,8 +126,8 @@ function PatientSide(props) {
   //using time from last recorded?
 
   /// SET Options dont calculate based on button!!
-  var lastTime = userData.vitals[userData.vitals.length - 1].time;
-  lastTime = Date.now();
+  //var lastTime = userData.vitals[userData.vitals.length - 1].time;
+  var lastTime = Date.now();
   console.log(lastTime);
   var cutoff;
   switch (radioValue2) {
@@ -232,11 +232,11 @@ function PatientSide(props) {
     link.href = url;
     link.click();
   }
-
+  const c1val=(userData.vitals[userData.vitals.length - 1])?`${userData.vitals[userData.vitals.length - 1].HR} BPM`:"N/A"
   const C1 = {
     img: "heart-beat.svg",
     subtitle: "Heart Rate (Latest)",
-    value: `${userData.vitals[userData.vitals.length - 1].HR} BPM`,
+    value: c1val,
     colSize: 7,
   };
   var cnt = 0;
@@ -260,10 +260,11 @@ function PatientSide(props) {
     value: `${avgHR}`,
     colSize: 8,
   };
+  const c3val=(userData.vitals[userData.vitals.length - 1])?`${userData.vitals[userData.vitals.length - 1].O2}% Sat.`:"N/A"
   const C3 = {
     img: "O2.png",
     subtitle: "O2 Saturation (Latest)",
-    value: `${userData.vitals[userData.vitals.length - 1].O2}% Sat.`,
+    value: c3val,
     colSize: 7,
   };
 
