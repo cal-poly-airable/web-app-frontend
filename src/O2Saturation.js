@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Form, Button, ButtonGroup } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Form, Button, ButtonGroup } from "react-bootstrap";
 
 function O2Saturation(props) {
   const [editing, setEditing] = useState(false);
@@ -33,7 +33,7 @@ function O2Saturation(props) {
   return (
     <div className="saturation-box text-center">
       <h6 className="mb-3">Target O2 Saturation</h6>
-      {editing ?
+      {editing ? (
         <Form onSubmit={handleSubmit}>
           <Form.Group>
             <Form.Control
@@ -44,19 +44,32 @@ function O2Saturation(props) {
               value={newSaturation}
               onChange={handleInputChange}
             />
-          </Form.Group><br/>
+          </Form.Group>
+          <br />
           <ButtonGroup>
-            <Button variant="success" type="submit" className="mr-3" disabled={isSubmitDisabled}>Submit</Button>
-            <Button variant="danger" onClick={handleCancelClick}>Cancel</Button>
+            <Button
+              variant="success"
+              type="submit"
+              className="mr-3"
+              disabled={isSubmitDisabled}
+            >
+              Submit
+            </Button>
+            <Button variant="danger" onClick={handleCancelClick}>
+              Cancel
+            </Button>
           </ButtonGroup>
         </Form>
-        :
+      ) : (
         <div>
           <h1>{props.saturation}%</h1>
-          {(props.isProvider)?
-          <Button variant="primary" onClick={handleEditClick}>Update</Button>:null}
+          {props.isProvider ? (
+            <Button variant="primary" onClick={handleEditClick}>
+              Update
+            </Button>
+          ) : null}
         </div>
-      }
+      )}
     </div>
   );
 }
