@@ -14,7 +14,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import MyCard from "./MyCard";
 import ProviderModal from "./ProviderModal";
 import O2Saturation from "./O2Saturation";
-//
+
 function PatientSide(props) {
   const isProvider = props.providerPerspective;
   var auth = localStorage.getItem("token");
@@ -29,7 +29,7 @@ function PatientSide(props) {
     setShowAlert(true);
     setTimeout(() => setShowAlert(false), 2000);
   };
-  //
+  
 
   const [saturation, setSaturation] = useState(userData.assistance);
 
@@ -232,7 +232,9 @@ function PatientSide(props) {
     link.href = url;
     link.click();
   }
-  const c1val=(userData.vitals[userData.vitals.length - 1])?`${userData.vitals[userData.vitals.length - 1].HR} BPM`:"N/A"
+  const c1val = userData.vitals[userData.vitals.length - 1]
+    ? `${userData.vitals[userData.vitals.length - 1].HR} BPM`
+    : "N/A";
   const C1 = {
     img: "heart-beat.svg",
     subtitle: "Heart Rate (Latest)",
@@ -260,7 +262,9 @@ function PatientSide(props) {
     value: `${avgHR}`,
     colSize: 8,
   };
-  const c3val=(userData.vitals[userData.vitals.length - 1])?`${userData.vitals[userData.vitals.length - 1].O2}% Sat.`:"N/A"
+  const c3val = userData.vitals[userData.vitals.length - 1]
+    ? `${userData.vitals[userData.vitals.length - 1].O2}% Sat.`
+    : "N/A";
   const C3 = {
     img: "O2.png",
     subtitle: "O2 Saturation (Latest)",
