@@ -9,7 +9,7 @@ import PatientSide from "./PatientSide";
 import ProviderCode from "./ProviderCode";
 import axios from "axios";
 
-function HealthcareSide(props) {
+function HealthcareSide(props) { //UI for Healthcare Providers
   var auth = localStorage.getItem("token");
   const domain = process.env.REACT_APP_API_DOMAIN;
   let userData = props.provider;
@@ -23,13 +23,13 @@ function HealthcareSide(props) {
   };
 
   const handleViewData = async (patientId) => {
-    axios.defaults.headers.common = { Authorization: `${auth}` }; //BEARER
+    axios.defaults.headers.common = { Authorization: `${auth}` }; //Note that the Authorization Value is just the token, not 'Bearer {Token}'
     const response = await axios.get(domain + "/provider/patient/" + patientId);
-    console.log(response.data);
+    //console.log(response.data);
     setPatient(response.data);
 
-    console.log(`Viewing data for patient ${patientId}`);
-    console.log(patient);
+    //console.log(`Viewing data for patient ${patientId}`);
+    //console.log(patient);
   };
 
   const handleRemovePatient = (patientId) => {

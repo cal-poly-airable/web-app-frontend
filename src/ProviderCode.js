@@ -1,6 +1,6 @@
 import React from "react";
 import { Badge, OverlayTrigger, Popover, Button } from "react-bootstrap";
-import Copy from "./CopyButton";
+import Copy from "./copyButton";
 
 function ProviderCode(props) {
   const providerCode = props.code;

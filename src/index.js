@@ -5,12 +5,12 @@ import Patient from "./Patient";
 import Healthcare from "./Healthcare";
 import Signout from "./Signout";
 import Dev from "./Dev";
-import Home from "./Home";
+import Home from "./home";
 
 const container = document.getElementById("root");
 const root = ReactDOMClient.createRoot(container);
 
-const router = createBrowserRouter([
+const router = createBrowserRouter([ //create/edit routes here
   {
     path: "/",
     element: <Home />,

@@ -4,17 +4,17 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
-//
-function PatientRow(props) {
+
+function PatientRow(props) { //A single Patient Row in the table of patients for healthcare providers
   const handleViewData = () => {
-    props.onViewData(props.patient.userID);
+    props.onViewData(props.patient.userID); //call function that will request patients data from the backend
   };
 
   const handleRemovePatient = () => {
-    props.onRemovePatient(props.patient.userID);
+    props.onRemovePatient(props.patient.userID); //call function that will unlink the provider and this patient
   };
   const id = props.patient.userID;
-  const uId = "****" + id.substring(id.length - 4);
+  const uId = "****" + id.substring(id.length - 4); //display the last 4 digits of the patient's userID
   return (
     <tr>
       <td className="text-center align-middle">{props.idx}</td>

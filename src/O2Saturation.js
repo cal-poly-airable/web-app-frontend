@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button, ButtonGroup } from "react-bootstrap";
 
-function O2Saturation(props) {
+function O2Saturation(props) { //Set/View O2 Saturation Component
   const [editing, setEditing] = useState(false);
   const [newSaturation, setNewSaturation] = useState("");
 
@@ -9,22 +9,22 @@ function O2Saturation(props) {
     setNewSaturation(event.target.value);
   };
 
-  const handleEditClick = () => {
+  const handleEditClick = () => { //Allow user to edit saturation
     setEditing(true);
   };
 
-  const handleCancelClick = () => {
+  const handleCancelClick = () => { //Reverts to Previously saved saturation
     setEditing(false);
     setNewSaturation("");
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (newSaturation < 85 || newSaturation > 100) {
+    if (newSaturation < 85 || newSaturation > 100) { //Target Saturation Data Validation
       alert("Please enter a valid saturation level between 85 and 100");
       setNewSaturation("");
     } else {
-      props.setSaturation(newSaturation);
+      props.setSaturation(newSaturation); //send newSat to function that will call the API to update the backend
       setNewSaturation("");
       setEditing(false);
     }

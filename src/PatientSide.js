@@ -16,23 +16,23 @@ import ProviderModal from "./ProviderModal";
 import O2Saturation from "./O2Saturation";
 
 function PatientSide(props) {
-  const isProvider = props.providerPerspective;
-  var auth = localStorage.getItem("token");
-  const domain = process.env.REACT_APP_API_DOMAIN;
-  let userData = props.patient;
+  const isProvider = props.providerPerspective; //True if you are viewing from healthcare perspective
+  var auth = localStorage.getItem("token"); //cognito issued JWT
+  const domain = process.env.REACT_APP_API_DOMAIN; //domain for our backend
+  let userData = props.patient; //patient data
   console.log(userData);
 
-  const [showAlert, setShowAlert] = useState(false);
+  const [showAlert, setShowAlert] = useState(false); //state for userID copied alert
 
-  const handleCopyUserId = () => {
+  const handleCopyUserId = () => { 
     navigator.clipboard.writeText(userData.subject);
     setShowAlert(true);
     setTimeout(() => setShowAlert(false), 2000);
   };
 
-  const [saturation, setSaturation] = useState(userData.assistance);
+  const [saturation, setSaturation] = useState(userData.assistance); //Target O2 Saturation State
 
-  const handleSaturationChange = (value) => {
+  const handleSaturationChange = (value) => { //Handles target sat. change (currently only enabled for healthcare providers)
     axios
       .post(
         domain + `/patient/${userData.subject}/saturation`,
@@ -124,10 +124,12 @@ function PatientSide(props) {
   });
   //using time from last recorded?
 
-  /// SET Options dont calculate based on button!!
-  //var lastTime = userData.vitals[userData.vitals.length - 1].time;
+
   var lastTime = Date.now();
-  console.log(lastTime);
+  //lastTime = userData.vitals[userData.vitals.length - 1].time; 
+  //uncomment above to use the last vitals measurement as the cuttoff for graph & Table
+
+  //console.log(lastTime);
   var cutoff;
   switch (radioValue2) {
     case "1":
@@ -141,15 +143,12 @@ function PatientSide(props) {
       break;
   }
   ///
-  //I need to filter and map
-  console.log(radioValue2, cutoff);
+  //console.log(radioValue2, cutoff);
   var vitals = userData.vitals.filter(
     (vital) => vital.time > lastTime - cutoff
   );
 
-  console.log(vitals);
-
-  //HRdata=HRdata.map({element: s, el:t }->{x:new Date(element.time),y:element.O2})
+  //console.log(vitals);
 
   for (var i = 0; i < vitals.length; i++) {
     HRdata[i] = { x: new Date(vitals[i].time), y: vitals[i].HR };
@@ -211,7 +210,7 @@ function PatientSide(props) {
     ],
   };
 
-  function Download() {
+  function Download() { //Create a CSV of all data values
     var csvString = [["Date & Time", "Heart Rate", "O2 Saturation"]];
     var a = userData.vitals.map((item) => [
       new Date(item.time).toLocaleString("en-US").replace(",", ""),
@@ -231,6 +230,9 @@ function PatientSide(props) {
     link.href = url;
     link.click();
   }
+
+  //////Generate/Format Card Data (Averages & Latest Vitals)
+
   const c1val = userData.vitals[userData.vitals.length - 1]
     ? `${userData.vitals[userData.vitals.length - 1].HR} BPM`
     : "N/A";
@@ -243,7 +245,7 @@ function PatientSide(props) {
   var cnt = 0;
   var avgHR = 0;
   var avgO2 = 0;
-  vitals.forEach((element) => {
+  vitals.forEach((element) => { //calculate averages
     avgHR += element.HR;
     avgO2 += element.O2;
     cnt++;
@@ -277,6 +279,7 @@ function PatientSide(props) {
     value: `${avgO2}`,
     colSize: 8,
   };
+  //////
   return (
     <>
       {" "}
@@ -297,7 +300,7 @@ function PatientSide(props) {
             )}
           </Nav>
           <Nav className="ml-auto">
-            {!isProvider ? ( //() => {navigator.clipboard.writeText(userData.subject);alert("Copied!")}
+            {!isProvider ? (
               <>
                 <NavItem onClick={handleCopyUserId}>
                   <Nav.Link>Copy User ID</Nav.Link>

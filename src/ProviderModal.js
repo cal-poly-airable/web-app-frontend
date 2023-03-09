@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
 function ProviderModal({ show, onHide, provider, onSubmit }) {
-  //setProviderData, removed
   const [providerCode, setproviderCode] = useState("");
 
   function handleSubmit(event) {

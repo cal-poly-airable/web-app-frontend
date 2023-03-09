@@ -46,20 +46,6 @@ function Patient() {
     }
   }
 
-  //////REFRESH
-  /*
-  async function refreshData() {
-    const response = await axios.get(domain + '/users/' + user.sub);
-    console.log("Refreshed Respone:")
-    console.log(response)
-    var userList = response.data.users_list;
-    userData = userList[0]
-    console.log(userData)
-    localStorage.setItem("userData", JSON.stringify(userData));
-  }*/
-
-  ////////
-
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);

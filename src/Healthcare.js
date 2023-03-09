@@ -3,12 +3,11 @@ import "./App.css";
 import "./custom-color.css";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-
 import "bootstrap/dist/css/bootstrap.min.css";
 import HealthcareSide from "./HealthcareSide.js";
 
 function Healthcare() {
-  const domain = process.env.REACT_APP_API_DOMAIN; //"https://api.airable.org"//"http://localhost:8080"//process.env.REACT_APP_API_DOMAIN
+  const domain = process.env.REACT_APP_API_DOMAIN;
   const HCcognitoUrl =
     process.env.REACT_APP_HC_COGNITO_URL +
     process.env.REACT_APP_HC_COGNITO_REDIRECT;

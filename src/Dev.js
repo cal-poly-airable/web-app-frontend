@@ -2,11 +2,11 @@ import "./App.css";
 import React from "react";
 import { Container } from "react-bootstrap";
 function Dev() {
-  return (
+  return ( 
     <div className="App">
       <Container>
         <form
-          action={process.env.REACT_APP_API_DOMAIN + "/dev/upload"}
+          action={process.env.REACT_APP_API_DOMAIN + "/dev/upload"} //submits a file and a password to this endpoint
           encType="multipart/form-data"
           method="post"
         >

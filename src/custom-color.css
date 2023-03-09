@@ -1,4 +1,5 @@
-.btn-outline-dark {
+/* Custom Color for O2 Saturation */
+.btn-outline-dark { 
   --bs-btn-color: #8b0000 !important;
   --bs-btn-border-color: #8b0000 !important;
   --bs-btn-hover-color: #fff !important;

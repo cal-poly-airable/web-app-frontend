@@ -14,12 +14,11 @@ function Home() {
     <div className="App">
       <header className="App-header">
         <img
-          src="https://d3oia8etllorh5.cloudfront.net/us-east-1_2nErCCJnl/ALL/20221026062015/assets/images/image.jpg"
+          src="https://d3oia8etllorh5.cloudfront.net/us-east-1_2nErCCJnl/ALL/20221026062015/assets/images/image.jpg" //Store this in Project
           alt="Airable Logo"
         />
         <h1>Airable</h1>
         <p>Your Portable Partner for Healthy Breathing</p>{" "}
-        {/*Your portable respiratory partner.*/}
         <Container>
           <Row>
             <Col>
