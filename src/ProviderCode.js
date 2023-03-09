@@ -2,7 +2,7 @@ import React from "react";
 import { Badge, OverlayTrigger, Popover, Button } from "react-bootstrap";
 import Copy from "./copyButton";
 
-function ProviderCode(props) {
+function ProviderCode(props) { //shows the provider's code in the health care dashboard and allow them to copy it
   const providerCode = props.code;
 
   const popover = (

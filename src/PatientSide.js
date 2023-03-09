@@ -61,7 +61,7 @@ function PatientSide(props) {
   const [providerData, setProviderData] = useState(tempProv);
   const [showProviderModal, setShowProviderModal] = useState(false);
 
-  const handleProviderModalSubmit = (value) => {
+  const handleProviderModalSubmit = (value) => { //handles updating Provider Patient Link
     console.log("providerData", providerData);
     console.log("auth", auth);
     console.log("auth");
@@ -116,8 +116,8 @@ function PatientSide(props) {
 
   var HRdata = [];
   var O2data = [];
-  const [radioValue, setRadioValue] = useState("1");
-  const [radioValue2, setRadioValue2] = useState("1");
+  const [radioValue, setRadioValue] = useState("1"); //Default to HR Data
+  const [radioValue2, setRadioValue2] = useState("1"); //Default to Day Time Window
 
   userData.vitals.sort((a, b) => {
     return a.time - b.time;
@@ -182,9 +182,8 @@ function PatientSide(props) {
       break;
   }
 
-  //do x value format
   var Yaxis = radioValue == 1 ? " BPM" : "% Sat.";
-  var options = {
+  var options = { //Canvas.js Chart Options
     animationEnabled: true,
 
     title: {
@@ -282,8 +281,6 @@ function PatientSide(props) {
   //////
   return (
     <>
-      {" "}
-      {/* move modal to the bottom after finishing*/}
       <Navbar bg="primary" variant="dark">
         <Container>
           <Navbar.Brand href="/">
@@ -312,8 +309,6 @@ function PatientSide(props) {
                 Return to Provider Portal
               </Nav.Link>
             )}
-
-            {/*<Nav>****ac94</Nav> */}
           </Nav>
         </Container>
       </Navbar>
@@ -446,7 +441,7 @@ function PatientSide(props) {
             </tbody>
           </Table>
         </div>
-      </div>{" "}
+      </div>
     </>
   );
 }

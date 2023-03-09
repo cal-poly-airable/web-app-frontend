@@ -68,8 +68,7 @@ function HealthcareSide(props) { //UI for Healthcare Providers
   };
 
   useEffect(() => {
-    console.log("arrrr", arr);
-    const newRows = arr.map((patient, idx) => (
+    const newRows = arr.map((patient, idx) => ( //load Patient data into rows
       <PatientRow
         key={idx + 1}
         idx={idx + 1}

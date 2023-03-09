@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 
-function ProviderModal({ show, onHide, provider, onSubmit }) {
+function ProviderModal({ show, onHide, provider, onSubmit }) { 
+  //Modal that launches on click to link your account to a provider or show/delete the linked provider if one is already linked
   const [providerCode, setproviderCode] = useState("");
 
-  function handleSubmit(event) {
+  function handleSubmit(event) { //Not Being used and is actually being overriten in PatientSide.js
     event.preventDefault();
     if (provider) {
       onSubmit(providerCode);

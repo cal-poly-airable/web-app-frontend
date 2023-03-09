@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import HealthcareSide from "./HealthcareSide.js";
 
 function Healthcare() {
-  const domain = process.env.REACT_APP_API_DOMAIN;
+  const domain = process.env.REACT_APP_API_DOMAIN; 
   const HCcognitoUrl =
     process.env.REACT_APP_HC_COGNITO_URL +
     process.env.REACT_APP_HC_COGNITO_REDIRECT;
@@ -18,7 +18,7 @@ function Healthcare() {
   async function login() {
     const url = window.location.href;
     //TRY GET
-    token = url.substring(url.indexOf("=") + 1, url.indexOf("&"));
+    token = url.substring(url.indexOf("=") + 1, url.indexOf("&")); //grab the JWT from the URL
     if (!token) {
       token = localStorage.getItem(token);
     } else {
@@ -43,7 +43,7 @@ function Healthcare() {
       console.log(error);
       console.log("no token");
 
-      window.location.replace(HCcognitoUrl);
+      window.location.replace(HCcognitoUrl); //If the backend is not running this will force a loop
     }
   }
 
@@ -56,7 +56,7 @@ function Healthcare() {
     fetchData();
   }, []);
 
-  if (!isLoading && provider) {
+  if (!isLoading && provider) { //Load Healthcare UI
     console.log(provider);
     return (
       <>
