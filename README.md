@@ -1,4 +1,4 @@
-# web-app-backend
+# web-app-frontend
 
 [View Full Documentation](https://github.com/cal-poly-airable/resources/blob/main/README.md)
 
