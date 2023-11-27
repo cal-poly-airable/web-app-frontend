@@ -281,7 +281,7 @@ function PatientSide(props) {
   //////
   return (
     <>
-      <Navbar bg="primary" variant="dark">
+      <Navbar className="color-theme" variant="dark">
         <Container>
           <Navbar.Brand href="/">
             Airable {isProvider ? "Healthcare" : "Patient"}

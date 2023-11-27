@@ -92,7 +92,7 @@ function HealthcareSide(props) { //UI for Healthcare Providers
   } else {
     return (
       <>
-        <Navbar bg="primary" variant="dark">
+        <Navbar className="color-theme" variant="dark">
           <Container>
             <Navbar.Brand href="/">Airable Healthcare</Navbar.Brand>
             <Nav className="ml-auto">

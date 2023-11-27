@@ -15,3 +15,8 @@
   --bs-btn-disabled-border-color: #8b0000 !important;
   --bs-gradient: none;
 }
+
+/* Custom Color for Bootstrap primary */
+.color-theme{
+  background-color: #69745E;
+}
