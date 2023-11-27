@@ -1,0 +1,107 @@
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+.history4,
+.home1,
+.ventigator-logo {
+  cursor: pointer;
+  text-decoration: none;
+}
+.ventigator-logo {
+  position: relative;
+  width: 66.4px;
+  height: 66.4px;
+  background-image: url(/public/ventigatorlogo@2x.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+.history4,
+.home1 {
+  color: inherit;
+}
+.contacts1:hover,
+.history4:hover,
+.home1:hover,
+.portal-login1:hover {
+  font-weight: 600;
+  font-family: var(--font-mulish);
+}
+.contacts1,
+.history4,
+.home1,
+.portal-login1 {
+  position: relative;
+  opacity: 0.5;
+}
+.contacts1 {
+  cursor: pointer;
+}
+.portal-login1 {
+  font-size: 18.65px;
+  font-family: var(--font-mulish);
+  color: var(--f1534-hyfen);
+  text-align: left;
+}
+.portal-login-frame-item {
+  position: relative;
+  width: 10.6px;
+  height: 4.6px;
+}
+.hidden-menu-bar,
+.portal-login-frame1,
+.top-nav1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portal-login-frame1 {
+  cursor: pointer;
+  border: 0;
+  padding: 0 7.769026756286621px;
+  background-color: transparent;
+  flex-direction: row;
+  gap: 7.77px;
+}
+.portal-login-frame1:hover .portal-login-frame-item {
+  transform: rotate(-180deg);
+}
+.hidden-menu-bar,
+.top-nav1 {
+  box-sizing: border-box;
+}
+.top-nav1 {
+  width: 239px;
+  flex-direction: column;
+  padding: 0.00190710776951164px 0 0;
+  gap: 38.07px;
+}
+.hidden-menu-bar {
+  background-color: var(--color-gainsboro);
+  width: 227px;
+  flex-direction: row;
+  padding: var(--padding-3xs);
+  opacity: 0;
+  height: 100%;
+  max-width: 90%;
+  overflow: auto;
+  text-align: center;
+  font-size: 18.65px;
+  color: var(--f1534-hyfen);
+  font-family: var(--font-mulish);
+}
+.hidden-menu-bar.animate {
+  animation: 0.25s ease 0s 1 normal forwards slide-in-right;
+}
+@media screen and (max-width: 784px) {
+  .home1 {
+    font-family: var(--font-mulish);
+  }
+}
