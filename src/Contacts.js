@@ -50,7 +50,7 @@ const Contacts = () => {
               <img
                 className="ventigator-logo-icon1"
                 alt=""
-                src="/ventigatorlogo@2x.png"
+                src="/ventigatorlogo.png"
               />
             </div>
             <div className="frame1">

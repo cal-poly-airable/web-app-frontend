@@ -51,7 +51,7 @@ const HistoryFrame = () => {
               <img
                 className="ventigator-logo-icon"
                 alt=""
-                src="/ventigatorlogo@2x.png"
+                src="/ventigatorlogo.png"
               />
             </Link>
             <div className="frame">
@@ -96,7 +96,7 @@ const HistoryFrame = () => {
               <img
                 className="ventilator-v1-icon"
                 alt=""
-                src="/ventilator-v1@2x.png"
+                src="/ventilator-v1.jpg"
               />
               <div className="history11">
                 History History History History History History History History
@@ -107,7 +107,7 @@ const HistoryFrame = () => {
               <img
                 className="ventilator-v1-icon"
                 alt=""
-                src="/ventilator-v2@2x.png"
+                src="/ventilator-v2.jpg"
               />
               <div className="history11">
                 History History History History History History History History
@@ -118,7 +118,7 @@ const HistoryFrame = () => {
               <img
                 className="ventilator-v1-icon"
                 alt=""
-                src="/ventilator-v3@2x.png"
+                src="/ventilator-v3.jpg"
               />
               <div className="history11">
                 History History History History History History History History

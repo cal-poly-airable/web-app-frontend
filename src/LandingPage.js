@@ -60,7 +60,7 @@ const LandingPage = () => {
               <img
                 className="ventigator-logo-icon3"
                 alt=""
-                src="/ventigatorlogo@2x.png"
+                src="/ventigatorlogo.png"
               />
             </a>
             <div className="frame5">
@@ -110,7 +110,7 @@ const LandingPage = () => {
             <img
               className="ventilator-image-icon"
               alt=""
-              src="/ventilatorimage@2x.png"
+              src="/ventilatorimage.jpg"
             />
           </div>
         </div>
