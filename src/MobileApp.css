@@ -1,0 +1,334 @@
+.ventigator-logo-icon2 {
+  position: relative;
+  width: 66.4px;
+  height: 66.4px;
+  object-fit: cover;
+}
+.ventigator-frame2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-start;
+  cursor: pointer;
+  z-index: 1;
+}
+.airable2 {
+  position: relative;
+  display: inline-block;
+  width: 119.6px;
+  height: 58.1px;
+  flex-shrink: 0;
+  mix-blend-mode: normal;
+  cursor: pointer;
+  z-index: 0;
+}
+.frame3,
+.logo2 {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+}
+.frame3 {
+  overflow: hidden;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 0;
+}
+.logo2 {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 20.98px;
+  z-index: 2;
+}
+.app3,
+.home3 {
+  position: relative;
+}
+.home3 {
+  opacity: 0.5;
+  cursor: pointer;
+  z-index: 4;
+}
+.contacts4:hover,
+.history6:hover,
+.home3:hover,
+.portal-login3:hover {
+  font-weight: 600;
+  font-family: var(--font-mulish);
+}
+.app3 {
+  z-index: 3;
+}
+.history6 {
+  cursor: pointer;
+  z-index: 2;
+}
+.contacts4,
+.history6,
+.portal-login3 {
+  position: relative;
+  opacity: 0.5;
+}
+.contacts4 {
+  cursor: pointer;
+  z-index: 1;
+}
+.portal-login3 {
+  font-size: 18.65px;
+  font-family: var(--font-mulish);
+  color: var(--color-white);
+  text-align: left;
+}
+.vector-icon {
+  position: relative;
+  width: 10.6px;
+  height: 4.6px;
+}
+.portal-login-frame3 {
+  cursor: pointer;
+  border: 0;
+  padding: 0 7.769026756286621px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 7.77px;
+  z-index: 0;
+}
+.portal-login-frame3:hover .vector-icon {
+  transform: rotate(-180deg);
+}
+.top-nav3 {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--padding-8xs) 0 0;
+  z-index: 1;
+  text-align: center;
+  font-size: 18.65px;
+  font-family: var(--font-mulish);
+}
+.hamburger-menu-child3,
+.hamburger-menu-child4 {
+  position: relative;
+  border-radius: 5.62px;
+  background-color: var(--color-white);
+  width: 27px;
+  height: 3.1px;
+}
+.hamburger-menu-child4 {
+  width: 23px;
+}
+.hamburger-menu2 {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  height: 23px;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3.34px;
+  z-index: 0;
+}
+.top-bar-frame2 {
+  align-self: stretch;
+  background-color: var(--color-theme);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-mini) var(--padding-23xl);
+  gap: 52.83px;
+  z-index: 1000;
+  position: sticky;
+  left: 0;
+  top: 0;
+}
+.download-our {
+  margin: 0;
+}
+.download-our-mobile-container {
+  align-self: stretch;
+  position: relative;
+  line-height: 35.96px;
+  mix-blend-mode: normal;
+}
+.line-frame-inner {
+  position: relative;
+  border-radius: 3.75px;
+  background-color: var(--color-black);
+  width: 48.3px;
+  height: 3.4px;
+}
+.line-frame2 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 var(--padding-41xl) var(--padding-xl);
+}
+.access-your-health {
+  flex: 1;
+  position: relative;
+  line-height: 30px;
+  font-weight: 300;
+  mix-blend-mode: normal;
+}
+.text-frame1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-xl) 0;
+  font-size: var(--font-size-5xl);
+  color: var(--color-slategray);
+  font-family: var(--font-mulish);
+}
+.download {
+  position: relative;
+  font-size: 13.48px;
+  line-height: 44.94px;
+  display: flex;
+  font-family: var(--font-poppins);
+  color: var(--color-royalblue);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  width: 76.4px;
+  height: 31.4px;
+  flex-shrink: 0;
+  mix-blend-mode: normal;
+}
+.vector-icon1 {
+  position: relative;
+  width: 15px;
+  height: 14.9px;
+}
+.btn,
+.frame4 {
+  display: flex;
+  justify-content: flex-start;
+}
+.btn {
+  cursor: pointer;
+  border: 1.4px solid var(--color-royalblue);
+  padding: 11px var(--padding-31xl);
+  background-color: transparent;
+  border-radius: 41.2px;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+}
+.frame4 {
+  align-self: stretch;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-3xs);
+}
+.airableappui1-icon {
+  align-self: stretch;
+  flex: 1;
+  position: relative;
+  border-radius: var(--br-mini);
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+  object-fit: cover;
+}
+.airableappui1-wrapper {
+  align-self: stretch;
+  width: 233.8px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-end;
+}
+.download-our-mobile-apps,
+.mobile-app {
+  display: flex;
+  justify-content: flex-start;
+}
+.download-our-mobile-apps {
+  align-self: stretch;
+  flex: 1;
+  flex-direction: row;
+  align-items: center;
+  padding: var(--padding-xl) var(--padding-31xl);
+  gap: var(--gap-31xl);
+  font-size: 35.96px;
+  color: var(--color-black);
+  font-family: var(--font-poppins);
+}
+.mobile-app {
+  position: relative;
+  background-color: var(--color-gainsboro);
+  width: 100%;
+  height: 751px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--gap-xl);
+  text-align: left;
+  font-size: 27.97px;
+  color: var(--color-white);
+  font-family: var(--font-noto-serif-thai);
+}
+@media screen and (max-width: 1200px) {
+  .top-bar-frame2 {
+    height: auto;
+  }
+}
+@media screen and (max-width: 784px) {
+  .ventigator-frame2 {
+    display: none;
+  }
+  .frame3 {
+    flex: 1;
+    align-self: stretch;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-right: 0;
+    box-sizing: border-box;
+  }
+  .logo2 {
+    display: flex;
+  }
+  .top-nav3 {
+    display: none;
+  }
+  .hamburger-menu2 {
+    display: flex;
+  }
+  .top-bar-frame2 {
+    flex: 1;
+  }
+  .frame4 {
+    flex: unset;
+    align-self: stretch;
+  }
+  .airableappui1-wrapper {
+    width: auto;
+    align-self: unset;
+  }
+  .download-our-mobile-apps {
+    align-self: stretch;
+    width: auto;
+    flex: 1;
+    flex-direction: column;
+  }
+  .mobile-app {
+    height: auto;
+  }
+}

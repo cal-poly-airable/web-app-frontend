@@ -1,0 +1,119 @@
+.lets-get-started {
+  position: relative;
+  line-height: 24.86px;
+  mix-blend-mode: normal;
+}
+.lets-get-started,
+.lets-get-started-wrapper,
+.patient-signup {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lets-get-started-wrapper {
+  flex-direction: column;
+}
+.patient-signup {
+  text-decoration: none;
+  position: relative;
+  font-size: var(--font-size-13xl);
+  line-height: 24.86px;
+  font-weight: 300;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: center;
+  mix-blend-mode: normal;
+}
+.patient-signup-wrapper {
+  cursor: pointer;
+  border: 2px solid var(--color-white);
+  padding: 0;
+  background-color: transparent;
+  border-radius: var(--br-61xl);
+  flex-direction: row;
+  justify-content: center;
+}
+.patient-signup-wrapper:hover,
+.provider:hover {
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+.patient-signup-wrapper,
+.provider,
+.provider-signup {
+  align-self: stretch;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.provider-signup {
+  position: relative;
+  font-size: var(--font-size-13xl);
+  line-height: 24.86px;
+  font-weight: 300;
+  font-family: var(--font-poppins);
+  color: var(--color-white);
+  text-align: center;
+  justify-content: center;
+  mix-blend-mode: normal;
+}
+.provider {
+  cursor: pointer;
+  border: 2px solid var(--color-white);
+  padding: 0;
+  background-color: transparent;
+  border-radius: var(--br-61xl);
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.patient,
+.sign-up-window {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.patient {
+  align-self: stretch;
+  height: 115.5px;
+  flex-direction: row;
+  gap: var(--gap-xl);
+}
+.sign-up-window {
+  border-radius: 20px;
+  background-color: #91a683;
+  width: 603px;
+  height: 306px;
+  flex-direction: column;
+  padding: 30px;
+  box-sizing: border-box;
+  gap: var(--gap-3xs);
+  max-width: 100%;
+  max-height: 100%;
+  overflow: auto;
+  text-align: center;
+  font-size: 48px;
+  color: var(--color-white);
+  font-family: var(--font-poppins);
+}
+@media screen and (max-width: 784px) {
+  .lets-get-started {
+    font-size: var(--font-size-17xl);
+  }
+  .lets-get-started-wrapper {
+    align-self: stretch;
+    width: auto;
+    flex: 1;
+  }
+  .patient-signup,
+  .provider-signup {
+    font-size: var(--font-size-5xl);
+  }
+  .patient {
+    height: auto;
+  }
+  .sign-up-window {
+    width: 600px;
+    height: 200px;
+  }
+}
