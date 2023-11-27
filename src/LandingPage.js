@@ -60,7 +60,7 @@ const LandingPage = () => {
               <img
                 className="ventigator-logo-icon3"
                 alt=""
-                src="/ventigatorlogo1@2x.png"
+                src="/ventigatorlogo@2x.png"
               />
             </a>
             <div className="frame5">
@@ -115,18 +115,14 @@ const LandingPage = () => {
           </div>
         </div>
         <div className="line-under-header">
-          <img
-            className="line-under-header1"
-            alt=""
-            src="/line-under-header1.svg"
-          />
+          <hr className="line-under-header1" />
         </div>
         <div className="services-frame">
           <b className="our-services">Our services</b>
           <div className="line-frame3">
             <div className="line-frame-child1" />
           </div>
-          <div className="explain-more-about">{`Explain more about the benefits of using the ventilator and what other features it has/can do. `}</div>
+          <div className="services">{`Explain more about the benefits of using the ventilator and what other features it has/can do. `}</div>
         </div>
         <div className="how-it-works-frame">
           <div className="how-it-works-parent">
