@@ -23,35 +23,35 @@ const router = createBrowserRouter([
   },*/
   {
     path: "/",
-    element: <LandingPage />
+    element: <LandingPage to="" />
   },
   {
     path: "/app",
-    element: <MobileApp />
+    element: <MobileApp to="" />
   },
   {
     path: "/history",
-    element: <HistoryFrame />
+    element: <HistoryFrame to="" />
   },
   {
     path: "/contacts",
-    element: <Contacts />
+    element: <Contacts to="" />
   },
   {
     path: "/patient",
-    element: <Patient />,
+    element: <Patient to="" />,
   },
   {
     path: "/healthcare",
-    element: <Healthcare />,
+    element: <Healthcare to="" />,
   },
   {
     path: "/signout",
-    element: <Signout />,
+    element: <Signout to="" />,
   },
   {
     path: "/dev",
-    element: <Dev />,
+    element: <Dev to="" />,
   },
 ]);
 
