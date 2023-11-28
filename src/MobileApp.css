@@ -50,8 +50,8 @@
   cursor: pointer;
   z-index: 4;
 }
-.contacts4:hover,
-.history6:hover,
+.contacts:hover,
+.history:hover,
 .home3:hover,
 .portal-login3:hover {
   font-weight: 600;
@@ -60,17 +60,17 @@
 .app3 {
   z-index: 3;
 }
-.history6 {
+.history {
   cursor: pointer;
   z-index: 2;
 }
-.contacts4,
-.history6,
+.contacts,
+.history,
 .portal-login3 {
   position: relative;
   opacity: 0.5;
 }
-.contacts4 {
+.contacts {
   cursor: pointer;
   z-index: 1;
 }
@@ -200,7 +200,7 @@
   line-height: 44.94px;
   display: flex;
   font-family: var(--font-poppins);
-  color: var(--color-royalblue);
+  color: var(--color-theme);
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -221,7 +221,7 @@
 }
 .btn {
   cursor: pointer;
-  border: 1.4px solid var(--color-royalblue);
+  border: 1.4px solid var(--color-theme);
   padding: 11px var(--padding-31xl);
   background-color: transparent;
   border-radius: 41.2px;

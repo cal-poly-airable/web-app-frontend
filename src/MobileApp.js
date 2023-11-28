@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import HiddenMenuBar from "./HiddenMenuBar";
 import PortalDrawer from "./PortalDrawer";
 import "./MobileApp.css";
-import "./global.css"
+import "./global.css";
 
 const MobileApp = () => {
   const navigate = useNavigate();
@@ -64,10 +64,10 @@ const MobileApp = () => {
               Home
             </div>
             <b className="app3">App</b>
-            <div className="history6" onClick={onHistoryTextClick}>
+            <div className="history" onClick={onHistoryTextClick}>
               History
             </div>
-            <div className="contacts4" onClick={onContactsTextClick}>
+            <div className="contacts" onClick={onContactsTextClick}>
               Contacts
             </div>
             <button className="portal-login-frame3">
@@ -91,7 +91,7 @@ const MobileApp = () => {
               <div className="line-frame-inner" />
             </div>
             <div className="text-frame1">
-              <div className="access-your-health">{`Access your health information instantaneously from anywhere you may be. `}</div>
+              <div className="access-your-health">{`Access your health information instantaneously from anywhere you may be.`}</div>
             </div>
             <button className="btn">
               <b className="download">Download</b>
