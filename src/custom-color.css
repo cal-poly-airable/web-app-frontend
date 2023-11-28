@@ -18,5 +18,16 @@
 
 /* Custom Color for Bootstrap primary */
 .color-theme {
-  background-color: #69745e;
+align-self: stretch;
+  background-color: var(--color-theme);
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: var(--padding-mini) var(--padding-23xl);
+  gap: 52.83px;
+  z-index: 1000;
+  position: sticky;
+  left: 0;
+  top: 0;
 }

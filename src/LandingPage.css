@@ -46,9 +46,6 @@
   cursor: pointer;
   z-index: 4;
 }
-.home4:hover {
-  font-size: var(--font-size-lg);
-}
 .app4 {
   text-decoration: none;
   color: inherit;
@@ -253,7 +250,6 @@
   width: 80%;
   overflow: hidden;
   height: 0.8px;
-  
 }
 .line-under-header {
   align-self: center;
