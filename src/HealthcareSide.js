@@ -9,7 +9,8 @@ import PatientSide from "./PatientSide";
 import ProviderCode from "./ProviderCode";
 import axios from "axios";
 
-function HealthcareSide(props) { //UI for Healthcare Providers
+function HealthcareSide(props) {
+  //UI for Healthcare Providers
   var auth = localStorage.getItem("token");
   const domain = process.env.REACT_APP_API_DOMAIN;
   let userData = props.provider;
@@ -68,19 +69,24 @@ function HealthcareSide(props) { //UI for Healthcare Providers
   };
 
   useEffect(() => {
-    const newRows = arr.map((patient, idx) => ( //load Patient data into rows
-      <PatientRow
-        key={idx + 1}
-        idx={idx + 1}
-        patient={{
-          name: `${patient.name} `,
-          email: patient.email,
-          userID: patient.id,
-        }}
-        onViewData={handleViewData}
-        onRemovePatient={handleRemovePatient}
-      />
-    ));
+    const newRows = arr.map(
+      (
+        patient,
+        idx //load Patient data into rows
+      ) => (
+        <PatientRow
+          key={idx + 1}
+          idx={idx + 1}
+          patient={{
+            name: `${patient.name} `,
+            email: patient.email,
+            userID: patient.id,
+          }}
+          onViewData={handleViewData}
+          onRemovePatient={handleRemovePatient}
+        />
+      )
+    );
     setRows(newRows);
   }, []);
   if (patient) {
@@ -94,6 +100,9 @@ function HealthcareSide(props) { //UI for Healthcare Providers
       <>
         <Navbar className="color-theme" variant="dark">
           <Container>
+            <Navbar.Brand href="/"><img
+                src="/ventigatorlogo.png"
+              /></Navbar.Brand>
             <Navbar.Brand href="/">Airable Healthcare</Navbar.Brand>
             <Nav className="ml-auto">
               <Nav.Link href="/Signout">Sign Out</Nav.Link>
