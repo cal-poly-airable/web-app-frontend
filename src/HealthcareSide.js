@@ -8,8 +8,6 @@ import { Navbar, Nav } from "react-bootstrap";
 import PatientSide from "./PatientSide";
 import ProviderCode from "./ProviderCode";
 import axios from "axios";
-import "./custom-color.css"
-import "./global.css"
 
 function HealthcareSide(props) {
   //UI for Healthcare Providers
@@ -103,6 +101,7 @@ function HealthcareSide(props) {
         <Navbar className="color-theme" variant="dark">
           <Container>
             <Navbar.Brand href="/"><img
+                className="ventigator-logo-icon2"
                 src="/ventigatorlogo.png"
               /></Navbar.Brand>
             <Navbar.Brand href="/">Airable Healthcare</Navbar.Brand>
