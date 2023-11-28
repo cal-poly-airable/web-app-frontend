@@ -8,6 +8,8 @@ import { Navbar, Nav } from "react-bootstrap";
 import PatientSide from "./PatientSide";
 import ProviderCode from "./ProviderCode";
 import axios from "axios";
+import "./custom-color.css"
+import "./global.css"
 
 function HealthcareSide(props) {
   //UI for Healthcare Providers
