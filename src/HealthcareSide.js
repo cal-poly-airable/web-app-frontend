@@ -1,13 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Container } from "react-bootstrap";
 import { Table, Form } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import PatientRow from "./PatientRow";
-import { Navbar, Nav } from "react-bootstrap";
+//import { Navbar, Nav } from "react-bootstrap";
 import PatientSide from "./PatientSide";
 import ProviderCode from "./ProviderCode";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "./custom-color.css"
 
 function HealthcareSide(props) {
   //UI for Healthcare Providers
@@ -32,6 +34,18 @@ function HealthcareSide(props) {
     //console.log(`Viewing data for patient ${patientId}`);
     //console.log(patient);
   };
+  const navigate = useNavigate();
+  const onVentigatorFrameContainerClick = useCallback(() => {
+    navigate("/");
+  }, [navigate]);
+
+  const onAIRABLETextClick = useCallback(() => {
+    navigate("/");
+  }, [navigate]);
+
+  const onSignOutTextClick = useCallback(() => {
+    navigate("/signout");
+  }, [navigate]);
 
   const handleRemovePatient = (patientId) => {
     axios
@@ -98,18 +112,30 @@ function HealthcareSide(props) {
   } else {
     return (
       <>
-        <Navbar className="color-theme" variant="dark">
-          <Container>
-            <Navbar.Brand href="/"><img
+        <div className="top-bar-frame2">
+          <div className="logo2">
+            <div
+              className="ventigator-frame2"
+              onClick={onVentigatorFrameContainerClick}
+            >
+              <img
                 className="ventigator-logo-icon2"
+                alt=""
                 src="/ventigatorlogo.png"
-              /></Navbar.Brand>
-            <Navbar.Brand href="/">Airable Healthcare</Navbar.Brand>
-            <Nav className="ml-auto">
-              <Nav.Link href="/Signout">Sign Out</Nav.Link>
-            </Nav>
-          </Container>
-        </Navbar>
+              />
+            </div>
+            <div className="frame3">
+              <b className="airable2" onClick={onAIRABLETextClick}>
+                AIRABLE HEALTHCARE
+              </b>
+            </div>
+          </div>
+          <div className="top-nav3">
+            <div className="Signout" onClick={onSignOutTextClick}>
+              Sign Out
+            </div>
+          </div>
+        </div>
         <div>
           <div>
             <br />
