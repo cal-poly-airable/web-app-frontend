@@ -84,7 +84,7 @@ const HistoryFrame = () => {
             <div className="app" onClick={onAppTextClick}>
               App
             </div>
-            <b className="history">History</b>
+            <b className="history-og">History</b>
             <div className="contacts" onClick={onContactsTextClick}>
               Contacts
             </div>

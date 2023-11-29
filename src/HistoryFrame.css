@@ -54,7 +54,7 @@
   font-family: var(--font-mulish);
 }
 .app,
-.history,
+.history-og,
 .home {
   position: relative;
 }
@@ -63,7 +63,7 @@
   cursor: pointer;
   z-index: 3;
 }
-.history {
+.history-og {
   z-index: 2;
 }
 .contacts {
