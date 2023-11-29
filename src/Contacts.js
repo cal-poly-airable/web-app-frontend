@@ -1,10 +1,10 @@
-import React from 'react'
+import React from "react";
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import HiddenMenuBar from "./HiddenMenuBar";
 import PortalDrawer from "./PortalDrawer";
 import "./Contacts.css";
-import "./global.css"
+import "./global.css";
 
 const Contacts = () => {
   const navigate = useNavigate();
@@ -38,9 +38,26 @@ const Contacts = () => {
     setHiddenMenuBarOpen(false);
   }, []);
 
+  document.addEventListener("click", (e) => {
+    const isDropdownButton = e.target.matches("[data-dropdown-button]");
+    if (!isDropdownButton && e.target.closest("[data-dropdown]") != null)
+      return;
+
+    let currentDropdown;
+    if (isDropdownButton) {
+      currentDropdown = e.target.closest("[data-dropdown]");
+      currentDropdown.classList.toggle("active");
+    }
+
+    document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+      if (dropdown === currentDropdown) return;
+      dropdown.classList.remove("active");
+    });
+  });
+
   return (
     <>
-      <div className="contacts2">
+      <div className="contacts-frame">
         <div className="top-bar-frame1">
           <div className="logo1">
             <div
@@ -66,18 +83,38 @@ const Contacts = () => {
             <div className="app2" onClick={onAppTextClick}>
               App
             </div>
-            <div className="history5" onClick={onHistoryTextClick}>
+            <div className="history" onClick={onHistoryTextClick}>
               History
             </div>
             <b className="contacts3">Contacts</b>
-            <button className="portal-login-frame2">
-              <div className="portal-login2">Portal Login</div>
-              <img
-                className="portal-login-frame-inner"
-                alt=""
-                src="/vector-12.svg"
-              />
-            </button>
+            <div className="dropdown" data-dropdown>
+              <button className="link-portal" data-dropdown-button>
+                <div className="link-portal-child" data-dropdown-button>Portal Login</div>
+                <img
+                  className="vector-link"
+                  alt=""
+                  src="/vector-12.svg"
+                />
+              </button>
+              <div className="dropdown-menu information-grid">
+                <div>
+                  <div className="dropdown-links">
+                    <a
+                      href="https://airable.auth.us-east-1.amazoncognito.com/login?client_id=1ffva6aqq4sqvtj7b3hv191q1p&response_type=token&scope=aws.cognito.signin.user.admin&redirect_uri=https://airable.org/patient"
+                      className="link"
+                    >
+                      Patient Login
+                    </a>
+                    <a
+                      href="https://airablehealth.auth.us-east-1.amazoncognito.com/login?client_id=14jsmal0gq1k85nqunpjnvjv6p&response_type=token&scope=aws.cognito.signin.user.admin&redirect_uri=https://airable.org/healthcare"
+                      className="link"
+                    >
+                      Provider Login
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <button className="hamburger-menu1" onClick={openHiddenMenuBar}>
             <div className="rectangle-div" />
@@ -92,7 +129,7 @@ const Contacts = () => {
               <div className="line-frame-item" />
             </div>
             <div className="text-frame">
-              <div className="if-you-are-container">
+              <div className="text-container">
                 <p className="if-you-are-experiencing-a-medi">
                   <span>
                     <span className="if-you-are">
@@ -124,7 +161,7 @@ const Contacts = () => {
                     </span>
                   </span>
                 </p>
-                <p className="available-mon-fri-8am-4pm-p">
+                <p className="available-times">
                   <span className="if-you-are">
                     <span>
                       <span>Available Mon-Fri, 8am - 4pm PST</span>

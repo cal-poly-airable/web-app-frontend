@@ -42,59 +42,31 @@
   z-index: 2;
 }
 .app2,
-.history5,
+.history,
 .home2 {
   position: relative;
   opacity: 0.5;
   cursor: pointer;
   z-index: 4;
 }
-.contacts3:hover,
-.history5:hover,
-.home2:hover,
-.portal-login2:hover {
+.app2:hover,
+.history:hover,
+.home2:hover {
   font-weight: 600;
   font-family: var(--font-mulish);
 }
 .app2,
-.history5 {
+.history {
   z-index: 3;
 }
-.history5 {
+.history {
   z-index: 2;
 }
 .contacts3 {
   position: relative;
   z-index: 1;
 }
-.portal-login2 {
-  position: relative;
-  font-size: 18.65px;
-  font-family: var(--font-mulish);
-  color: var(--color-white);
-  text-align: left;
-  opacity: 0.5;
-}
-.portal-login-frame-inner {
-  position: relative;
-  width: 10.6px;
-  height: 4.6px;
-}
-.portal-login-frame2 {
-  cursor: pointer;
-  border: 0;
-  padding: 0 7.769026756286621px;
-  background-color: transparent;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 7.77px;
-  z-index: 0;
-}
-.portal-login-frame2:hover .portal-login-frame-inner {
-  transform: rotate(-180deg);
-}
+
 .top-nav2 {
   align-self: stretch;
   flex: 1;
@@ -186,11 +158,11 @@
   margin: 0;
   color: var(--color-theme);
 }
-.available-mon-fri-8am-4pm-p {
+.available-times {
   margin: 0;
   font-size: 20px;
 }
-.if-you-are-container {
+.text-container {
   flex: 1;
   position: relative;
   line-height: 30px;
@@ -216,7 +188,7 @@
   gap: var(--gap-3xs);
 }
 .contact-us-frame,
-.contacts2,
+.contacts-frame,
 .frame2 {
   display: flex;
   justify-content: flex-start;
@@ -231,7 +203,7 @@
   color: var(--color-black);
   font-family: var(--font-poppins);
 }
-.contacts2 {
+.contacts-frame {
   position: relative;
   background-color: var(--color-gainsboro);
   width: 100%;
@@ -285,7 +257,7 @@
     flex: 1;
     flex-direction: column;
   }
-  .contacts2 {
+  .contacts-frame {
     height: auto;
   }
 }

@@ -64,8 +64,7 @@
   font-size: var(--font-size-lg);
 }
 .contacts5,
-.history7,
-.portal-login4 {
+.history7 {
   position: relative;
   opacity: 0.5;
 }
@@ -74,40 +73,11 @@
   z-index: 1;
 }
 .contacts5:hover,
-.history7:hover,
-.portal-login4:hover {
+.history7:hover {
   font-weight: 600;
   font-family: var(--font-mulish);
 }
-.portal-login4 {
-  font-size: 18.65px;
-  font-family: var(--font-mulish);
-  color: var(--color-white);
-  text-align: left;
-}
-.portal-login-frame-child1 {
-  position: relative;
-  width: 10.6px;
-  height: 4.6px;
-}
-.portal-login-frame4 {
-  cursor: pointer;
-  border: 0;
-  padding: 0 7.769026756286621px;
-  background-color: transparent;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 7.77px;
-  z-index: 0;
-}
-.portal-login-frame4:hover {
-  transform: rotate(0deg);
-}
-.portal-login-frame4:hover .portal-login-frame-child1 {
-  transform: rotate(-180deg);
-}
+
 .top-nav4 {
   align-self: stretch;
   flex: 1;
