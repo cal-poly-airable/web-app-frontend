@@ -12,22 +12,107 @@ const MobileApp = () => {
 
   const onVentigatorFrameContainerClick = useCallback(() => {
     navigate("/");
+    document.addEventListener("click", (e) => {
+      const isDropdownButton = e.target.matches("[data-dropdown-button]");
+      if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
+        return;
+      }
+  
+      let currentDropdown;
+      if (isDropdownButton) {
+        currentDropdown = e.target.closest("[data-dropdown]");
+        currentDropdown.classList.toggle("active");
+      }
+  
+      document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+        if (dropdown === currentDropdown) return;
+        dropdown.classList.remove("active");
+      });
+    });
   }, [navigate]);
 
   const onAIRABLETextClick = useCallback(() => {
     navigate("/");
+    document.addEventListener("click", (e) => {
+      const isDropdownButton = e.target.matches("[data-dropdown-button]");
+      if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
+        return;
+      }
+  
+      let currentDropdown;
+      if (isDropdownButton) {
+        currentDropdown = e.target.closest("[data-dropdown]");
+        currentDropdown.classList.toggle("active");
+      }
+  
+      document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+        if (dropdown === currentDropdown) return;
+        dropdown.classList.remove("active");
+      });
+    });
   }, [navigate]);
 
   const onHomeTextClick = useCallback(() => {
     navigate("/");
+    document.addEventListener("click", (e) => {
+      const isDropdownButton = e.target.matches("[data-dropdown-button]");
+      if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
+        return;
+      }
+  
+      let currentDropdown;
+      if (isDropdownButton) {
+        currentDropdown = e.target.closest("[data-dropdown]");
+        currentDropdown.classList.toggle("active");
+      }
+  
+      document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+        if (dropdown === currentDropdown) return;
+        dropdown.classList.remove("active");
+      });
+    });
   }, [navigate]);
 
   const onHistoryTextClick = useCallback(() => {
     navigate("/history");
+    document.addEventListener("click", (e) => {
+      const isDropdownButton = e.target.matches("[data-dropdown-button]");
+      if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
+        return;
+      }
+  
+      let currentDropdown;
+      if (isDropdownButton) {
+        currentDropdown = e.target.closest("[data-dropdown]");
+        currentDropdown.classList.toggle("active");
+      }
+  
+      document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+        if (dropdown === currentDropdown) return;
+        dropdown.classList.remove("active");
+      });
+    });
   }, [navigate]);
 
   const onContactsTextClick = useCallback(() => {
     navigate("/contacts");
+    document.addEventListener("click", (e) => {
+      const isDropdownButton = e.target.matches("[data-dropdown-button]");
+      if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
+        return;
+      }
+  
+      let currentDropdown;
+      if (isDropdownButton) {
+        currentDropdown = e.target.closest("[data-dropdown]");
+        currentDropdown.classList.toggle("active");
+      }
+  
+      document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+        if (dropdown === currentDropdown) return;
+        dropdown.classList.remove("active");
+      });
+    });
   }, [navigate]);
 
   const openHiddenMenuBar = useCallback(() => {

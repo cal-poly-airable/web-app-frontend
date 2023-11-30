@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useCallback } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import HiddenMenuBar from "./HiddenMenuBar";
 import PortalDrawer from "./PortalDrawer";
 import "./HistoryFrame.css";
@@ -12,22 +12,107 @@ const HistoryFrame = () => {
 
   const onVentigatorFrameClick = useCallback(() => {
     navigate("/");
+    document.addEventListener("click", (e) => {
+      const isDropdownButton = e.target.matches("[data-dropdown-button]");
+      if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
+        return;
+      }
+  
+      let currentDropdown;
+      if (isDropdownButton) {
+        currentDropdown = e.target.closest("[data-dropdown]");
+        currentDropdown.classList.toggle("active");
+      }
+  
+      document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+        if (dropdown === currentDropdown) return;
+        dropdown.classList.remove("active");
+      });
+    });
   }, [navigate]);
 
   const onAIRABLETextClick = useCallback(() => {
     navigate("/");
+    document.addEventListener("click", (e) => {
+      const isDropdownButton = e.target.matches("[data-dropdown-button]");
+      if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
+        return;
+      }
+  
+      let currentDropdown;
+      if (isDropdownButton) {
+        currentDropdown = e.target.closest("[data-dropdown]");
+        currentDropdown.classList.toggle("active");
+      }
+  
+      document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+        if (dropdown === currentDropdown) return;
+        dropdown.classList.remove("active");
+      });
+    });
   }, [navigate]);
 
   const onHomeTextClick = useCallback(() => {
     navigate("/");
+    document.addEventListener("click", (e) => {
+      const isDropdownButton = e.target.matches("[data-dropdown-button]");
+      if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
+        return;
+      }
+  
+      let currentDropdown;
+      if (isDropdownButton) {
+        currentDropdown = e.target.closest("[data-dropdown]");
+        currentDropdown.classList.toggle("active");
+      }
+  
+      document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+        if (dropdown === currentDropdown) return;
+        dropdown.classList.remove("active");
+      });
+    });
   }, [navigate]);
 
   const onAppTextClick = useCallback(() => {
     navigate("/app");
+    document.addEventListener("click", (e) => {
+      const isDropdownButton = e.target.matches("[data-dropdown-button]");
+      if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
+        return;
+      }
+  
+      let currentDropdown;
+      if (isDropdownButton) {
+        currentDropdown = e.target.closest("[data-dropdown]");
+        currentDropdown.classList.toggle("active");
+      }
+  
+      document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+        if (dropdown === currentDropdown) return;
+        dropdown.classList.remove("active");
+      });
+    });
   }, [navigate]);
 
   const onContactsTextClick = useCallback(() => {
     navigate("/contacts");
+    document.addEventListener("click", (e) => {
+      const isDropdownButton = e.target.matches("[data-dropdown-button]");
+      if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
+        return;
+      }
+  
+      let currentDropdown;
+      if (isDropdownButton) {
+        currentDropdown = e.target.closest("[data-dropdown]");
+        currentDropdown.classList.toggle("active");
+      }
+  
+      document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+        if (dropdown === currentDropdown) return;
+        dropdown.classList.remove("active");
+      });
+    });
   }, [navigate]);
 
   const openHiddenMenuBar = useCallback(() => {
@@ -60,7 +145,7 @@ const HistoryFrame = () => {
       <div className="history-frame">
         <div className="top-bar-frame">
           <div className="logo">
-            <Link
+            <div
               className="ventigator-frame"
               to="/"
               onClick={onVentigatorFrameClick}
@@ -70,7 +155,7 @@ const HistoryFrame = () => {
                 alt=""
                 src="/ventigatorlogo.png"
               />
-            </Link>
+            </div>
             <div className="frame">
               <b className="airable" onClick={onAIRABLETextClick}>
                 AIRABLE

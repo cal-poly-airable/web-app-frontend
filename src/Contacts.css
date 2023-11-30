@@ -251,6 +251,7 @@
   .frame2 {
     flex: unset;
     align-self: stretch;
+    height: 600px;
   }
   .contact-us-frame {
     width: auto;

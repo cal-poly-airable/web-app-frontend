@@ -454,6 +454,7 @@
     width: 80%;
     align-items: flex-start;
     justify-content: center;
+    align-self: center;
     max-width: 1000px;
   }
   .step1outer {

@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useCallback } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SignUpWindow from "./SignUpWindow";
 import PortalPopup from "./PortalPopup";
 import HiddenMenuBar from "./HiddenMenuBar";
@@ -22,16 +22,68 @@ const LandingPage = () => {
     }
   }, []);
 
+  //Pretty redundant, but its necessary for dropdown to work and won't work when referencing event listener
   const onAppClick = useCallback(() => {
     navigate("/app");
+    document.addEventListener("click", (e) => {
+    const isDropdownButton = e.target.matches("[data-dropdown-button]");
+    if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
+      return;
+    }
+
+    let currentDropdown;
+    if (isDropdownButton) {
+      currentDropdown = e.target.closest("[data-dropdown]");
+      currentDropdown.classList.toggle("active");
+    }
+
+    document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+      if (dropdown === currentDropdown) return;
+      dropdown.classList.remove("active");
+    });
+  });
   }, [navigate]);
 
   const onHistoryTextClick = useCallback(() => {
     navigate("/history");
+    document.addEventListener("click", (e) => {
+      const isDropdownButton = e.target.matches("[data-dropdown-button]");
+      if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
+        return;
+      }
+  
+      let currentDropdown;
+      if (isDropdownButton) {
+        currentDropdown = e.target.closest("[data-dropdown]");
+        currentDropdown.classList.toggle("active");
+      }
+  
+      document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+        if (dropdown === currentDropdown) return;
+        dropdown.classList.remove("active");
+      });
+    });
   }, [navigate]);
 
   const onContactsTextClick = useCallback(() => {
     navigate("/contacts");
+    document.addEventListener("click", (e) => {
+      const isDropdownButton = e.target.matches("[data-dropdown-button]");
+      if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
+        return;
+      }
+  
+      let currentDropdown;
+      if (isDropdownButton) {
+        currentDropdown = e.target.closest("[data-dropdown]");
+        currentDropdown.classList.toggle("active");
+      }
+  
+      document.querySelectorAll("[data-dropdown].active").forEach((dropdown) => {
+        if (dropdown === currentDropdown) return;
+        dropdown.classList.remove("active");
+      });
+    });
   }, [navigate]);
 
   const openHiddenMenuBar = useCallback(() => {
@@ -52,8 +104,9 @@ const LandingPage = () => {
 
   document.addEventListener("click", (e) => {
     const isDropdownButton = e.target.matches("[data-dropdown-button]");
-    if (!isDropdownButton && e.target.closest("[data-dropdown]") != null)
+    if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
       return;
+    }
 
     let currentDropdown;
     if (isDropdownButton) {
@@ -87,9 +140,9 @@ const LandingPage = () => {
             <b className="home4" onClick={onHomeTextClick}>
               Home
             </b>
-            <Link className="app4" onClick={onAppClick}>
+            <div className="app4" onClick={onAppClick}>
               App
-            </Link>
+            </div>
             <div className="history7" onClick={onHistoryTextClick}>
               History
             </div>
