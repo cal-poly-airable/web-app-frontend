@@ -70,9 +70,7 @@
   flex-direction: row;
   gap: 7.77px;
 }
-.portal-login-frame1:hover .portal-login-frame-item {
-  transform: rotate(-180deg);
-}
+
 .hidden-menu-bar,
 .top-nav1 {
   box-sizing: border-box;
@@ -104,4 +102,16 @@
   .home1 {
     font-family: var(--font-mulish);
   }
+}
+
+.hidden-link {
+  background: none;
+  border: none;
+  text-decoration: none;
+  color: var(--f1534-hyfen);
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.5;
 }
