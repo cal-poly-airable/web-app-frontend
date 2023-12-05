@@ -288,7 +288,7 @@ function PatientSide(props) {
     on: {
       backgroundColor: '#94a187',
       borderColor: '#94a187',
-      color: '#YourCustomTextColorWhenToggledOn'
+      color: 'white'
     },
     off: {
       backgroundColor: 'transparent',
@@ -377,12 +377,12 @@ function PatientSide(props) {
                       key={idx}
                       id={`radio2-${idx}`}
                       type="radio"
-                      style={{customToggleButtonStyle}}
                       //variant="outline-primary" //{idx % 2 ? 'outline-info' : 'outline-primary'}
                       name="radio2"
                       value={radio.value}
                       checked={radioValue2 === radio.value}
                       onChange={(e) => setRadioValue2(e.currentTarget.value)}
+                      style={radioValue2 === radio.value?customToggleButtonStyle.on:customToggleButtonStyle.off}
                     >
                       {radio.name}
                     </ToggleButton>
