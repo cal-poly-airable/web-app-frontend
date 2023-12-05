@@ -17,11 +17,11 @@
 }
 
 .btn-themed {
-  background-color: #bfd7c1;
+  background-color: #bfd7c1 !important;
 }
 
 .btn-themed:hover {
-  background-color: #69745e;
+  background-color: #69745e !important;
 }
 
 /* Custom Color for Bootstrap primary */

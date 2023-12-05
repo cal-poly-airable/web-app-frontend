@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, OverlayTrigger, Popover } from "react-bootstrap";
+import { Badge, OverlayTrigger, Popover, Button } from "react-bootstrap";
 import Copy from "./copyButton";
 import "./custom-color.css";
 
@@ -23,7 +23,7 @@ function ProviderCode(props) {
 
   return (
     <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-      <button className="btn-themed">View Provider Code</button>
+      <Button className="btn-themed">View Provider Code</Button>
     </OverlayTrigger>
   );
 }
