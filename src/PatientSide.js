@@ -292,16 +292,14 @@ function PatientSide(props) {
           <img src="/ventigatorlogo.png" className="ventigator-logo-nav"/>{' '}
             Airable {isProvider ? "Healthcare" : "Patient"}
           </Navbar.Brand>
-          </Nav>
-          <Nav className="me-auto" style={{fontFamily: 'var(--font-mulish)'}}>
-            <Nav.Link onClick={Download}>Export Data</Nav.Link>
-            {!isProvider ? (
-              <Nav.Link onClick={() => setShowProviderModal(true)}>
-                Your Provider
-              </Nav.Link>
-            ) : (
-              ""
-            )}
+          <Nav.Link onClick={Download} style={{fontFamily: 'var(--font-mulish)'}}>Export Data</Nav.Link>
+          {!isProvider ? (
+            <Nav.Link onClick={() => setShowProviderModal(true)} style={{fontFamily: 'var(--font-mulish)'}}>
+              Your Provider
+            </Nav.Link>
+          ) : (
+            ""
+          )}
           </Nav>
           <Nav className="ml-auto" style={{fontFamily: 'var(--font-mulish)'}}>
             {!isProvider ? (
