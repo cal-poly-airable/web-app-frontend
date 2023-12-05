@@ -113,15 +113,15 @@ function HealthcareSide(props) {
   } else {
     return (
       <>
-        <Navbar className="color-theme" variant="dark" style={{fontFamily: 'var(--font-noto-serif-thai)'}}>
+        <Navbar className="color-theme" variant="dark">
           <Container>
-          <Nav className="me-auto">
+          <Nav className="me-auto" style={{fontFamily: 'var(--font-noto-serif-thai)'}}>
             <Navbar.Brand href="/">
               <img src="/ventigatorlogo.png" className="ventigator-logo-nav"/>{' '}
               Airable Healthcare
               </Navbar.Brand>
             </Nav>
-            <Nav className="ml-auto">
+            <Nav className="ml-auto" style={{fontFamily: 'var(--font-mulish)'}}>
               <Nav.Link href="/Signout">Sign Out</Nav.Link>
             </Nav>
           </Container>
@@ -139,7 +139,7 @@ function HealthcareSide(props) {
         <div></div>
         <Container>
           <ListGroup as="ul">
-            <ListGroup.Item as="li" active style={{backgroundColor: '#e2e9e4', color: 'white'}}>
+            <ListGroup.Item as="li" active style={{backgroundColor: '#7d7987', color: 'white'}}>
               Your Patient List
             </ListGroup.Item>
 

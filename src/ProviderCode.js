@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, OverlayTrigger, Popover, Button } from "react-bootstrap";
+import { Badge, OverlayTrigger, Popover } from "react-bootstrap";
 import Copy from "./copyButton";
 import "./custom-color.css";
 
@@ -13,7 +13,7 @@ function ProviderCode(props) {
       <Popover.Body>
         <div className="d-flex align-items-center justify-content-between">
           <h1>
-            <Badge bg="#69745e">{providerCode}</Badge>
+            <Badge style={{backgroundColor: '#bfd7c1'}}>{providerCode}</Badge>
           </h1>
           <Copy value={providerCode} />
         </div>
@@ -23,7 +23,7 @@ function ProviderCode(props) {
 
   return (
     <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-      <Button className="btn-themed">View Provider Code</Button>
+      <button className="btn-themed">View Provider Code</button>
     </OverlayTrigger>
   );
 }
