@@ -1,8 +1,7 @@
-
-import React from 'react'
+import React from "react";
 import { useCallback } from "react";
 import "./SignUpWindow.css";
-import "./global.css"
+import "./global.css";
 
 const SignUpWindow = () => {
   const onFrameButtonClick = useCallback(() => {
@@ -26,7 +25,6 @@ const SignUpWindow = () => {
         <button className="patient-signup-wrapper" onClick={onFrameButtonClick}>
           <a
             className="patient-signup"
-            href={`https://airable.auth.us-east-1.amazoncognito.com/signup?client_id=1ffva6aqq4sqvtj7b3hv191q1p&response_type=token&scope=aws.cognito.signin.user.admin&redirect_uri=https://airable.org/patient`}
           >
             Patient Signup
           </a>
