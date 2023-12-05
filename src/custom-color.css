@@ -26,100 +26,11 @@
 
 /* Custom Color for Bootstrap primary */
 .color-theme {
-align-self: stretch;
-  background-color: var(--color-theme);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--padding-mini) var(--padding-23xl);
-  gap: 52.83px;
-  z-index: 1000;
-  position: sticky;
-  left: 0;
-  top: 0;
+background-color: #69745e;
 }
-.ventigator-logo-icon2 {
-  position: relative;
-  width: 66.4px;
-  height: 66.4px;
-  object-fit: cover;
-}
-.top-bar-frame2 {
-  align-self: stretch;
-  background-color: var(--color-theme);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--padding-mini) var(--padding-23xl);
-  gap: 52.83px;
-  z-index: 1000;
-  position: sticky;
-  left: 0;
-  top: 0;
-}
-@media screen and (max-width: 1200px) {
-  .top-bar-frame2 {
-    height: auto;
-  }
-}
-.frame3,
-.logo2 {
-  align-self: stretch;
-  flex: 1;
-  display: flex;
-  align-items: flex-start;
-}
-.frame3 {
-  overflow: hidden;
-  flex-direction: column;
-  justify-content: center;
-  z-index: 0;
-}
-.logo2 {
-  flex-direction: row;
-  justify-content: flex-start;
-  gap: 20.98px;
-  z-index: 2;
-}
-.ventigator-logo-icon2 {
-  position: relative;
-  width: 66.4px;
-  height: 66.4px;
-  object-fit: cover;
-}
-.ventigator-frame2 {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: flex-start;
-  cursor: pointer;
-  z-index: 1;
-}
-.airable2 {
-  position: relative;
-  display: inline-block;
-  width: 119.6px;
-  height: 58.1px;
-  flex-shrink: 0;
-  mix-blend-mode: normal;
-  cursor: pointer;
-  z-index: 0;
-}
-.top-nav3 {
-  align-self: stretch;
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: var(--padding-8xs) 0 0;
-  z-index: 1;
-  text-align: center;
-  font-size: 18.65px;
-  font-family: var(--font-mulish);
+.ventigator-logo-nav {
+  width: auto;
+  height: 100%;
 }
 .signout
 {
