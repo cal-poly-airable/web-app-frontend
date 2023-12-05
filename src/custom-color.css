@@ -43,3 +43,9 @@ background-color: #69745e;
   cursor: pointer;
   z-index: 1;
 }
+
+.custom-badge {
+  background-color: transparent;
+  color: black;
+  border-color:grey;
+}
