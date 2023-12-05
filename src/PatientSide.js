@@ -300,6 +300,7 @@ function PatientSide(props) {
   //////
   return (
     <>
+    <div style={{backgroundColor: '#e2e9e4', minHeight: '100vh'}}>
       <Navbar className="color-theme" variant="dark">
         <Container>
           <Navbar.Brand href="/" style={{fontFamily: 'var(--font-noto-serif-thai)'}}>
@@ -462,6 +463,7 @@ function PatientSide(props) {
             </tbody>
           </Table>
         </div>
+      </div>
       </div>
     </>
   );
