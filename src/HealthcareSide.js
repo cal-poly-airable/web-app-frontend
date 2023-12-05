@@ -126,7 +126,7 @@ function HealthcareSide(props) {
             </Nav>
           </Container>
         </Navbar>
-        <div>
+        <div style={{backgroundColor: '#e2e9e4'}}>
           <div>
             <br />
           </div>
