@@ -113,7 +113,7 @@ function HealthcareSide(props) {
   } else {
     return (
       <>
-      <diV style={{backgroundColor: '#e2e9e4'}}>
+      <div style={{backgroundColor: '#e2e9e4', minHeight: '100vh'}}>
         <Navbar className="color-theme" variant="dark">
           <Container>
           <Nav className="me-auto" style={{fontFamily: 'var(--font-noto-serif-thai)'}}>
@@ -167,7 +167,7 @@ function HealthcareSide(props) {
           <br />
           <ProviderCode code={userData.providerCode} />
         </Container>
-      </diV>
+      </div>
       </>
     );
   }
