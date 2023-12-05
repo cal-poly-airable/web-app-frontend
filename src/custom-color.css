@@ -45,7 +45,7 @@ background-color: #69745e;
 }
 
 .custom-badge {
-  background-color: transparent;
-  color: black;
-  border-color:grey;
+  background-color: transparent !important;
+  color: black !important;
+  border-color:grey !important;
 }
