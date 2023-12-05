@@ -43,9 +43,25 @@ background-color: #69745e;
   cursor: pointer;
   z-index: 1;
 }
-
 .custom-badge {
   background-color: white !important;
   color: black !important;
   border-color:grey !important;
+}
+.btn-trans-lightgreen {
+  background-color: transparent !important;
+  color: black !important;
+}
+.btn-trans-lightgreen:hover {
+  background-color: #94a187 !important;
+  color: white !important;
+}
+
+.btn-trans-red {
+  background-color: transparent !important;
+  color: black !important;
+}
+.btn-trans-red:hover {
+  background-color: #8b0000 !important;
+  color: white !important;
 }

@@ -25,10 +25,10 @@ function PatientRow(props) {
         {" "}
         {/*used to be align right */}
         <ButtonGroup>
-          <Button size="sm" className="btn-themed" onClick={handleViewData}>
+          <Button size="sm" className="btn-trans-lightgreen" onClick={handleViewData}>
             View Patient Data
           </Button>
-          <Button size="sm" variant="danger" onClick={handleRemovePatient}>
+          <Button size="sm" className="btn-trans-red" onClick={handleRemovePatient}>
             Remove Patient
           </Button>
         </ButtonGroup>
