@@ -14,6 +14,7 @@ import ButtonGroup from "react-bootstrap/ButtonGroup";
 import MyCard from "./MyCard";
 import ProviderModal from "./ProviderModal";
 import O2Saturation from "./O2Saturation";
+import "./custom-color.css"
 
 function PatientSide(props) {
   const isProvider = props.providerPerspective; //True if you are viewing from healthcare perspective
@@ -282,6 +283,20 @@ function PatientSide(props) {
     value: `${avgO2}`,
     colSize: 8,
   };
+
+  const customToggleButtonStyle = {
+    on: {
+      backgroundColor: '#94a187',
+      borderColor: '#94a187',
+      color: '#YourCustomTextColorWhenToggledOn'
+    },
+    off: {
+      backgroundColor: 'transparent',
+      borderColor: '#94a187',
+      color: '#94a187'
+    }
+  };
+
   //////
   return (
     <>
@@ -362,7 +377,8 @@ function PatientSide(props) {
                       key={idx}
                       id={`radio2-${idx}`}
                       type="radio"
-                      variant="outline-primary" //{idx % 2 ? 'outline-info' : 'outline-primary'}
+                      style={{customToggleButtonStyle}}
+                      //variant="outline-primary" //{idx % 2 ? 'outline-info' : 'outline-primary'}
                       name="radio2"
                       value={radio.value}
                       checked={radioValue2 === radio.value}
