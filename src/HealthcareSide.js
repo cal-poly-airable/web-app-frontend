@@ -113,7 +113,7 @@ function HealthcareSide(props) {
   } else {
     return (
       <>
-        <Navbar className="color-theme" variant="dark">
+        <Navbar className="color-theme" variant="dark" style={{fontFamily: 'var(--font-noto-serif-thai)'}}>
           <Container>
           <Nav className="me-auto">
             <Navbar.Brand href="/">
@@ -139,7 +139,7 @@ function HealthcareSide(props) {
         <div></div>
         <Container>
           <ListGroup as="ul">
-            <ListGroup.Item as="li" active style={{backgroundColor: '#69745e', color: 'white'}}>
+            <ListGroup.Item as="li" active style={{backgroundColor: '#e2e9e4', color: 'white'}}>
               Your Patient List
             </ListGroup.Item>
 
