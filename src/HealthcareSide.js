@@ -117,7 +117,7 @@ function HealthcareSide(props) {
           <Container>
           <Nav className="me-auto">
             <Navbar.Brand href="/">
-              <img src="/ventigatorlogo.png" className="ventigator-logo-nav"/>
+              <img src="/ventigatorlogo.png" className="ventigator-logo-nav"/>{' '}
               Airable Healthcare
               </Navbar.Brand>
             </Nav>
