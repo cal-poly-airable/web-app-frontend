@@ -13,7 +13,7 @@ function ProviderCode(props) {
       <Popover.Body>
         <div className="d-flex align-items-center justify-content-between">
           <h1>
-            <Badge bg="secondary">{providerCode}</Badge>
+            <Badge bg="#69745e">{providerCode}</Badge>
           </h1>
           <Copy value={providerCode} />
         </div>
