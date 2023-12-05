@@ -8,7 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Table from "react-bootstrap/Table";
+//import Table from "react-bootstrap/Table";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import MyCard from "./MyCard";
@@ -439,29 +439,6 @@ function PatientSide(props) {
               <MyCard options={C4} />
             </Col>
           </Row>
-        </div>
-        <br />
-        <div>
-          <Table>
-            <thead>
-              <tr>
-                <th>Time</th>
-                <th>Heart Rate (BPM)</th>
-                <th>O2 Saturation (%)</th>
-              </tr>
-            </thead>
-            <tbody>
-              {vitals.map((arrayData) => {
-                return (
-                  <tr key={arrayData.time}>
-                    <td>{new Date(arrayData.time).toLocaleString("en-US")}</td>
-                    <td>{arrayData.HR}</td>
-                    <td>{arrayData.O2}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </Table>
         </div>
       </div>
       </div>
