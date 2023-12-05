@@ -4,8 +4,8 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 
-
-function PatientRow(props) { //A single Patient Row in the table of patients for healthcare providers
+function PatientRow(props) {
+  //A single Patient Row in the table of patients for healthcare providers
   const handleViewData = () => {
     props.onViewData(props.patient.userID); //call function that will request patients data from the backend
   };
@@ -25,10 +25,10 @@ function PatientRow(props) { //A single Patient Row in the table of patients for
         {" "}
         {/*used to be align right */}
         <ButtonGroup>
-          <Button size="sm" variant="primary" onClick={handleViewData}>
+          <Button size="sm" variant="outline-primary" onClick={handleViewData}>
             View Patient Data
           </Button>
-          <Button size="sm" variant="danger" onClick={handleRemovePatient}>
+          <Button size="sm" variant="outline-danger" onClick={handleRemovePatient}>
             Remove Patient
           </Button>
         </ButtonGroup>
