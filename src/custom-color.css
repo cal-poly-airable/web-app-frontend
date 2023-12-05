@@ -50,18 +50,20 @@ background-color: #69745e;
 }
 .btn-trans-lightgreen {
   background-color: transparent !important;
-  color: black !important;
+  color: #94a187 !important;
 }
 .btn-trans-lightgreen:hover {
+  border-color: #94a187 !important;
   background-color: #94a187 !important;
   color: white !important;
 }
 
 .btn-trans-red {
   background-color: transparent !important;
-  color: black !important;
+  color: #8b0000 !important;
 }
 .btn-trans-red:hover {
+  border-color: #8b0000 !important;
   background-color: #8b0000 !important;
   color: white !important;
 }
