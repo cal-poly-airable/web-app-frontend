@@ -59,11 +59,11 @@ function ProviderModal({ show, onHide, provider, onSubmit }) {
           )}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={onHide}>
+          <Button variant="outline-secondary" onClick={onHide}>
             Cancel
           </Button>
           <Button
-            variant={isProvider ? "danger" : "primary"}
+            variant={isProvider ? "outline-danger" : "outline-primary"}
             type="submit"
             disabled={!isproviderCodeEntered}
           >
