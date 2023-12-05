@@ -1,6 +1,7 @@
 import React from "react";
 import { Badge, OverlayTrigger, Popover, Button } from "react-bootstrap";
 import Copy from "./copyButton";
+import "./custom-color.css";
 
 function ProviderCode(props) {
   //shows the provider's code in the health care dashboard and allow them to copy it
@@ -22,7 +23,7 @@ function ProviderCode(props) {
 
   return (
     <OverlayTrigger trigger="click" placement="right" overlay={popover}>
-      <Button variant="success" style={{backgroundColor: '#69745e'}}>View Provider Code</Button>
+      <Button className="btn-themed">View Provider Code</Button>
     </OverlayTrigger>
   );
 }

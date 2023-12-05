@@ -16,6 +16,14 @@
   --bs-gradient: none;
 }
 
+.btn-themed {
+  background-color: #bfd7c1;
+}
+
+.btn-themed:hover {
+  background-color: #69745e;
+}
+
 /* Custom Color for Bootstrap primary */
 .color-theme {
 align-self: stretch;
