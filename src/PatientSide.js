@@ -24,7 +24,7 @@ function PatientSide(props) {
 
   const [showAlert, setShowAlert] = useState(false); //state for userID copied alert
 
-  const handleCopyUserId = () => { 
+  const handleCopyUserId = () => {
     navigator.clipboard.writeText(userData.subject);
     setShowAlert(true);
     setTimeout(() => setShowAlert(false), 2000);
@@ -32,7 +32,8 @@ function PatientSide(props) {
 
   const [saturation, setSaturation] = useState(userData.assistance); //Target O2 Saturation State
 
-  const handleSaturationChange = (value) => { //Handles target sat. change (currently only enabled for healthcare providers)
+  const handleSaturationChange = (value) => {
+    //Handles target sat. change (currently only enabled for healthcare providers)
     axios
       .post(
         domain + `/patient/${userData.subject}/saturation`,
@@ -61,7 +62,8 @@ function PatientSide(props) {
   const [providerData, setProviderData] = useState(tempProv);
   const [showProviderModal, setShowProviderModal] = useState(false);
 
-  const handleProviderModalSubmit = (value) => { //handles updating Provider Patient Link
+  const handleProviderModalSubmit = (value) => {
+    //handles updating Provider Patient Link
     console.log("providerData", providerData);
     console.log("auth", auth);
     console.log("auth");
@@ -124,9 +126,8 @@ function PatientSide(props) {
   });
   //using time from last recorded?
 
-
   var lastTime = Date.now();
-  //lastTime = userData.vitals[userData.vitals.length - 1].time; 
+  //lastTime = userData.vitals[userData.vitals.length - 1].time;
   //uncomment above to use the last vitals measurement as the cuttoff for graph & Table
 
   //console.log(lastTime);
@@ -183,7 +184,8 @@ function PatientSide(props) {
   }
 
   var Yaxis = radioValue == 1 ? " BPM" : "% Sat.";
-  var options = { //Canvas.js Chart Options
+  var options = {
+    //Canvas.js Chart Options
     animationEnabled: true,
 
     title: {
@@ -209,7 +211,8 @@ function PatientSide(props) {
     ],
   };
 
-  function Download() { //Create a CSV of all data values
+  function Download() {
+    //Create a CSV of all data values
     var csvString = [["Date & Time", "Heart Rate", "O2 Saturation"]];
     var a = userData.vitals.map((item) => [
       new Date(item.time).toLocaleString("en-US").replace(",", ""),
@@ -244,7 +247,8 @@ function PatientSide(props) {
   var cnt = 0;
   var avgHR = 0;
   var avgO2 = 0;
-  vitals.forEach((element) => { //calculate averages
+  vitals.forEach((element) => {
+    //calculate averages
     avgHR += element.HR;
     avgO2 += element.O2;
     cnt++;
@@ -283,10 +287,13 @@ function PatientSide(props) {
     <>
       <Navbar className="color-theme" variant="dark">
         <Container>
+          <Nav className="me-auto" style={{fontFamily: 'var(--font-noto-serif-thai)'}}>
           <Navbar.Brand href="/">
+          <img src="/ventigatorlogo.png" className="ventigator-logo-nav"/>{' '}
             Airable {isProvider ? "Healthcare" : "Patient"}
           </Navbar.Brand>
-          <Nav className="me-auto">
+          </Nav>
+          <Nav className="me-auto" style={{fontFamily: 'var(--font-mulish)'}}>
             <Nav.Link onClick={Download}>Export Data</Nav.Link>
             {!isProvider ? (
               <Nav.Link onClick={() => setShowProviderModal(true)}>
@@ -296,7 +303,7 @@ function PatientSide(props) {
               ""
             )}
           </Nav>
-          <Nav className="ml-auto">
+          <Nav className="ml-auto" style={{fontFamily: 'var(--font-mulish)'}}>
             {!isProvider ? (
               <>
                 <NavItem onClick={handleCopyUserId}>
