@@ -139,7 +139,7 @@ function HealthcareSide(props) {
         <div></div>
         <Container>
           <ListGroup as="ul">
-            <ListGroup.Item as="li" active style={{backgroundColor: '#6c757d', borderColor: '#6c757d', color: 'white'}}>
+            <ListGroup.Item as="li" active style={{backgroundColor: '#e9ecef', borderColor: '#e9ecef', color: 'black'}}>
               Your Patient List
             </ListGroup.Item>
 
