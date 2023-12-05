@@ -115,10 +115,10 @@ function HealthcareSide(props) {
       <>
         <Navbar className="color-theme" variant="dark">
           <Container>
-            <Navbar.Brand className="ventigator-logo-icon2" href="/"><img
+            <Navbar.Brand className="ventigator-logo-icon2" classname="mr.auto" href="/"><img
                 src="/ventigatorlogo.png"
               /></Navbar.Brand>
-            <Navbar.Brand href="/">Airable Healthcare</Navbar.Brand>
+            <Navbar.Brand classname="mr.auto" href="/">Airable Healthcare</Navbar.Brand>
             <Nav className="ml-auto">
               <Nav.Link href="/Signout">Sign Out</Nav.Link>
             </Nav>
