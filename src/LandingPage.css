@@ -447,7 +447,8 @@
     gap: var(--gap-31xl);
     justify-content: space-between;
     padding-top: var(--padding-31xl);
-    padding-right: 0;
+    padding-right: var(--padding-23xl);
+    padding-left: var(--padding-23xl);
     box-sizing: border-box;
   }
   .line-under-header {
