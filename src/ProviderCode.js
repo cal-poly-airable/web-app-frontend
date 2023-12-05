@@ -11,9 +11,9 @@ function ProviderCode(props) {
     <Popover id="popover-basic">
       <Popover.Header as="h3">Your Provider Code Is:</Popover.Header>
       <Popover.Body>
-        <div className="d-flex align-items-center justify-content-between">
+        <div className="d-flex align-items-center justify-content-between" style={{backgroundColor: 'transparent', color: 'black', border: '2px solid grey'}}>
           <h1>
-            <Badge style={{backgroundColor: 'transparent', color: 'black', border: '2px solid grey'}}>{providerCode}</Badge>
+            <Badge>{providerCode}</Badge>
           </h1>
           <Copy value={providerCode} />
         </div>
