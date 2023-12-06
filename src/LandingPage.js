@@ -188,8 +188,9 @@ const LandingPage = () => {
           <div className="header-text">
             <b className="wearable-ventilator">Wearable Ventilator</b>
             <div className="general-description-of">
-              General description of the current version of the project and who
-              the ventilator is catered towards.
+            At Airable, our mission is to better the lives of those with respiratory challenges. We are proud to introduce Ventigator, our new cutting-edge, wearable ventilator system. 
+            Designed with portability in mind, the Ventigator combines lightweight materials with a compact construction to ensure patients can receive optimal respiratory support wherever life takes them. 
+            A robust battery guarantees extended use, providing peace of mind for users on the road. 
             </div>
             <button className="consult-btn" onClick={openSignUpWindow}>
               <b className="sign-up-now">SIGN UP NOW</b>
