@@ -147,11 +147,12 @@
 }
 .general-description-of {
   align-self: stretch;
-  font-size: 24.86px;
-  line-height: 43px;
+  font-size: 27px;
+  line-height: 37px;
   font-weight: 300;
   font-family: var(--font-mulish);
   color: var(--color-slategray);
+  padding-right: 7px;
 }
 .sign-up-now {
   font-size: 18.65px;
@@ -256,8 +257,8 @@
   align-self: stretch;
   flex: 1;
   position: relative;
-  font-size: 24.86px;
-  line-height: 23.31px;
+  font-size: 27px;
+  line-height: 37px;
   font-weight: 300;
   font-family: var(--font-mulish);
   color: var(--color-slategray);
@@ -387,6 +388,7 @@
   font-size: 37.29px;
   color: var(--color-black);
   font-family: var(--font-poppins);
+  height: '100vh'
 }
 @media screen and (max-width: 1200px) {
   .top-bar-frame3 {
@@ -482,5 +484,8 @@
     padding-left: var(--padding-23xl);
     padding-right: var(--padding-23xl);
     box-sizing: border-box;
+  }
+  .landing-page {
+    height: 3500px;
   }
 }
