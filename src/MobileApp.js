@@ -217,7 +217,7 @@ const MobileApp = () => {
               <div className="line-frame-inner" />
             </div>
             <div className="text-frame1">
-              <div className="access-your-health">{`Access your health information instantaneously from anywhere you may be.`}</div>
+              <div className="access-your-health">Access your health information instantaneously from anywhere you may be. Our user-friendly mobile interface will let you take control of your respiratory health with ease.</div>
             </div>
             <button className="btn">
               <b className="download">Download</b>
