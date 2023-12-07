@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
@@ -225,10 +226,7 @@ const LandingPage = () => {
                 <div className="steps1-frame">
                   <div className="hist-ory-h-container">
                     <p className="hist-ory-h">
-                      HIST ORY H I STORYHISTOR YHIS TORY HIS TORY HIST ORY HIST
-                      ORYHI STO RYHI STO RYH I S TORY H I S T ORYHI STOR YHISTO
-                      RYHISTO R Y H I S TORYHISTO RYHIST ORYHIS TORYHISTO
-                      RYHISTORY
+                    Before embarking on your respiratory care journey with Ventigator, initiate the process by reaching out to us directly or consulting your healthcare provider. Our team is ready to provide personalized guidance, ensuring the optimal setup and usage based on your individual needs.
                     </p>
                   </div>
                 </div>
@@ -237,10 +235,9 @@ const LandingPage = () => {
                 <div className="steps1-frame">
                   <div className="hist-ory-h-container">
                     <p className="hist-ory-h">
-                      HIST ORY H I STORYHISTOR YHIS TORY HIS TORY HIST ORY HIST
-                      ORYHI STO RYHI STO RYH I S TORY H I S T ORYHI STOR YHISTO
-                      RYHISTO R Y H I S TORYHISTO RYHIST ORYHIS TORYHISTO
-                      RYHISTORY
+                    Upon contact, you will receive your Ventigator device along with detailed instructions for activation. 
+                    The process involves linking your smartwatch's vitals to the Ventigator mobile app. 
+                    Through this integration, your smartwatch continuously monitors vital signs, such as heart rate and oxygen saturation.
                     </p>
                   </div>
                 </div>
@@ -249,10 +246,9 @@ const LandingPage = () => {
                 <div className="steps1-frame">
                   <div className="hist-ory-h-container">
                     <p className="hist-ory-h">
-                      HIST ORY H I STORYHISTOR YHIS TORY HIS TORY HIST ORY HIST
-                      ORYHI STO RYHI STO RYH I S TORY H I S T ORYHI STOR YHISTO
-                      RYHISTO R Y H I S TORYHISTO RYHIST ORYHIS TORYHISTO
-                      RYHISTORY
+                    Explore your historical data and trends provided by our website portal and mobile app. 
+                    Share your data seamlessly with your healthcare provider, ensuring that your healthcare team remains informed about your respiratory health.
+                    For any questions or assistance during these steps, our support team is just a message away.
                     </p>
                   </div>
                 </div>

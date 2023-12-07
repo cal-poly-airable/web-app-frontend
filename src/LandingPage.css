@@ -258,11 +258,14 @@
   flex: 1;
   position: relative;
   font-size: 27px;
-  line-height: 37px;
+  line-height: 43px;
   font-weight: 300;
   font-family: var(--font-mulish);
   color: var(--color-slategray);
   mix-blend-mode: normal;
+  padding-left: 75px;
+  padding-right: 75px;
+  padding-top: 60px;
 }
 .services-frame {
   align-self: stretch;
@@ -299,6 +302,7 @@
 }
 .hist-ory-h {
   margin: 0;
+  line-height: 37px;
 }
 .hist-ory-h-container {
   align-self: stretch;
@@ -486,6 +490,10 @@
     box-sizing: border-box;
   }
   .landing-page {
-    height: 3500px;
+    height: 4400px;
+  }
+  .services {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
