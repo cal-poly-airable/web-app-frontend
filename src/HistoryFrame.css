@@ -162,7 +162,8 @@
   object-fit: cover;
 }
 .history11 {
-  line-height: 30px;
+  padding-top: 20px;
+  line-height: 37px;
   font-weight: 300;
   mix-blend-mode: normal;
 }

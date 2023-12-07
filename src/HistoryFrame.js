@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
@@ -221,8 +222,7 @@ const HistoryFrame = () => {
                 src="/ventilator-v1.jpg"
               />
               <div className="history11">
-                History History History History History History History History
-                History
+              Ventigator I marks the inception of our ventilator series. With an emphasis on essential features, Ventigator I set the foundation for subsequent models in this series. It featured a high-pressure bottled O2 system and a core processing unit powered by Raspberry Pi.
               </div>
             </div>
             <div className="v1-frame">
@@ -232,8 +232,7 @@ const HistoryFrame = () => {
                 src="/ventilator-v2.jpg"
               />
               <div className="history11">
-                History History History History History History History History
-                History
+              Building upon the success of its predecessor, Ventigator II integrated a new oxygen concentrator, offering a more sustainable and efficient oxygen supply. A more advanced Raspberry Pi processing unit enabled improved control over respiratory parameters. 
               </div>
             </div>
             <div className="v1-frame">
@@ -243,8 +242,7 @@ const HistoryFrame = () => {
                 src="/ventilator-v3.jpg"
               />
               <div className="history11">
-                History History History History History History History History
-                History
+              Designed for portability and durability, Ventigator III's new carrying case provided added protection for safety during travel and everyday use. A new adaptive O2 concentrator allowed for adjustable oxygen concentration based on real-time user needs.
               </div>
             </div>
           </div>
