@@ -156,9 +156,10 @@
 .access-your-health {
   flex: 1;
   position: relative;
-  line-height: 30px;
+  line-height: 43px;
   font-weight: 300;
   mix-blend-mode: normal;
+  padding-right: 70px;
 }
 .text-frame1 {
   align-self: stretch;
