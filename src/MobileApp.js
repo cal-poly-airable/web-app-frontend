@@ -144,14 +144,14 @@ const MobileApp = () => {
     <>
       <div className="mobile-app">
         <div className="top-bar-frame2">
-          <div className="logo2">
+          <div className="logo">
             <div
               className="ventigator-frame2"
               onClick={onVentigatorFrameContainerClick}
             >
               <img
                 className="ventigator-logo-icon2"
-                alt=""
+                alt="Ventigator Alligator Logo"
                 src="/ventigatorlogo.png"
               />
             </div>
@@ -177,7 +177,6 @@ const MobileApp = () => {
                 <div className="link-portal-child" data-dropdown-button>Portal Login</div>
                 <img
                   className="vector-link"
-                  alt=""
                   src="/vector-12.svg"
                 />
               </button>
@@ -221,25 +220,26 @@ const MobileApp = () => {
             </div>
             <button className="btn">
               <b className="download">Download</b>
-              <img className="vector-icon1" alt="" src="/vector.svg" />
+              <img className="vector-icon1" src="/vector.svg" />
             </button>
           </div>
           <div className="airableappui1-wrapper">
             <img
               className="airableappui1-icon"
-              alt=""
+              alt="Airable App Home Page"
               src="/airableappui1.jpg"
             />
           </div>
           <div className="airableappui1-wrapper">
             <img
               className="airableappui1-icon"
-              alt=""
+              alt="Airable App Bluetooth Pairing"
               src="/airableappui2.jpg"
             />
           </div>
         </div>
       </div>
+
       {isHiddenMenuBarOpen && (
         <PortalDrawer
           overlayColor="rgba(113, 113, 113, 0.3)"

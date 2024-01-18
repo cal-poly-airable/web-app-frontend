@@ -153,7 +153,7 @@ const HistoryFrame = () => {
             >
               <img
                 className="ventigator-logo-icon"
-                alt=""
+                alt="Ventigator Alligator Logo"
                 src="/ventigatorlogo.png"
               />
             </div>
@@ -179,7 +179,7 @@ const HistoryFrame = () => {
                 <div className="link-portal-child" data-dropdown-button>Portal Login</div>
                 <img
                   className="vector-link"
-                  alt=""
+                  alt="Login Window"
                   src="/vector-12.svg"
                 />
               </button>
@@ -218,7 +218,7 @@ const HistoryFrame = () => {
             <div className="v1-frame">
               <img
                 className="ventilator-v1-icon"
-                alt=""
+                alt="First version of ventilator"
                 src="/ventilator-v1.jpg"
               />
               <div className="history11">
@@ -228,7 +228,7 @@ const HistoryFrame = () => {
             <div className="v1-frame">
               <img
                 className="ventilator-v1-icon"
-                alt=""
+                alt="Second version of ventilator"
                 src="/ventilator-v2.jpg"
               />
               <div className="history11">
@@ -238,7 +238,7 @@ const HistoryFrame = () => {
             <div className="v1-frame">
               <img
                 className="ventilator-v1-icon"
-                alt=""
+                alt="Third version of ventilator"
                 src="/ventilator-v3.jpg"
               />
               <div className="history11">

@@ -188,6 +188,7 @@ function PatientSide(props) {
   var options = {
     //Canvas.js Chart Options
     animationEnabled: true,
+    responsive: true,
 
     title: {
       text: `${
