@@ -372,7 +372,7 @@ function PatientSide(props) {
               <div>
                 <br />
               </div>
-              <div style={{ display: "flex", justifyContent: "center", paddingLeft: 20, paddingRight: 20}}>
+              <div style={{ display: "flex", justifyContent: "center", paddingLeft: 20, paddingRight: 20, gap: 10}}>
                 <ButtonGroup>
                   {radios2.map((radio, idx) => (
                     <ToggleButton
@@ -394,7 +394,7 @@ function PatientSide(props) {
               <div>
                 <br />
               </div>
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div style={{ display: "flex", justifyContent: "center"}}>
                 <ButtonGroup>
                   {radios.map((radio, idx) => (
                     <ToggleButton
