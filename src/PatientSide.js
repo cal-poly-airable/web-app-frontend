@@ -420,7 +420,7 @@ function PatientSide(props) {
               />
             </Col>
             <Col sm={9}>
-              <CanvasJSChart options={options} />
+              <CanvasJSChart options={options} style={{padding: 10}} />
             </Col>
           </Row>
         </div>

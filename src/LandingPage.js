@@ -125,11 +125,11 @@ const LandingPage = () => {
     <>
       <div className="landing-page" data-scroll-to="landingPageContainer">
         <nav className="top-bar-frame3">
-          <div className="logo3">
+          <div className="logo">
             <a className="ventigator-frame3">
               <img
-                className="ventigator-logo-icon3"
-                alt=""
+                className="ventigator-logo-icon"
+                alt="Ventigator Alligator Logo"
                 src="/ventigatorlogo.png"
               />
             </a>
@@ -155,7 +155,6 @@ const LandingPage = () => {
                 <div className="link-portal-child" data-dropdown-button>Portal Login</div>
                 <img
                   className="vector-link"
-                  alt=""
                   src="/vector-12.svg"
                 />
               </button>
@@ -188,7 +187,7 @@ const LandingPage = () => {
         <div className="description-frame">
           <div className="header-text">
             <b className="wearable-ventilator">Wearable Ventilator</b>
-            <div className="general-description-of">
+            <div className="gen-description">
             At Airable, our mission is to better the lives of those with respiratory challenges. We are proud to introduce Ventigator, our new cutting-edge, wearable ventilator system. 
             Designed with portability in mind, the Ventigator combines lightweight materials with a compact construction to ensure patients can receive optimal respiratory support wherever life takes them. 
             A robust battery guarantees extended use, providing peace of mind for users on the road. 
@@ -200,7 +199,7 @@ const LandingPage = () => {
           <div className="ventilator-image-wrapper">
             <img
               className="ventilator-image-icon"
-              alt=""
+              alt="Ventilator Prototype"
               src="/ventilatorimage.jpg"
             />
           </div>
@@ -224,8 +223,8 @@ const LandingPage = () => {
             <div className="steps-frame">
               <div className="step1outer">
                 <div className="steps1-frame">
-                  <div className="hist-ory-h-container">
-                    <p className="hist-ory-h">
+                  <div className="steps-container">
+                    <p className="steps">
                     Before embarking on your respiratory care journey with Ventigator, initiate the process by reaching out to us directly or consulting your healthcare provider. Our team is ready to provide personalized guidance, ensuring the optimal setup and usage based on your individual needs.
                     </p>
                   </div>
@@ -233,8 +232,8 @@ const LandingPage = () => {
               </div>
               <div className="step1outer">
                 <div className="steps1-frame">
-                  <div className="hist-ory-h-container">
-                    <p className="hist-ory-h">
+                  <div className="steps-container">
+                    <p className="steps">
                     Upon contact, you will receive your Ventigator device along with detailed instructions for activation. 
                     The process involves linking your smartwatch's vitals to the Ventigator mobile app. 
                     Through this integration, your smartwatch continuously monitors vital signs, such as heart rate and oxygen saturation.
@@ -244,8 +243,8 @@ const LandingPage = () => {
               </div>
               <div className="step1outer">
                 <div className="steps1-frame">
-                  <div className="hist-ory-h-container">
-                    <p className="hist-ory-h">
+                  <div className="steps-container">
+                    <p className="steps">
                     Explore your historical data and trends provided by our website portal and mobile app. 
                     Share your data seamlessly with your healthcare provider, ensuring that your healthcare team remains informed about your respiratory health.
                     For any questions or assistance during these steps, our support team is just a message away.
