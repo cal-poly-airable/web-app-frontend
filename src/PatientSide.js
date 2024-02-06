@@ -360,7 +360,7 @@ function PatientSide(props) {
           {/*setProviderData={setProviderData}*/}
         </div>
         <div>
-          <Row className="graph-buttons">
+          <Row>
             <Col sm={3}>
               <div>
                 <br />
@@ -419,7 +419,7 @@ function PatientSide(props) {
               />
             </Col>
             <Col sm={9}>
-              <CanvasJSChart options={options} style={{padding: 10}} />
+              <CanvasJSChart options={options}  className="graph-buttons" />
             </Col>
           </Row>
         </div>
