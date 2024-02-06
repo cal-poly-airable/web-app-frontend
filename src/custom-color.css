@@ -67,8 +67,3 @@ background-color: #69745e;
   background-color: #8b0000 !important;
   color: white !important;
 }
-
-.graph-buttons {
-  display: flex;
-  padding: 10px;
-}
