@@ -418,8 +418,8 @@ function PatientSide(props) {
                 isProvider={isProvider}
               />
             </Col>
-            <Col sm={9}>
-              <CanvasJSChart options={options}  className="graph-buttons" />
+            <Col sm={7}>
+              <CanvasJSChart options={options} />
             </Col>
           </Row>
         </div>
