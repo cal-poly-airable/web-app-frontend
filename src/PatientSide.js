@@ -189,7 +189,6 @@ function PatientSide(props) {
     //Canvas.js Chart Options
     animationEnabled: true,
     responsive: true,
-
     title: {
       text: `${
         radioValue == 1 ? "Heart Rate" : "O2 Saturation"
@@ -301,7 +300,7 @@ function PatientSide(props) {
   //////
   return (
     <>
-    <div style={{backgroundColor: '#e2e9e4', minHeight: '100vh'}}>
+    <div style={{backgroundColor: '#e2e9e4', minHeight: '100vh', width: '100%'}}>
       <Navbar className="color-theme" variant="dark">
         <Container>
           <Navbar.Brand href="/" style={{fontFamily: 'var(--font-noto-serif-thai)'}}>
@@ -372,8 +371,8 @@ function PatientSide(props) {
               <div>
                 <br />
               </div>
-              <div style={{ display: "flex", justifyContent: "center", paddingLeft: 20, paddingRight: 20}}>
-                <ButtonGroup>
+              <div>
+                <ButtonGroup style={{ display: "flex", justifyContent: "center", paddingLeft: 20, paddingRight: 20, gap: 10}}>
                   {radios2.map((radio, idx) => (
                     <ToggleButton
                       key={idx}
@@ -394,7 +393,7 @@ function PatientSide(props) {
               <div>
                 <br />
               </div>
-              <div style={{ display: "flex", justifyContent: "center" }}>
+              <div style={{ display: "flex", justifyContent: "center"}}>
                 <ButtonGroup>
                   {radios.map((radio, idx) => (
                     <ToggleButton
@@ -420,7 +419,7 @@ function PatientSide(props) {
               />
             </Col>
             <Col sm={9}>
-              <CanvasJSChart options={options} />
+              <CanvasJSChart options={options} style={{padding: 10}} />
             </Col>
           </Row>
         </div>

@@ -219,17 +219,16 @@
   flex: 1;
   position: relative;
   border-radius: var(--br-mini);
-  max-width: 100%;
+  width: 100%;
   overflow: hidden;
-  max-height: 100%;
+  height: 90%;
   object-fit: cover;
 }
 .airableappui1-wrapper {
   align-self: stretch;
-  width: 233.8px;
+  width: 300px;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
   justify-content: flex-end;
 }
 .download-our-mobile-apps,

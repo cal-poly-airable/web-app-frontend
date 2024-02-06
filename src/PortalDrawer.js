@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
 import { useMemo, useCallback } from "react";
 
 import { createPortal } from "react-dom";
-import "./PortalDrawer.css";
-import "./global.css"
+import "./global.css";
 
 const PortalDrawer = ({
   children,

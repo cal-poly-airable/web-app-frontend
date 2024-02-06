@@ -144,14 +144,14 @@ const Contacts = () => {
     <>
       <div className="contacts-frame">
         <div className="top-bar-frame1">
-          <div className="logo1">
+          <div className="logo">
             <div
               className="ventigator-frame1"
               onClick={onVentigatorFrameContainerClick}
             >
               <img
-                className="ventigator-logo-icon1"
-                alt=""
+                className="ventigator-logo-icon"
+                alt="Ventigator Alligator Logo"
                 src="/ventigatorlogo.png"
               />
             </div>
@@ -177,7 +177,7 @@ const Contacts = () => {
                 <div className="link-portal-child" data-dropdown-button>Portal Login</div>
                 <img
                   className="vector-link"
-                  alt=""
+                  alt="Login Window"
                   src="/vector-12.svg"
                 />
               </button>

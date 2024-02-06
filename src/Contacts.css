@@ -1,4 +1,4 @@
-.ventigator-logo-icon1 {
+.ventigator-logo-icon {
   position: relative;
   width: 66.4px;
   height: 66.4px;
@@ -23,7 +23,7 @@
   z-index: 0;
 }
 .frame1,
-.logo1 {
+.logo {
   align-self: stretch;
   flex: 1;
   display: flex;
@@ -35,7 +35,7 @@
   justify-content: center;
   z-index: 0;
 }
-.logo1 {
+.logo {
   flex-direction: row;
   justify-content: flex-start;
   gap: 20.98px;
@@ -207,7 +207,8 @@
   position: relative;
   background-color: var(--color-gainsboro);
   width: 100%;
-  height: 751px;
+  min-height: 100vh;
+  height: 100%;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--gap-xl);
@@ -235,7 +236,7 @@
     padding-right: 0;
     box-sizing: border-box;
   }
-  .logo1 {
+  .logo {
     display: flex;
   }
   .top-nav2 {

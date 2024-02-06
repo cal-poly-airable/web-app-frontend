@@ -163,3 +163,10 @@ body {
   gap: 0.25rem;
   z-index: inherit;
 }
+
+.portalPopupOverlay {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0;
+}
