@@ -70,5 +70,6 @@ background-color: #69745e;
 
 .data-container{
   display: flex;
+  width: 100%;
   gap: 5px;
 }
