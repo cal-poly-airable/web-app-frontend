@@ -360,6 +360,7 @@ function PatientSide(props) {
           {/*setProviderData={setProviderData}*/}
         </div>
         <div>
+          <Container>
           <Row>
             <Col sm={3}>
               <div>
@@ -372,7 +373,7 @@ function PatientSide(props) {
                 <br />
               </div>
               <div>
-                <ButtonGroup style={{ display: "flex", justifyContent: "center"}}>
+                <ButtonGroup>
                   {radios2.map((radio, idx) => (
                     <ToggleButton
                       key={idx}
@@ -422,6 +423,7 @@ function PatientSide(props) {
               <CanvasJSChart options={options} />
             </Col>
           </Row>
+          </Container>
         </div>
         <br />
         <div style={{ display: "flex", justifyContent: "center" }}>

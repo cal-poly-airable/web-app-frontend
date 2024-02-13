@@ -1,7 +1,8 @@
 import Card from "react-bootstrap/Card";
 import { Row, Col } from "react-bootstrap";
 import React from "react";
-function MyCard(props) { //general use customly card currently being used for Vital Averages
+function MyCard(props) {
+  //general use customly card currently being used for Vital Averages
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>
       <Card style={{ width: "18rem" }}>
