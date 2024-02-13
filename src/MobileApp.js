@@ -229,8 +229,7 @@ const MobileApp = () => {
               alt="Airable App Home Page"
               src="/airableappui1.jpg"
             />
-          </div>
-          <div className="airableappui1-wrapper">
+
             <img
               className="airableappui1-icon"
               alt="Airable App Bluetooth Pairing"

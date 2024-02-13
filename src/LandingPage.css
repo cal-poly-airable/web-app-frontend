@@ -405,7 +405,7 @@
     width: auto;
   }
 }
-@media screen and (max-width: 784px) {
+@media screen and (max-width: 900px) {
   .ventigator-frame3 {
     display: none;
   }

@@ -226,8 +226,9 @@
 }
 .airableappui1-wrapper {
   align-self: stretch;
-  width: 300px;
+  width: auto;
   display: flex;
+  gap: 40px;
   flex-direction: row;
   justify-content: flex-end;
 }
@@ -266,7 +267,7 @@
     height: auto;
   }
 }
-@media screen and (max-width: 784px) {
+@media screen and (max-width: 900px) {
   .ventigator-frame2 {
     display: none;
   }

@@ -361,7 +361,7 @@ function PatientSide(props) {
         </div>
         <div>
           <Row>
-            <Col sm={3}>
+            <Col sm={4}>
               <div>
                 <br />
               </div>

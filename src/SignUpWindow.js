@@ -3,6 +3,10 @@ import { useCallback } from "react";
 import "./SignUpWindow.css";
 import "./global.css";
 
+///////////////////////////////////////////////////////////////////
+//The popup window after pressing "Sign Up" button on Landing Page
+///////////////////////////////////////////////////////////////////
+
 const SignUpWindow = () => {
   const onFrameButtonClick = useCallback(() => {
     window.open(
@@ -41,9 +45,7 @@ const SignUpWindow = () => {
       </div>
       <div className="patient">
         <button className="patient-signup-wrapper" onClick={onFrameButtonClick}>
-          <a
-            className="patient-signup"
-          >
+          <a className="patient-signup">
             Patient Signup
           </a>
         </button>

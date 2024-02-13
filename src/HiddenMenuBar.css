@@ -98,11 +98,6 @@
 .hidden-menu-bar.animate {
   animation: 0.25s ease 0s 1 normal forwards slide-in-right;
 }
-@media screen and (max-width: 784px) {
-  .home1 {
-    font-family: var(--font-mulish);
-  }
-}
 
 .hidden-link {
   background: none;
