@@ -360,7 +360,7 @@ function PatientSide(props) {
           {/*setProviderData={setProviderData}*/}
         </div>
         <div>
-          <Container>
+          <Container className="data-container">
           <Row>
             <Col sm={3}>
               <div>
