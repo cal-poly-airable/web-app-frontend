@@ -371,7 +371,7 @@ function PatientSide(props) {
               <div>
                 <br />
               </div>
-              <div>
+              <div style={{ display: "flex", justifyContent: "center"}}>
                 <ButtonGroup>
                   {radios2.map((radio, idx) => (
                     <ToggleButton
