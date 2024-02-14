@@ -360,7 +360,6 @@ function PatientSide(props) {
           {/*setProviderData={setProviderData}*/}
         </div>
         <div>
-          <Container>
           <Row>
             <Col sm={3}>
               <div>
@@ -423,7 +422,6 @@ function PatientSide(props) {
               <CanvasJSChart options={options} />
             </Col>
           </Row>
-          </Container>
         </div>
         <br />
         <div style={{ display: "flex", justifyContent: "center" }}>
