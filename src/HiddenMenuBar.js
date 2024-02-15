@@ -4,6 +4,11 @@ import { useNavigate } from "react-router-dom";
 import "./HiddenMenuBar.css";
 import "./global.css";
 
+///////////////////////////////////////////////////////////////////////////
+//          Hidden Menu bar used in all landing pages.
+//          Used for when screen width is smaller than 900px (set in css files)
+//          Primarily geared toward phone and tablet screens
+///////////////////////////////////////////////////////////////////////////
 const HiddenMenuBar = () => {
   const navigate = useNavigate();
   useEffect(() => {
