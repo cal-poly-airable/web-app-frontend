@@ -67,6 +67,7 @@ background-color: #69745e;
   background-color: #8b0000 !important;
   color: white !important;
 }
-.graph-buttons{
-  justify-content: space-between;
+.button-spacing{
+  justify-content: center;
+  display: flex;
 }

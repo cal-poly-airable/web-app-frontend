@@ -360,8 +360,8 @@ function PatientSide(props) {
           {/*setProviderData={setProviderData}*/}
         </div>
         <div>
-          <Row className="graph-buttons">
-            <Col sm={3}>
+          <Row>
+            <Col sm={4}>
               <div>
                 <br />
               </div>
@@ -371,7 +371,7 @@ function PatientSide(props) {
               <div>
                 <br />
               </div>
-              <div style={{ display: "flex", justifyContent: "center"}}>
+              <div className="button-spacing">
                 <ButtonGroup>
                   {radios2.map((radio, idx) => (
                     <ToggleButton
@@ -393,7 +393,7 @@ function PatientSide(props) {
               <div>
                 <br />
               </div>
-              <div style={{ display: "flex", justifyContent: "center"}}>
+              <div className="button-spacing">
                 <ButtonGroup>
                   {radios.map((radio, idx) => (
                     <ToggleButton
@@ -418,13 +418,13 @@ function PatientSide(props) {
                 isProvider={isProvider}
               />
             </Col>
-            <Col sm={9}>
+            <Col sm={8}>
               <CanvasJSChart options={options} />
             </Col>
           </Row>
         </div>
         <br />
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div className="button-spacing">
           <Row>
             <Col md={3} xs={12}>
               <MyCard options={C1} />
