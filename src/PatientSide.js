@@ -360,7 +360,7 @@ function PatientSide(props) {
           {/*setProviderData={setProviderData}*/}
         </div>
         <div>
-          <Row>
+          <Row className="graph-buttons">
             <Col sm={3}>
               <div>
                 <br />
