@@ -418,7 +418,7 @@ function PatientSide(props) {
                 isProvider={isProvider}
               />
             </Col>
-            <Col sm={8}>
+            <Col sm={7}>
               <CanvasJSChart options={options} />
             </Col>
           </Row>
