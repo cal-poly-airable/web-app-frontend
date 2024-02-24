@@ -178,11 +178,7 @@ const HistoryFrame = () => {
             <div className="dropdown" data-dropdown>
               <button className="link-portal" data-dropdown-button>
                 <div className="link-portal-child" data-dropdown-button>Portal Login</div>
-                <img
-                  className="vector-link"
-                  alt="Login Window"
-                  src="/vector-12.svg"
-                />
+                <img className="vector-link" alt="Login Window" src="/vector-12.svg" />
               </button>
             <LoginDropdown />
             </div>
@@ -200,32 +196,20 @@ const HistoryFrame = () => {
           </div>
           <div className="history-images-frame">
             <div className="v1-frame">
-              <img
-                className="ventilator-v1-icon"
-                alt="First version of ventilator"
-                src="/ventilator-v1.jpg"
-              />
-              <div className="history11">
+              <img className="ventilator-v1-icon" alt="First version of ventilator" src="/ventilator-v1.jpg" />
+              <div className="history-description">
               Ventigator I marks the inception of our ventilator series. With an emphasis on essential features, Ventigator I set the foundation for subsequent models in this series. It featured a high-pressure bottled O2 system and a core processing unit powered by Raspberry Pi.
               </div>
             </div>
             <div className="v1-frame">
-              <img
-                className="ventilator-v1-icon"
-                alt="Second version of ventilator"
-                src="/ventilator-v2.jpg"
-              />
-              <div className="history11">
+              <img className="ventilator-v1-icon" alt="Second version of ventilator" src="/ventilator-v2.jpg" />
+              <div className="history-description">
               Building upon the success of its predecessor, Ventigator II integrated a new oxygen concentrator, offering a more sustainable and efficient oxygen supply. A more advanced Raspberry Pi processing unit enabled improved control over respiratory parameters. 
               </div>
             </div>
             <div className="v1-frame">
-              <img
-                className="ventilator-v1-icon"
-                alt="Third version of ventilator"
-                src="/ventilator-v3.jpg"
-              />
-              <div className="history11">
+              <img className="ventilator-v1-icon" alt="Third version of ventilator" src="/ventilator-v3.jpg" />
+              <div className="history-description">
               Designed for portability and durability, Ventigator III's new carrying case provided added protection for safety during travel and everyday use. A new adaptive O2 concentrator allowed for adjustable oxygen concentration based on real-time user needs.
               </div>
             </div>
@@ -233,11 +217,7 @@ const HistoryFrame = () => {
         </div>
       </div>
       {isHiddenMenuBarOpen && (
-        <PortalDrawer
-          overlayColor="rgba(113, 113, 113, 0.3)"
-          placement="Right"
-          onOutsideClick={closeHiddenMenuBar}
-        >
+        <PortalDrawer overlayColor="rgba(113, 113, 113, 0.3)" placement="Right" onOutsideClick={closeHiddenMenuBar}>
           <HiddenMenuBar onClose={closeHiddenMenuBar} />
         </PortalDrawer>
       )}

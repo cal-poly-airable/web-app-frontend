@@ -196,7 +196,9 @@ const LandingPage = () => {
           <div className="line-frame3">
             <div className="line-frame-child1" />
           </div>
-          <div className="services">{`Our team is dedicated to staying at the forefront of respiratory technology. We regularly update Ventigator's firmware and software to introduce new features and improvements. In the unlikely event of any device issues, our dedicated support team ensures a swift resolution. Users can rest assured that their respiratory care will remain uninterrupted. We also recognize the importance of collaboration with healthcare professionals. Airable partners with healthcare providers to integrate Ventigator into patient care plans. Ventigator integrates connectivity options, enabling patients and healthcare providers to monitor patient vitals and track user patterns through their web portal.`}</div>
+          <div className="services">
+            Our team is dedicated to staying at the forefront of respiratory technology. We regularly update Ventigator's firmware and software to introduce new features and improvements. In the unlikely event of any device issues, our dedicated support team ensures a swift resolution. Users can rest assured that their respiratory care will remain uninterrupted. We also recognize the importance of collaboration with healthcare professionals. Airable partners with healthcare providers to integrate Ventigator into patient care plans. Ventigator integrates connectivity options, enabling patients and healthcare providers to monitor patient vitals and track user patterns through their web portal.
+            </div>
         </div>
         <div className="how-it-works-frame">
           <div className="how-it-works-parent">
@@ -243,20 +245,12 @@ const LandingPage = () => {
         <div className="gator-frame" />
       </div>
       {isHiddenMenuBarOpen && (
-        <PortalDrawer
-          overlayColor="rgba(113, 113, 113, 0.3)"
-          placement="Right"
-          onOutsideClick={closeHiddenMenuBar}
-        >
+        <PortalDrawer overlayColor="rgba(113, 113, 113, 0.3)" placement="Right" onOutsideClick={closeHiddenMenuBar}>
           <HiddenMenuBar onClose={closeHiddenMenuBar} />
         </PortalDrawer>
       )}
       {isSignUpWindowOpen && (
-        <PortalPopup
-          overlayColor="rgba(113, 113, 113, 0.3)"
-          placement="Centered"
-          onOutsideClick={closeSignUpWindow}
-        >
+        <PortalPopup overlayColor="rgba(113, 113, 113, 0.3)" placement="Centered" onOutsideClick={closeSignUpWindow}>
           <SignUpWindow onClose={closeSignUpWindow} />
         </PortalPopup>
       )}

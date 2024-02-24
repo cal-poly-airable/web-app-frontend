@@ -182,16 +182,16 @@ const HiddenMenuBar = () => {
           to="/"
           onClick={onVentigatorLogoClick}
         />
-        <div className="home1" onClick={onHomeClick}>
+        <div className="sections" onClick={onHomeClick}>
           Home
         </div>
-        <div className="home1" onClick={onAppClick}>
+        <div className="sections" onClick={onAppClick}>
           App
         </div>
-        <div className="home1" onClick={onHistoryClick}>
+        <div className="sections" onClick={onHistoryClick}>
           History
         </div>
-        <div className="home1" onClick={onContactsTextClick}>
+        <div className="sections" onClick={onContactsTextClick}>
           Contacts
         </div>
         <a href="https://airable.auth.us-east-1.amazoncognito.com/login?client_id=1ffva6aqq4sqvtj7b3hv191q1p&response_type=token&scope=aws.cognito.signin.user.admin&redirect_uri=https://airable.org/patient" 

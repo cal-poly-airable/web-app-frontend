@@ -151,7 +151,7 @@ const MobileApp = () => {
               onClick={onVentigatorFrameContainerClick}
             >
               <img
-                className="ventigator-logo-icon2"
+                className="ventigator-logo-icon"
                 alt="Ventigator Alligator Logo"
                 src="/ventigatorlogo.png"
               />

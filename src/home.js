@@ -2,6 +2,11 @@ import React from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import "./App.css";
 
+////////////////////////////////////
+//Old Home webpage
+//not used anymore
+////////////////////////////////////
+
 function Home() {
   const primaryColor = "#1abc9c"; // Tealish green color from your logo
   const cognitoUrl =

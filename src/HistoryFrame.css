@@ -1,9 +1,3 @@
-.ventigator-logo-icon {
-  position: relative;
-  width: 66.4px;
-  height: 66.4px;
-  object-fit: cover;
-}
 .ventigator-frame {
   cursor: pointer;
   text-decoration: none;
@@ -16,8 +10,8 @@
 .airable {
   position: relative;
   display: inline-block;
-  width: 119.6px;
-  height: 58.1px;
+  width: 120px;
+  height: 58px;
   flex-shrink: 0;
   mix-blend-mode: normal;
   cursor: pointer;
@@ -39,7 +33,7 @@
 .logo {
   flex-direction: row;
   justify-content: flex-start;
-  gap: 20.98px;
+  gap: 21px;
   z-index: 2;
 }
 .home {
@@ -93,10 +87,10 @@
 .hamburger-menu-child,
 .hamburger-menu-item {
   position: relative;
-  border-radius: 5.62px;
+  border-radius: 5.6px;
   background-color: var(--color-white);
   width: 27px;
-  height: 3.1px;
+  height: 3px;
 }
 .hamburger-menu-item {
   width: 23px;
@@ -111,7 +105,7 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  gap: 3.34px;
+  gap: 3.3px;
   z-index: 0;
 }
 .top-bar-frame {
@@ -122,7 +116,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: var(--padding-mini) var(--padding-23xl);
-  gap: 52.83px;
+  gap: 53px;
   z-index: 1000;
   position: sticky;
   left: 0;
@@ -131,14 +125,14 @@
 .history1 {
   align-self: stretch;
   position: relative;
-  line-height: 41.95px;
+  line-height: 42px;
   mix-blend-mode: normal;
 }
 .line-frame-child {
   position: relative;
   border-radius: 3.75px;
   background-color: var(--color-black);
-  width: 48.3px;
+  width: 48px;
   height: 3.4px;
 }
 .line-frame {
@@ -149,7 +143,7 @@
   justify-content: flex-start;
   padding: 0 0 var(--padding-xl);
 }
-.history11,
+.history-description,
 .ventilator-v1-icon {
   align-self: stretch;
   position: relative;
@@ -161,7 +155,7 @@
   max-height: 100%;
   object-fit: cover;
 }
-.history11 {
+.history-description {
   padding-top: 20px;
   line-height: 37px;
   font-weight: 300;
@@ -182,7 +176,7 @@
   align-items: center;
   justify-content: center;
   gap: 100px;
-  font-size: 23.97px;
+  font-size: 24px;
   color: var(--color-slategray);
   font-family: var(--font-mulish);
 }
@@ -199,7 +193,7 @@
   padding: var(--padding-xl) var(--padding-23xl);
   gap: var(--gap-3xs);
   text-align: center;
-  font-size: 35.96px;
+  font-size: 36px;
   color: var(--color-black);
   font-family: var(--font-poppins);
 }
@@ -211,7 +205,7 @@
   justify-content: center;
   gap: var(--gap-xl);
   text-align: left;
-  font-size: 27.97px;
+  font-size: 28px;
   color: var(--color-white);
   font-family: var(--font-noto-serif-thai);
 }
@@ -257,5 +251,9 @@
     width: auto;
     align-self: unset;
     height: auto;
+  }
+  .history-description{
+    font-size: 20px;
+    flex: auto;
   }
 }

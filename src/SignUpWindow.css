@@ -1,6 +1,6 @@
 .lets-get-started {
   position: relative;
-  line-height: 24.86px;
+  line-height: 25px;
   mix-blend-mode: normal;
 }
 .lets-get-started,
@@ -19,7 +19,7 @@
   text-decoration: none;
   position: relative;
   font-size: var(--font-size-13xl);
-  line-height: 24.86px;
+  line-height: 25px;
   font-weight: 300;
   font-family: var(--font-poppins);
   color: var(--color-white);
@@ -50,7 +50,7 @@
 .provider-signup {
   position: relative;
   font-size: var(--font-size-13xl);
-  line-height: 24.86px;
+  line-height: 25px;
   font-weight: 300;
   font-family: var(--font-poppins);
   color: var(--color-white);

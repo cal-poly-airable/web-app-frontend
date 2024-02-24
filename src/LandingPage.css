@@ -1,9 +1,3 @@
-.ventigator-logo-icon {
-  position: relative;
-  width: 66.4px;
-  height: 66.4px;
-  object-fit: cover;
-}
 .ventigator-frame3 {
   text-decoration: none;
   display: flex;
@@ -15,8 +9,8 @@
 .airable3 {
   position: relative;
   display: inline-block;
-  width: 119.6px;
-  height: 58.1px;
+  width: 120px;
+  height: 58px;
   flex-shrink: 0;
   mix-blend-mode: normal;
   z-index: 0;
@@ -37,7 +31,7 @@
 .logo {
   flex-direction: row;
   justify-content: flex-start;
-  gap: 20.98px;
+  gap: 21px;
   z-index: 2;
 }
 .app4,
@@ -95,10 +89,10 @@
 .hamburger-menu-child6,
 .hamburger-menu-child7 {
   position: relative;
-  border-radius: 5.62px;
+  border-radius: 5.6px;
   background-color: var(--color-white);
   width: 27px;
-  height: 3.1px;
+  height: 3px;
 }
 .hamburger-menu-child7 {
   width: 23px;
@@ -113,7 +107,7 @@
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
-  gap: 3.34px;
+  gap: 3.3px;
   z-index: 0;
 }
 .top-bar-frame3 {
@@ -125,13 +119,13 @@
   align-items: flex-start;
   justify-content: flex-start;
   padding: var(--padding-mini) var(--padding-23xl);
-  gap: 52.83px;
+  gap: 53px;
   z-index: 1000;
   position: sticky;
   left: 0;
   top: 0;
   text-align: left;
-  font-size: 27.97px;
+  font-size: 28px;
   color: var(--color-white);
   font-family: var(--font-noto-serif-thai);
 }
@@ -235,14 +229,14 @@
 .our-services {
   align-self: stretch;
   position: relative;
-  line-height: 43.51px;
+  line-height: 43.5px;
   mix-blend-mode: normal;
 }
 .line-frame-child1 {
   position: relative;
-  border-radius: 3.88px;
+  border-radius: 4px;
   background-color: var(--color-black);
-  width: 50.1px;
+  width: 50px;
   height: 3.5px;
 }
 .line-frame3 {
@@ -280,13 +274,13 @@
 .how-it-works {
   align-self: stretch;
   position: relative;
-  line-height: 43.51px;
+  line-height: 43.5px;
   mix-blend-mode: normal;
   z-index: 0;
 }
 .line-frame-child2 {
   position: relative;
-  border-radius: 3.88px;
+  border-radius: 4px;
   background-color: var(--color-black);
   width: 50px;
   height: 3.5px;
@@ -349,10 +343,10 @@
 .gator-1-icon {
   position: absolute;
   margin: 0 !important;
-  top: 500.4px;
-  left: -67px;
+  top: 500px;
+  left: -170px;
   width: 334px;
-  height: 402.5px;
+  height: 400px;
   object-fit: cover;
   z-index: 3;
 }
@@ -382,14 +376,14 @@
   position: relative;
   background-color: var(--color-gainsboro);
   width: 100%;
-  height: 2586px;
+  height: 2686px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: var(--gap-xl);
   text-align: center;
-  font-size: 37.29px;
+  font-size: 37px;
   color: var(--color-black);
   font-family: var(--font-poppins);
 }
@@ -444,7 +438,7 @@
     width: auto;
     align-items: flex-start;
     justify-content: flex-start;
-    flex: unset;
+    flex: auto;
   }
   .description-frame {
     flex: 1;
@@ -464,7 +458,7 @@
     max-width: 1000px;
   }
   .step1outer {
-    flex: unset;
+    flex: auto;
     align-self: stretch;
   }
   .steps-frame {
@@ -476,6 +470,8 @@
     width: 201px;
     height: 243px;
     position: fixed;
+    left: -70px;
+    top: 570px;
   }
   .how-it-works-parent {
     height: auto;
@@ -487,6 +483,7 @@
     padding-left: var(--padding-23xl);
     padding-right: var(--padding-23xl);
     box-sizing: border-box;
+    flex: auto;
   }
   .landing-page {
     height: 5500px;

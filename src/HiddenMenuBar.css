@@ -8,11 +8,12 @@
     opacity: 1;
   }
 }
-.history4,
-.home1,
-.ventigator-logo {
+.sections{
   cursor: pointer;
   text-decoration: none;
+  color: inherit;
+  position: relative;
+  opacity: 0.5;
 }
 .ventigator-logo {
   position: relative;
@@ -22,53 +23,19 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
+  cursor: pointer;
+  text-decoration: none;
 }
-.history4,
-.home1 {
-  color: inherit;
-}
-.contacts1:hover,
-.history4:hover,
-.home1:hover,
-.portal-login1:hover {
+.sections:hover,
+.hidden-link:hover {
   font-weight: 600;
   font-family: var(--font-mulish);
 }
-.contacts1,
-.history4,
-.home1,
-.portal-login1 {
-  position: relative;
-  opacity: 0.5;
-}
-.contacts1 {
-  cursor: pointer;
-}
-.portal-login1 {
-  font-size: 18.65px;
-  font-family: var(--font-mulish);
-  color: var(--f1534-hyfen);
-  text-align: left;
-}
-.portal-login-frame-item {
-  position: relative;
-  width: 10.6px;
-  height: 4.6px;
-}
 .hidden-menu-bar,
-.portal-login-frame1,
 .top-nav1 {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.portal-login-frame1 {
-  cursor: pointer;
-  border: 0;
-  padding: 0 7.769026756286621px;
-  background-color: transparent;
-  flex-direction: row;
-  gap: 7.77px;
 }
 
 .hidden-menu-bar,
@@ -78,8 +45,7 @@
 .top-nav1 {
   width: 239px;
   flex-direction: column;
-  padding: 0.00190710776951164px 0 0;
-  gap: 38.07px;
+  gap: 38px;
 }
 .hidden-menu-bar {
   background-color: var(--color-gainsboro);
