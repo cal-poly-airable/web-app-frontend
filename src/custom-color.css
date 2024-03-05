@@ -75,4 +75,5 @@ background-color: #69745e;
 .update-button{
   justify-content: center;
   display: flex;
+  flex-direction: column;
 }
