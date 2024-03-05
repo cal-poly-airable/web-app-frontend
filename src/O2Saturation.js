@@ -66,10 +66,10 @@ function O2Saturation(props) {
           </ButtonGroup>
         </Form>
       ) : (
-        <div>
+        <div className="update-button">
           <h1>{props.saturation}%</h1>
           {props.isProvider ? (
-            <Button className="update-button" variant="--bs-primary" onClick={handleEditClick}>
+            <Button variant="--bs-primary" onClick={handleEditClick}>
               Update
             </Button>
           ) : null}
