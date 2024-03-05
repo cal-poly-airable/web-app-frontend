@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import HealthcareSide from "./HealthcareSide.js";
 
 function Healthcare() {
-  const domain = process.env.REACT_APP_API_DOMAIN; 
+  const domain = process.env.REACT_APP_API_DOMAIN;
   const HCcognitoUrl =
     process.env.REACT_APP_HC_COGNITO_URL +
     process.env.REACT_APP_HC_COGNITO_REDIRECT;
@@ -56,7 +56,8 @@ function Healthcare() {
     fetchData();
   }, []);
 
-  if (!isLoading && provider) { //Load Healthcare UI
+  if (!isLoading && provider) {
+    //Load Healthcare UI
     console.log(provider);
     return (
       <>

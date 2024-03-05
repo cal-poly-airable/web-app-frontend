@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Form, Button, ButtonGroup } from "react-bootstrap";
+import './custom-color.css';
 
 function O2Saturation(props) {
   //Set/View O2 Saturation Component
@@ -68,7 +69,7 @@ function O2Saturation(props) {
         <div>
           <h1>{props.saturation}%</h1>
           {props.isProvider ? (
-            <Button variant="--bs-primary" onClick={handleEditClick}>
+            <Button className="update-button" variant="--bs-primary" onClick={handleEditClick}>
               Update
             </Button>
           ) : null}

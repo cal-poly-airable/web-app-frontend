@@ -2,7 +2,7 @@ import "./App.css";
 import React from "react";
 import { Container } from "react-bootstrap";
 function Dev() {
-  return ( 
+  return (
     <div className="App">
       <Container>
         <form

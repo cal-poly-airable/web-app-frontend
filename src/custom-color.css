@@ -71,3 +71,8 @@ background-color: #69745e;
   justify-content: center;
   display: flex;
 }
+
+.update-button{
+  justify-content: center;
+  display: flex;
+}
