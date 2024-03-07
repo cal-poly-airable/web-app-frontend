@@ -90,6 +90,9 @@ body {
   object-fit: cover;
 }
 
+
+/* Portal Login Popup CSS */
+
 .link-portal {
   cursor: pointer;
   border: 0;
@@ -102,7 +105,6 @@ body {
   gap: 7.77px;
   z-index: 0;
 }
-
 .link-portal-child {
   position: relative;
   opacity: 0.5;
@@ -131,12 +133,10 @@ body {
   padding: 0;
   opacity: 0.5;
 }
-
 .dropdown {
   position: relative;
   z-index: 1002;
 }
-
 .dropdown-menu {
   position: absolute;
   right: 0;
@@ -151,29 +151,56 @@ body {
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
   z-index: 1001;
 }
-
 .dropdown.active > .link-portal + .dropdown-menu {
   opacity: 1;
   transform: translateY(0);
   pointer-events: auto;
 }
-
 .information-grid {
   display: grid;
   grid-template-columns: repeat(2, max-content);
   gap: 2rem;
 }
-
 .dropdown-links {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
   z-index: inherit;
 }
-
 .portalPopupOverlay {
   display: flex;
   flex-direction: column;
   position: fixed;
   inset: 0;
+}
+
+/* Hamburger Menu CSS */
+.hamburger-menu-child-top-bot,
+.hamburger-menu-child-mid {
+  position: relative;
+  border-radius: 5.6px;
+  background-color: var(--color-white);
+  width: 27px;
+  height: 3px;
+}
+.hamburger-menu-child-mid {
+  width: 23px;
+}
+.hamburger-menu {
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  height: 23px;
+  display: none;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 3.3px;
+  z-index: 0;
+}
+@media screen and (max-width: 900px) {
+    .hamburger-menu {
+        display: flex;
+      }
 }

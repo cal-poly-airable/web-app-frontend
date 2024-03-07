@@ -85,30 +85,6 @@
   font-size: 18.65px;
   font-family: var(--font-mulish);
 }
-.hamburger-menu-child3,
-.hamburger-menu-child4 {
-  position: relative;
-  border-radius: 5.6px;
-  background-color: var(--color-white);
-  width: 27px;
-  height: 3;
-}
-.hamburger-menu-child4 {
-  width: 23px;
-}
-.hamburger-menu2 {
-  cursor: pointer;
-  border: 0;
-  padding: 0;
-  background-color: transparent;
-  height: 23px;
-  display: none;
-  flex-direction: column;
-  align-items: flex-end;
-  justify-content: center;
-  gap: 3.3px;
-  z-index: 0;
-}
 .top-bar-frame2 {
   align-self: stretch;
   background-color: var(--color-theme);
@@ -280,9 +256,6 @@
   }
   .top-nav3 {
     display: none;
-  }
-  .hamburger-menu2 {
-    display: flex;
   }
   .top-bar-frame2 {
     flex: 1;

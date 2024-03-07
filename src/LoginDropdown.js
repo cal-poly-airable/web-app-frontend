@@ -1,5 +1,9 @@
 import React from 'react'
 
+/////////////////////////////////////////////////////////////
+/* Portal Login Popup after clicking login on landing page */
+/////////////////////////////////////////////////////////////
+
 function LoginDropdown() {
   return (
     <div className="dropdown-menu information-grid">

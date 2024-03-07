@@ -71,9 +71,13 @@ background-color: #69745e;
   justify-content: center;
   display: flex;
 }
-
 .update-button{
   justify-content: center;
   display: flex;
   flex-direction: column;
+}
+.providerCode{
+  background-color: white;
+   color: black; 
+   border-color: grey;
 }

@@ -184,9 +184,9 @@ const HistoryFrame = () => {
             </div>
           </div>
           <button className="hamburger-menu" onClick={openHiddenMenuBar}>
-            <div className="hamburger-menu-child" />
-            <div className="hamburger-menu-item" />
-            <div className="hamburger-menu-child" />
+            <div className="hamburger-menu-child-top-bot" />
+            <div className="hamburger-menu-child-mid" />
+            <div className="hamburger-menu-child-top-bot" />
           </button>
         </div>
         <div className="history-frame1">

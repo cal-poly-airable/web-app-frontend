@@ -6,9 +6,9 @@ import SignUpWindow from "./SignUpWindow";
 import PortalPopup from "./PortalPopup";
 import HiddenMenuBar from "./HiddenMenuBar";
 import PortalDrawer from "./PortalDrawer";
+import LoginDropdown from "./LoginDropdown";
 import "./LandingPage.css";
 import "./global.css";
-import LoginDropdown from "./LoginDropdown";
 
 const LandingPage = () => {
   const [isSignUpWindowOpen, setSignUpWindowOpen] = useState(false);
@@ -154,25 +154,23 @@ const LandingPage = () => {
             <div className="dropdown" data-dropdown>
               <button className="link-portal" data-dropdown-button>
                 <div className="link-portal-child" data-dropdown-button>Portal Login</div>
-                <img
-                  className="vector-link"
-                  src="/vector-12.svg"
-                />
+                <img className="vector-link" src="/vector-12.svg" />
               </button>
               <LoginDropdown />
             </div>
           </div>
-          <button className="hamburger-menu3" onClick={openHiddenMenuBar}>
-            <div className="hamburger-menu-child6" />
-            <div className="hamburger-menu-child7" />
-            <div className="hamburger-menu-child6" />
-          </button>
+          <button className="hamburger-menu" onClick={openHiddenMenuBar}>
+        <div className="hamburger-menu-child-top-bot" />
+        <div className="hamburger-menu-child-mid" />
+        <div className="hamburger-menu-child-top-bot" />
+    </button>
         </nav>
         <div className="description-frame">
           <div className="header-text">
             <b className="wearable-ventilator">Wearable Ventilator</b>
             <div className="gen-description">
-            At Airable, our mission is to better the lives of those with respiratory challenges. We are proud to introduce Ventigator, our new cutting-edge, wearable ventilator system. 
+            At Airable, our mission is to better the lives of those with respiratory challenges. 
+            We are proud to introduce Ventigator, our new cutting-edge, wearable ventilator system. 
             Designed with portability in mind, the Ventigator combines lightweight materials with a compact construction to ensure patients can receive optimal respiratory support wherever life takes them. 
             A robust battery guarantees extended use, providing peace of mind for users on the road. 
             </div>
@@ -193,31 +191,38 @@ const LandingPage = () => {
         </div>
         <div className="services-frame">
           <b className="our-services">Our services</b>
-          <div className="line-frame3">
-            <div className="line-frame-child1" />
+          <div className="line-frame">
+            <div className="line-frame-child" />
           </div>
           <div className="services">
-            Our team is dedicated to staying at the forefront of respiratory technology. We regularly update Ventigator's firmware and software to introduce new features and improvements. In the unlikely event of any device issues, our dedicated support team ensures a swift resolution. Users can rest assured that their respiratory care will remain uninterrupted. We also recognize the importance of collaboration with healthcare professionals. Airable partners with healthcare providers to integrate Ventigator into patient care plans. Ventigator integrates connectivity options, enabling patients and healthcare providers to monitor patient vitals and track user patterns through their web portal.
+            Our team is dedicated to staying at the forefront of respiratory technology. 
+            We regularly update Ventigator's firmware and software to introduce new features and improvements. 
+            In the unlikely event of any device issues, our dedicated support team ensures a swift resolution. 
+            Users can rest assured that their respiratory care will remain uninterrupted. 
+            We also recognize the importance of collaboration with healthcare professionals. 
+            Airable partners with healthcare providers to integrate Ventigator into patient care plans. 
+            Ventigator integrates connectivity options, enabling patients and healthcare providers to monitor patient vitals and track user patterns through their web portal.
             </div>
         </div>
         <div className="how-it-works-frame">
           <div className="how-it-works-parent">
             <b className="how-it-works">How it works</b>
-            <div className="line-frame4">
-              <div className="line-frame-child2" />
+            <div className="line-frame">
+              <div className="line-frame-child" />
             </div>
-            <div className="steps-frame">
-              <div className="step1outer">
-                <div className="steps1-frame">
+            <div className="steps-wrapper">
+              <div className="step-outer">
+                <div className="steps-frame">
                   <div className="steps-container">
                     <p className="steps">
-                    Before embarking on your respiratory care journey with Ventigator, initiate the process by reaching out to us directly or consulting your healthcare provider. Our team is ready to provide personalized guidance, ensuring the optimal setup and usage based on your individual needs.
+                    Before embarking on your respiratory care journey with Ventigator, initiate the process by reaching out to us directly or consulting your healthcare provider. 
+                    Our team is ready to provide personalized guidance, ensuring the optimal setup and usage based on your individual needs.
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="step1outer">
-                <div className="steps1-frame">
+              <div className="step-outer">
+                <div className="steps-frame">
                   <div className="steps-container">
                     <p className="steps">
                     Upon contact, you will receive your Ventigator device along with detailed instructions for activation. 
@@ -227,8 +232,8 @@ const LandingPage = () => {
                   </div>
                 </div>
               </div>
-              <div className="step1outer">
-                <div className="steps1-frame">
+              <div className="step-outer">
+                <div className="steps-frame">
                   <div className="steps-container">
                     <p className="steps">
                     Explore your historical data and trends provided by our website portal and mobile app. 
@@ -239,7 +244,7 @@ const LandingPage = () => {
                 </div>
               </div>
             </div>
-            <img className="gator-1-icon" alt="" src="/gator-1@2x.png" />
+            <img className="gator-1-icon" alt="Ventigator helper" src="/gator-1@2x.png" />
           </div>
         </div>
         <div className="gator-frame" />

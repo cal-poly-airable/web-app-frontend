@@ -184,10 +184,10 @@ const MobileApp = () => {
               <LoginDropdown />
               </div>
           </div>
-          <button className="hamburger-menu2" onClick={openHiddenMenuBar}>
-            <div className="hamburger-menu-child3" />
-            <div className="hamburger-menu-child4" />
-            <div className="hamburger-menu-child3" />
+          <button className="hamburger-menu" onClick={openHiddenMenuBar}>
+            <div className="hamburger-menu-child-top-bot" />
+            <div className="hamburger-menu-child-mid" />
+            <div className="hamburger-menu-child-top-bot" />
           </button>
         </div>
         <div className="download-our-mobile-apps">

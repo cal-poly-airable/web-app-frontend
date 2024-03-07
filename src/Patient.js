@@ -6,7 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import PatientSide from "./PatientSide";
 //
 function Patient() {
-  const domain = process.env.REACT_APP_API_DOMAIN; 
+  const domain = process.env.REACT_APP_API_DOMAIN;
   const cognitoUrl =
     process.env.REACT_APP_COGNITO_URL + process.env.REACT_APP_COGNITO_REDIRECT;
   const [patient, setPatient] = useState(null);
@@ -38,7 +38,7 @@ function Patient() {
       console.log(error);
       console.log("no token");
 
-      window.location.replace(cognitoUrl); 
+      window.location.replace(cognitoUrl);
     }
   }
 
@@ -51,7 +51,8 @@ function Patient() {
     fetchData();
   }, []);
 
-  if (!isLoading && patient) { //Load Patient UI
+  if (!isLoading && patient) {
+    //Load Patient UI
     console.log(patient);
     return (
       <>

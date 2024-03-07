@@ -185,10 +185,10 @@ const Contacts = () => {
               <LoginDropdown />
             </div>
           </div>
-          <button className="hamburger-menu1" onClick={openHiddenMenuBar}>
-            <div className="rectangle-div" />
-            <div className="hamburger-menu-child1" />
-            <div className="rectangle-div" />
+          <button className="hamburger-menu" onClick={openHiddenMenuBar}>
+            <div className="hamburger-menu-child-top-bot" />
+            <div className="hamburger-menu-child-mid" />
+            <div className="hamburger-menu-child-top-bot" />
           </button>
         </div>
         <div className="contact-us-frame">
