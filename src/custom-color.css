@@ -71,7 +71,8 @@ background-color: #69745e;
   justify-content: center;
   display: flex;
 }
-.update-button{
+.target-O2-with-button{
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
