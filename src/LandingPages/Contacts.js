@@ -3,11 +3,11 @@ import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import HiddenMenuBar from "./HiddenMenuBar";
 import PortalDrawer from "./PortalDrawer";
-import "./MobileApp.css";
-import "./global.css";
+import "./Contacts.css";
+import "../global.css";
 import LoginDropdown from "./LoginDropdown";
 
-const MobileApp = () => {
+const Contacts = () => {
   const navigate = useNavigate();
   const [isHiddenMenuBarOpen, setHiddenMenuBarOpen] = useState(false);
 
@@ -74,8 +74,8 @@ const MobileApp = () => {
     });
   }, [navigate]);
 
-  const onHistoryTextClick = useCallback(() => {
-    navigate("/history");
+  const onAppTextClick = useCallback(() => {
+    navigate("/app");
     document.addEventListener("click", (e) => {
       const isDropdownButton = e.target.matches("[data-dropdown-button]");
       if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
@@ -95,8 +95,8 @@ const MobileApp = () => {
     });
   }, [navigate]);
 
-  const onContactsTextClick = useCallback(() => {
-    navigate("/contacts");
+  const onHistoryTextClick = useCallback(() => {
+    navigate("/history");
     document.addEventListener("click", (e) => {
       const isDropdownButton = e.target.matches("[data-dropdown-button]");
       if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
@@ -123,7 +123,7 @@ const MobileApp = () => {
   const closeHiddenMenuBar = useCallback(() => {
     setHiddenMenuBarOpen(false);
   }, []);
-  
+
   document.addEventListener("click", (e) => {
     const isDropdownButton = e.target.matches("[data-dropdown-button]");
     if (!isDropdownButton && e.target.closest("[data-dropdown]") != null)
@@ -143,11 +143,11 @@ const MobileApp = () => {
 
   return (
     <>
-      <div className="mobile-app">
-        <div className="top-bar-frame2">
+      <div className="contacts-frame">
+        <div className="top-bar-frame1">
           <div className="logo">
             <div
-              className="ventigator-frame2"
+              className="ventigator-frame1"
               onClick={onVentigatorFrameContainerClick}
             >
               <img
@@ -156,33 +156,34 @@ const MobileApp = () => {
                 src="/ventigatorlogo.png"
               />
             </div>
-            <div className="frame3">
-              <b className="airable2" onClick={onAIRABLETextClick}>
+            <div className="frame1">
+              <b className="airable1" onClick={onAIRABLETextClick}>
                 AIRABLE
               </b>
             </div>
           </div>
-          <div className="top-nav3">
-            <div className="home3" onClick={onHomeTextClick}>
+          <div className="top-nav2">
+            <div className="home2" onClick={onHomeTextClick}>
               Home
             </div>
-            <b className="app3">App</b>
+            <div className="app2" onClick={onAppTextClick}>
+              App
+            </div>
             <div className="history" onClick={onHistoryTextClick}>
               History
             </div>
-            <div className="contacts" onClick={onContactsTextClick}>
-              Contacts
-            </div>
+            <b className="contacts3">Contacts</b>
             <div className="dropdown" data-dropdown>
               <button className="link-portal" data-dropdown-button>
                 <div className="link-portal-child" data-dropdown-button>Portal Login</div>
                 <img
                   className="vector-link"
+                  alt="Login Window"
                   src="/vector-12.svg"
                 />
               </button>
               <LoginDropdown />
-              </div>
+            </div>
           </div>
           <button className="hamburger-menu" onClick={openHiddenMenuBar}>
             <div className="hamburger-menu-child-top-bot" />
@@ -190,39 +191,57 @@ const MobileApp = () => {
             <div className="hamburger-menu-child-top-bot" />
           </button>
         </div>
-        <div className="download-our-mobile-apps">
-          <div className="frame4">
-            <b className="download-our-mobile-container">
-              <p className="download-our">{`Download our `}</p>
-              <p className="download-our">mobile app</p>
-            </b>
-            <div className="line-frame2">
-              <div className="line-frame-inner" />
+        <div className="contact-us-frame">
+          <div className="frame2">
+            <b className="contact-us">Contact Us</b>
+            <div className="line-frame1">
+              <div className="line-frame-item" />
             </div>
-            <div className="text-frame1">
-              <div className="access-your-health">Access your health information instantaneously from anywhere you may be. Our user-friendly mobile interface will let you take control of your respiratory health with ease.</div>
+            <div className="text-frame">
+              <div className="text-container">
+                <p className="if-you-are-experiencing-a-medi">
+                  <span>
+                    <span className="if-you-are">
+                      If you are experiencing a medical emergency, please call
+                      911 or visit your local emergency room.
+                    </span>
+                  </span>
+                </p>
+                <p className="if-you-are-experiencing-a-medi">
+                  <span>
+                    <span className="if-you-are">&nbsp;</span>
+                  </span>
+                </p>
+                <p className="if-you-are-experiencing-a-medi">
+                  <span>
+                    <span className="if-you-are">{`For general questions or concerns, please contact us at `}</span>
+                    <span className="cpairablegmailcom">
+                      cpairable@gmail.com
+                    </span>
+                    <span className="if-you-are">
+                      <span className="span1">.</span>
+                    </span>
+                  </span>
+                </p>
+                <p className="blank-line2">
+                  <span>
+                    <span className="if-you-are">
+                      <span>&nbsp;</span>
+                    </span>
+                  </span>
+                </p>
+                <p className="available-times">
+                  <span className="if-you-are">
+                    <span>
+                      <span>Available Mon-Fri, 8am - 4pm PST</span>
+                    </span>
+                  </span>
+                </p>
+              </div>
             </div>
-            <button className="btn">
-              <b className="download">Download</b>
-              <img className="vector-icon1" src="/vector.svg" />
-            </button>
-          </div>
-          <div className="airableappui1-wrapper">
-            <img
-              className="airableappui1-icon"
-              alt="Airable App Home Page"
-              src="/airableappui1.jpg"
-            />
-
-            <img
-              className="airableappui1-icon"
-              alt="Airable App Bluetooth Pairing"
-              src="/airableappui2.jpg"
-            />
           </div>
         </div>
       </div>
-
       {isHiddenMenuBarOpen && (
         <PortalDrawer
           overlayColor="rgba(113, 113, 113, 0.3)"
@@ -236,4 +255,4 @@ const MobileApp = () => {
   );
 };
 
-export default MobileApp;
+export default Contacts;

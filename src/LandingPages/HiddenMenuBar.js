@@ -2,7 +2,7 @@ import React from "react";
 import { useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./HiddenMenuBar.css";
-import "./global.css";
+import "../global.css";
 
 ///////////////////////////////////////////////////////////////////////////
 //          Hidden Menu bar used in all landing pages.

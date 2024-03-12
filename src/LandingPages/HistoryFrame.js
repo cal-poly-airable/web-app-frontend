@@ -1,17 +1,18 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import HiddenMenuBar from "./HiddenMenuBar";
 import PortalDrawer from "./PortalDrawer";
-import "./Contacts.css";
-import "./global.css";
+import "./HistoryFrame.css";
+import "../global.css";
 import LoginDropdown from "./LoginDropdown";
 
-const Contacts = () => {
+const HistoryFrame = () => {
   const navigate = useNavigate();
   const [isHiddenMenuBarOpen, setHiddenMenuBarOpen] = useState(false);
 
-  const onVentigatorFrameContainerClick = useCallback(() => {
+  const onVentigatorFrameClick = useCallback(() => {
     navigate("/");
     document.addEventListener("click", (e) => {
       const isDropdownButton = e.target.matches("[data-dropdown-button]");
@@ -95,8 +96,8 @@ const Contacts = () => {
     });
   }, [navigate]);
 
-  const onHistoryTextClick = useCallback(() => {
-    navigate("/history");
+  const onContactsTextClick = useCallback(() => {
+    navigate("/contacts");
     document.addEventListener("click", (e) => {
       const isDropdownButton = e.target.matches("[data-dropdown-button]");
       if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
@@ -143,12 +144,13 @@ const Contacts = () => {
 
   return (
     <>
-      <div className="contacts-frame">
-        <div className="top-bar-frame1">
+      <div className="history-frame">
+        <div className="top-bar-frame">
           <div className="logo">
             <div
-              className="ventigator-frame1"
-              onClick={onVentigatorFrameContainerClick}
+              className="ventigator-frame"
+              to="/"
+              onClick={onVentigatorFrameClick}
             >
               <img
                 className="ventigator-logo-icon"
@@ -156,33 +158,29 @@ const Contacts = () => {
                 src="/ventigatorlogo.png"
               />
             </div>
-            <div className="frame1">
-              <b className="airable1" onClick={onAIRABLETextClick}>
+            <div className="frame">
+              <b className="airable" onClick={onAIRABLETextClick}>
                 AIRABLE
               </b>
             </div>
           </div>
-          <div className="top-nav2">
-            <div className="home2" onClick={onHomeTextClick}>
+          <div className="top-nav">
+            <div className="home" onClick={onHomeTextClick}>
               Home
             </div>
-            <div className="app2" onClick={onAppTextClick}>
+            <div className="app" onClick={onAppTextClick}>
               App
             </div>
-            <div className="history" onClick={onHistoryTextClick}>
-              History
+            <b className="history-og">History</b>
+            <div className="contacts" onClick={onContactsTextClick}>
+              Contacts
             </div>
-            <b className="contacts3">Contacts</b>
             <div className="dropdown" data-dropdown>
               <button className="link-portal" data-dropdown-button>
                 <div className="link-portal-child" data-dropdown-button>Portal Login</div>
-                <img
-                  className="vector-link"
-                  alt="Login Window"
-                  src="/vector-12.svg"
-                />
+                <img className="vector-link" alt="Login Window" src="/vector-12.svg" />
               </button>
-              <LoginDropdown />
+            <LoginDropdown />
             </div>
           </div>
           <button className="hamburger-menu" onClick={openHiddenMenuBar}>
@@ -191,63 +189,35 @@ const Contacts = () => {
             <div className="hamburger-menu-child-top-bot" />
           </button>
         </div>
-        <div className="contact-us-frame">
-          <div className="frame2">
-            <b className="contact-us">Contact Us</b>
-            <div className="line-frame1">
-              <div className="line-frame-item" />
+        <div className="history-frame1">
+          <b className="history1">History</b>
+          <div className="line-frame">
+            <div className="line-frame-child" />
+          </div>
+          <div className="history-images-frame">
+            <div className="v1-frame">
+              <img className="ventilator-v1-icon" alt="First version of ventilator" src="/ventilator-v1.jpg" />
+              <div className="history-description">
+              Ventigator I marks the inception of our ventilator series. With an emphasis on essential features, Ventigator I set the foundation for subsequent models in this series. It featured a high-pressure bottled O2 system and a core processing unit powered by Raspberry Pi.
+              </div>
             </div>
-            <div className="text-frame">
-              <div className="text-container">
-                <p className="if-you-are-experiencing-a-medi">
-                  <span>
-                    <span className="if-you-are">
-                      If you are experiencing a medical emergency, please call
-                      911 or visit your local emergency room.
-                    </span>
-                  </span>
-                </p>
-                <p className="if-you-are-experiencing-a-medi">
-                  <span>
-                    <span className="if-you-are">&nbsp;</span>
-                  </span>
-                </p>
-                <p className="if-you-are-experiencing-a-medi">
-                  <span>
-                    <span className="if-you-are">{`For general questions or concerns, please contact us at `}</span>
-                    <span className="cpairablegmailcom">
-                      cpairable@gmail.com
-                    </span>
-                    <span className="if-you-are">
-                      <span className="span1">.</span>
-                    </span>
-                  </span>
-                </p>
-                <p className="blank-line2">
-                  <span>
-                    <span className="if-you-are">
-                      <span>&nbsp;</span>
-                    </span>
-                  </span>
-                </p>
-                <p className="available-times">
-                  <span className="if-you-are">
-                    <span>
-                      <span>Available Mon-Fri, 8am - 4pm PST</span>
-                    </span>
-                  </span>
-                </p>
+            <div className="v1-frame">
+              <img className="ventilator-v1-icon" alt="Second version of ventilator" src="/ventilator-v2.jpg" />
+              <div className="history-description">
+              Building upon the success of its predecessor, Ventigator II integrated a new oxygen concentrator, offering a more sustainable and efficient oxygen supply. A more advanced Raspberry Pi processing unit enabled improved control over respiratory parameters. 
+              </div>
+            </div>
+            <div className="v1-frame">
+              <img className="ventilator-v1-icon" alt="Third version of ventilator" src="/ventilator-v3.jpg" />
+              <div className="history-description">
+              Designed for portability and durability, Ventigator III's new carrying case provided added protection for safety during travel and everyday use. A new adaptive O2 concentrator allowed for adjustable oxygen concentration based on real-time user needs.
               </div>
             </div>
           </div>
         </div>
       </div>
       {isHiddenMenuBarOpen && (
-        <PortalDrawer
-          overlayColor="rgba(113, 113, 113, 0.3)"
-          placement="Right"
-          onOutsideClick={closeHiddenMenuBar}
-        >
+        <PortalDrawer overlayColor="rgba(113, 113, 113, 0.3)" placement="Right" onOutsideClick={closeHiddenMenuBar}>
           <HiddenMenuBar onClose={closeHiddenMenuBar} />
         </PortalDrawer>
       )}
@@ -255,4 +225,4 @@ const Contacts = () => {
   );
 };
 
-export default Contacts;
+export default HistoryFrame;

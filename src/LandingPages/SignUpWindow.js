@@ -1,7 +1,7 @@
 import React from "react";
 import { useCallback } from "react";
 import "./SignUpWindow.css";
-import "./global.css";
+import "../global.css";
 
 ///////////////////////////////////////////////////////////////////
 //The popup window after pressing "Sign Up" button on Landing Page

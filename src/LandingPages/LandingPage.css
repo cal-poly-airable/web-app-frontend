@@ -1,4 +1,4 @@
-.ventigator-frame3 {
+.logo-home {
   text-decoration: none;
   display: flex;
   flex-direction: row;
@@ -86,7 +86,7 @@
   font-size: 18.65px;
   font-family: var(--font-mulish);
 }
-.top-bar-frame3 {
+.navbar-home {
   margin: 0;
   align-self: stretch;
   background-color: var(--color-theme);
@@ -160,7 +160,7 @@
   justify-content: flex-start;
   gap: 38.85px;
 }
-.ventilator-image-icon {
+.ventilator-image {
   align-self: flex-end;
   flex: 1;
   position: relative;
@@ -186,7 +186,7 @@
   text-align: left;
   max-height: max-content;
 }
-.line-under-header1 {
+.line-under-header-child {
   flex: 1;
   position: relative;
   width: 80%;
@@ -350,10 +350,7 @@
   font-family: var(--font-poppins);
 }
 @media screen and (max-width: 1200px) {
-  .top-bar-frame3 {
-    height: auto;
-  }
-  .line-under-header1 {
+  .line-under-header-child {
     flex: 1;
   }
   .line-under-header {
@@ -362,7 +359,7 @@
   }
 }
 @media screen and (max-width: 900px) {
-  .ventigator-frame3 {
+  .logo-home {
     display: none;
   }
   .frame5 {
@@ -380,9 +377,6 @@
   }
   .top-nav4 {
     display: none;
-  }
-  .top-bar-frame3 {
-    height: auto;
   }
   .header-text {
     flex-direction: column;
@@ -455,7 +449,7 @@
     padding-left: 0px;
     padding-right: 0px;
   }
-  .ventilator-image-icon{
+  .ventilator-image{
     flex: auto;
     align-self: center;
   }

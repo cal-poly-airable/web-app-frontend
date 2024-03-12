@@ -2,7 +2,7 @@ import React from "react";
 import { useMemo, useCallback } from "react";
 
 import { createPortal } from "react-dom";
-import "./global.css";
+import "../global.css";
 
 const PortalDrawer = ({
   children,
@@ -40,8 +40,10 @@ const PortalDrawer = ({
 
   const onOverlayClick = useCallback(
     (e) => {
-      if (onOutsideClick && e.target.classList.contains("portalPopupOverlay")) {
-        onOutsideClick();
+      if (e.target.classList.contains("portalPopupOverlay")) {
+        if (onOutsideClick){
+          onOutsideClick();
+        }
       }
       e.stopPropagation();
     },

@@ -2,7 +2,7 @@ import React from "react";
 import { useMemo, useCallback, useState, useRef, useEffect } from "react";
 
 import { createPortal } from "react-dom";
-import "./global.css";
+import "../global.css";
 
 const PortalPopup = ({
   children,

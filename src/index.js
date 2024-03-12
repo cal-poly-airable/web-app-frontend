@@ -7,10 +7,10 @@ import Healthcare from "./Healthcare";
 import Signout from "./Signout";
 import Dev from "./Dev";
 //import Home from "./home";
-import LandingPage from "./LandingPage";
-import MobileApp from "./MobileApp";
-import HistoryFrame from "./HistoryFrame";
-import Contacts from "./Contacts";
+import LandingPage from "./LandingPages/LandingPage";
+import MobileApp from "./LandingPages/MobileApp";
+import HistoryFrame from "./LandingPages/HistoryFrame";
+import Contacts from "./LandingPages/Contacts";
 
 const container = document.getElementById("root");
 const root = ReactDOMClient.createRoot(container);

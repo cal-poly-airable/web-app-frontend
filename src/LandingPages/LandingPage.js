@@ -8,7 +8,7 @@ import HiddenMenuBar from "./HiddenMenuBar";
 import PortalDrawer from "./PortalDrawer";
 import LoginDropdown from "./LoginDropdown";
 import "./LandingPage.css";
-import "./global.css";
+import "../global.css";
 
 const LandingPage = () => {
   const [isSignUpWindowOpen, setSignUpWindowOpen] = useState(false);
@@ -124,10 +124,13 @@ const LandingPage = () => {
 
   return (
     <>
+    {
+      //////////////////////// Start of Custom Navbar ///////////////////////////////////////////
+    }
       <div className="landing-page" data-scroll-to="landingPageContainer">
-        <nav className="top-bar-frame3">
+        <nav className="navbar-home">
           <div className="logo">
-            <a className="ventigator-frame3">
+            <a className="logo-home">
               <img
                 className="ventigator-logo-icon"
                 alt="Ventigator Alligator Logo"
@@ -160,11 +163,15 @@ const LandingPage = () => {
             </div>
           </div>
           <button className="hamburger-menu" onClick={openHiddenMenuBar}>
-        <div className="hamburger-menu-child-top-bot" />
-        <div className="hamburger-menu-child-mid" />
-        <div className="hamburger-menu-child-top-bot" />
-    </button>
+            <div className="hamburger-menu-child-top-bot" />
+            <div className="hamburger-menu-child-mid" />
+            <div className="hamburger-menu-child-top-bot" />
+          </button>
         </nav>
+        {
+          //////////////////////// End of Custom Navbar ///////////////////////////////////////////
+        }
+
         <div className="description-frame">
           <div className="header-text">
             <b className="wearable-ventilator">Wearable Ventilator</b>
@@ -180,14 +187,14 @@ const LandingPage = () => {
           </div>
           <div className="ventilator-image-wrapper">
             <img
-              className="ventilator-image-icon"
+              className="ventilator-image"
               alt="Ventilator Prototype"
-              src="/ventilatorimage.jpg"
+              src="/THE_Ventilator.png"
             />
           </div>
         </div>
         <div className="line-under-header">
-          <hr className="line-under-header1" />
+          <hr className="line-under-header-child" />
         </div>
         <div className="services-frame">
           <b className="our-services">Our services</b>

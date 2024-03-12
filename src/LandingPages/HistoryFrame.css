@@ -185,11 +185,6 @@
   color: var(--color-white);
   font-family: var(--font-noto-serif-thai);
 }
-@media screen and (max-width: 1200px) {
-  .top-bar-frame {
-    height: auto;
-  }
-}
 @media screen and (max-width: 900px) {
   .ventigator-frame {
     display: none;
@@ -209,9 +204,6 @@
   }
   .top-nav {
     display: none;
-  }
-  .top-bar-frame {
-    height: auto;
   }
   .v1-frame {
     flex: unset;

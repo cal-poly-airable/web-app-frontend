@@ -1,18 +1,17 @@
-/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import HiddenMenuBar from "./HiddenMenuBar";
 import PortalDrawer from "./PortalDrawer";
-import "./HistoryFrame.css";
-import "./global.css";
+import "./MobileApp.css";
+import "../global.css";
 import LoginDropdown from "./LoginDropdown";
 
-const HistoryFrame = () => {
+const MobileApp = () => {
   const navigate = useNavigate();
   const [isHiddenMenuBarOpen, setHiddenMenuBarOpen] = useState(false);
 
-  const onVentigatorFrameClick = useCallback(() => {
+  const onVentigatorFrameContainerClick = useCallback(() => {
     navigate("/");
     document.addEventListener("click", (e) => {
       const isDropdownButton = e.target.matches("[data-dropdown-button]");
@@ -75,8 +74,8 @@ const HistoryFrame = () => {
     });
   }, [navigate]);
 
-  const onAppTextClick = useCallback(() => {
-    navigate("/app");
+  const onHistoryTextClick = useCallback(() => {
+    navigate("/history");
     document.addEventListener("click", (e) => {
       const isDropdownButton = e.target.matches("[data-dropdown-button]");
       if (!isDropdownButton && e.target.closest("[data-dropdown]") != null){
@@ -124,7 +123,7 @@ const HistoryFrame = () => {
   const closeHiddenMenuBar = useCallback(() => {
     setHiddenMenuBarOpen(false);
   }, []);
-
+  
   document.addEventListener("click", (e) => {
     const isDropdownButton = e.target.matches("[data-dropdown-button]");
     if (!isDropdownButton && e.target.closest("[data-dropdown]") != null)
@@ -144,13 +143,12 @@ const HistoryFrame = () => {
 
   return (
     <>
-      <div className="history-frame">
-        <div className="top-bar-frame">
+      <div className="mobile-app">
+        <div className="top-bar-frame2">
           <div className="logo">
             <div
-              className="ventigator-frame"
-              to="/"
-              onClick={onVentigatorFrameClick}
+              className="ventigator-frame2"
+              onClick={onVentigatorFrameContainerClick}
             >
               <img
                 className="ventigator-logo-icon"
@@ -158,30 +156,33 @@ const HistoryFrame = () => {
                 src="/ventigatorlogo.png"
               />
             </div>
-            <div className="frame">
-              <b className="airable" onClick={onAIRABLETextClick}>
+            <div className="frame3">
+              <b className="airable2" onClick={onAIRABLETextClick}>
                 AIRABLE
               </b>
             </div>
           </div>
-          <div className="top-nav">
-            <div className="home" onClick={onHomeTextClick}>
+          <div className="top-nav3">
+            <div className="home3" onClick={onHomeTextClick}>
               Home
             </div>
-            <div className="app" onClick={onAppTextClick}>
-              App
+            <b className="app3">App</b>
+            <div className="history" onClick={onHistoryTextClick}>
+              History
             </div>
-            <b className="history-og">History</b>
             <div className="contacts" onClick={onContactsTextClick}>
               Contacts
             </div>
             <div className="dropdown" data-dropdown>
               <button className="link-portal" data-dropdown-button>
                 <div className="link-portal-child" data-dropdown-button>Portal Login</div>
-                <img className="vector-link" alt="Login Window" src="/vector-12.svg" />
+                <img
+                  className="vector-link"
+                  src="/vector-12.svg"
+                />
               </button>
-            <LoginDropdown />
-            </div>
+              <LoginDropdown />
+              </div>
           </div>
           <button className="hamburger-menu" onClick={openHiddenMenuBar}>
             <div className="hamburger-menu-child-top-bot" />
@@ -189,35 +190,45 @@ const HistoryFrame = () => {
             <div className="hamburger-menu-child-top-bot" />
           </button>
         </div>
-        <div className="history-frame1">
-          <b className="history1">History</b>
-          <div className="line-frame">
-            <div className="line-frame-child" />
+        <div className="download-our-mobile-apps">
+          <div className="frame4">
+            <b className="download-our-mobile-container">
+              <p className="download-our">{`Download our `}</p>
+              <p className="download-our">mobile app</p>
+            </b>
+            <div className="line-frame2">
+              <div className="line-frame-inner" />
+            </div>
+            <div className="text-frame1">
+              <div className="access-your-health">Access your health information instantaneously from anywhere you may be. Our user-friendly mobile interface will let you take control of your respiratory health with ease.</div>
+            </div>
+            <button className="btn">
+              <b className="download">Download</b>
+              <img className="vector-icon1" src="/vector.svg" />
+            </button>
           </div>
-          <div className="history-images-frame">
-            <div className="v1-frame">
-              <img className="ventilator-v1-icon" alt="First version of ventilator" src="/ventilator-v1.jpg" />
-              <div className="history-description">
-              Ventigator I marks the inception of our ventilator series. With an emphasis on essential features, Ventigator I set the foundation for subsequent models in this series. It featured a high-pressure bottled O2 system and a core processing unit powered by Raspberry Pi.
-              </div>
-            </div>
-            <div className="v1-frame">
-              <img className="ventilator-v1-icon" alt="Second version of ventilator" src="/ventilator-v2.jpg" />
-              <div className="history-description">
-              Building upon the success of its predecessor, Ventigator II integrated a new oxygen concentrator, offering a more sustainable and efficient oxygen supply. A more advanced Raspberry Pi processing unit enabled improved control over respiratory parameters. 
-              </div>
-            </div>
-            <div className="v1-frame">
-              <img className="ventilator-v1-icon" alt="Third version of ventilator" src="/ventilator-v3.jpg" />
-              <div className="history-description">
-              Designed for portability and durability, Ventigator III's new carrying case provided added protection for safety during travel and everyday use. A new adaptive O2 concentrator allowed for adjustable oxygen concentration based on real-time user needs.
-              </div>
-            </div>
+          <div className="airableappui1-wrapper">
+            <img
+              className="airableappui1-icon"
+              alt="Airable App Home Page"
+              src="/airableappui1.jpg"
+            />
+
+            <img
+              className="airableappui1-icon"
+              alt="Airable App Bluetooth Pairing"
+              src="/airableappui2.jpg"
+            />
           </div>
         </div>
       </div>
+
       {isHiddenMenuBarOpen && (
-        <PortalDrawer overlayColor="rgba(113, 113, 113, 0.3)" placement="Right" onOutsideClick={closeHiddenMenuBar}>
+        <PortalDrawer
+          overlayColor="rgba(113, 113, 113, 0.3)"
+          placement="Right"
+          onOutsideClick={closeHiddenMenuBar}
+        >
           <HiddenMenuBar onClose={closeHiddenMenuBar} />
         </PortalDrawer>
       )}
@@ -225,4 +236,4 @@ const HistoryFrame = () => {
   );
 };
 
-export default HistoryFrame;
+export default MobileApp;
